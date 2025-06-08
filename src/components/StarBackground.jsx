@@ -25,12 +25,12 @@ export const StarBackground = () => {
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
                 id: i,
-                size: Math.random() * 1.5 + 0.5, // Estrellas más pequeñas (0.5px - 2px)
+                size: Math.random() * 1.5 + 0.5, 
                 x: Math.random() * 100,
                 y: Math.random() * 100, 
-                baseOpacity: Math.random() * 0.2 + 0.1, // Muy sutiles (0.1 - 0.3)
-                animationDuration: Math.random() * 6 + 8, // Animación más lenta (8s - 14s)
-                animationDelay: Math.random() * 10, // Delay hasta 10s
+                baseOpacity: Math.random() * 0.5 + 0.5, 
+                animationDuration: Math.random() * 6 + 8, 
+                animationDelay: Math.random() * 10,
             });
         }
         
