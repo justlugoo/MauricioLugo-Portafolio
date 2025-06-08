@@ -9,77 +9,45 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
 
   --color-card: hsl(var(--card));
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-star-twinkle: star-twinkle 8s ease-in-out infinite;
-  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
-  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
-  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
-  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes star-twinkle {
-    0% {
-      opacity: var(--base-opacity, 0.4);
-    }
-    50% {
-      opacity: 0.1;
-    }
-    100% {
-      opacity: var(--base-opacity, 0.4);
-    }
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
 
 @layer base {
   :root {
-    /* Tema claro - Gradiente sutil azul-gris */
-    --background: 220 15% 97%;
-    --foreground: 225 15% 15%;
+    /* Tema claro - Tonos cálidos suaves */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
 
-    --card: 220 10% 98%;
+    --card: 0 0% 96%;
 
-    --primary: 215 85% 60%;
-    --primary-foreground: 220 15% 97%;
+    --primary: 350 85% 60%; /* Rojo coral */
+    --primary-foreground: 0 0% 98%;
 
-    --border: 220 10% 88%;
+    --border: 0 0% 85%;
 
-    --star-color: 215 25% 75%;
+    /* Colores para elementos decorativos */
+    --accent-1: 340 90% 70%; /* Rosa vibrante */
+    --accent-2: 0 85% 65%;   /* Rojo suave */
+    --accent-3: 120 70% 50%; /* Verde neón suave */
+    --accent-4: 0 0% 100%;   /* Blanco puro */
   }
 
   .dark {
-    /* Tema oscuro - Gradiente sutil azul marino profundo */
-    --background: 225 25% 8%;
-    --foreground: 220 15% 92%;
+    /* Tema oscuro - Cyber elegante con rojos y verdes neón */
+    --background: 0 5% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 225 20% 12%;
+    --card: 0 5% 12%;
 
-    --primary: 210 90% 65%;
-    --primary-foreground: 225 25% 8%;
+    --primary: 0 85% 65%; /* Rojo vibrante */
+    --primary-foreground: 0 0% 95%;
 
-    --border: 225 15% 18%;
+    --border: 0 5% 20%;
 
-    --star-color: 210 40% 70%;
+    /* Colores para elementos decorativos oscuros */
+    --accent-1: 330 80% 60%; /* Rosa neón */
+    --accent-2: 0 90% 70%;   /* Rojo neón brillante */
+    --accent-3: 120 80% 55%; /* Verde neón eléctrico */
+    --accent-4: 0 0% 98%;    /* Blanco casi puro */
   }
 
   * {
@@ -91,66 +59,240 @@
   }
 
   body {
-    @apply text-foreground transition-colors duration-500;
-    background: linear-gradient(135deg, 
-      hsl(var(--background)) 0%, 
-      hsl(var(--background) / 0.95) 50%, 
-      hsl(var(--background) / 0.9) 100%);
+    @apply text-foreground transition-colors duration-700;
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--accent-1) / 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent-3) / 0.10) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--accent-2) / 0.08) 0%, transparent 50%),
+      linear-gradient(135deg, 
+        hsl(var(--background)) 0%, 
+        hsl(var(--background) / 0.98) 50%, 
+        hsl(var(--background) / 0.95) 100%);
     background-attachment: fixed;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
     font-feature-settings: "rlig" 1, "calt" 1;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Elementos decorativos de fondo estáticos */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle, hsl(var(--accent-3) / 0.03) 1px, transparent 1px),
+      radial-gradient(circle, hsl(var(--accent-1) / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px;
+    z-index: -2;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      hsl(var(--primary) / 0.02) 50%,
+      transparent 60%
+    );
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
 @utility container {
   margin-inline: auto;
   padding-inline: 1rem;
+  width: 100%;
 
   @media (min-width: 640px) {
     max-width: 640px;
+    padding-inline: 1.5rem;
   }
   @media (min-width: 768px) {
     max-width: 768px;
+    padding-inline: 2rem;
   }
   @media (min-width: 1024px) {
     max-width: 1024px;
+    padding-inline: 2.5rem;
   }
   @media (min-width: 1280px) {
     max-width: 1280px;
+    padding-inline: 3rem;
   }
-  @media (min-width: 1400px) {
-    max-width: 1400px;
+  @media (min-width: 1536px) {
+    max-width: 1536px;
+    padding-inline: 3.5rem;
   }
 }
 
 @utility text-glow {
   @apply relative;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-1)));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
 }
 
 @utility card-glow {
-  @apply transition-all duration-300 hover:scale-[1.01] hover:shadow-xl;
+  @apply transition-all duration-300 hover:scale-[1.01];
+  background: linear-gradient(135deg, 
+    hsl(var(--card) / 0.9) 0%, 
+    hsl(var(--card) / 0.7) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid hsl(var(--border) / 0.5);
   box-shadow: 
-    0 4px 6px -1px hsl(var(--primary) / 0.1),
-    0 2px 4px -1px hsl(var(--primary) / 0.06);
+    0 4px 20px hsl(var(--primary) / 0.08),
+    inset 0 1px 0 hsl(var(--accent-4) / 0.1);
+}
+
+.card-glow:hover {
+  box-shadow: 
+    0 8px 30px hsl(var(--primary) / 0.15),
+    inset 0 1px 0 hsl(var(--accent-4) / 0.15),
+    0 0 0 1px hsl(var(--primary) / 0.1);
 }
 
 @utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)));
+  @apply relative rounded-xl;
+  background: linear-gradient(135deg, 
+    hsl(var(--card) / 0.95), 
+    hsl(var(--card) / 0.8));
+  backdrop-filter: blur(12px);
+  border: 2px solid transparent;
   background-clip: padding-box;
-  border: 1px solid hsl(var(--border));
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    hsl(var(--primary) / 0.6), 
+    hsl(var(--accent-1) / 0.5), 
+    hsl(var(--accent-3) / 0.4));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
-  box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden;
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)), 
+    hsl(var(--accent-2)));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 
+    0 4px 15px hsl(var(--primary) / 0.25),
+    inset 0 1px 0 hsl(var(--accent-4) / 0.2);
+  border: 1px solid hsl(var(--primary) / 0.3);
+  
+  /* Responsive button sizing */
+  @media (min-width: 640px) {
+    @apply px-8 py-3 rounded-xl;
+  }
 }
 
-@utility star-twinkle {
-  @apply absolute rounded-full;
-  background-color: hsl(var(--star-color));
-  box-shadow: 0 0 3px 0.5px hsl(var(--star-color) / 0.4);
-  animation: star-twinkle 8s ease-in-out infinite;
+.cosmic-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    hsl(var(--accent-4) / 0.2), 
+    transparent);
+  transition: left 0.3s ease-out;
+}
+
+.cosmic-button:hover::before {
+  left: 100%;
+}
+
+/* Elementos decorativos estáticos */
+@utility floating-orb {
+  @apply absolute rounded-full pointer-events-none;
+  background: radial-gradient(circle, 
+    hsl(var(--accent-1) / 0.3) 0%, 
+    hsl(var(--accent-3) / 0.2) 50%, 
+    transparent 70%);
+  filter: blur(2px);
+}
+
+@utility morphing-blob {
+  @apply absolute pointer-events-none opacity-15;
+  background: linear-gradient(45deg, 
+    hsl(var(--accent-1) / 0.3), 
+    hsl(var(--accent-2) / 0.3), 
+    hsl(var(--accent-3) / 0.3));
+  filter: blur(30px);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* Mejoras responsive */
+@media (max-width: 640px) {
+  body {
+    background-size: 150% 150%, 150% 150%, 150% 150%, 100% 100%;
+  }
+  
+  .card-glow {
+    @apply hover:scale-100; /* Desactivar hover en móviles */
+  }
+  
+  .cosmic-button {
+    @apply hover:scale-100 px-4 py-2 text-sm;
+  }
+  
+  .text-glow {
+    /* Reducir glow en móviles para mejor legibilidad */
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .card-glow {
+    backdrop-filter: blur(10px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .card-glow {
+    backdrop-filter: blur(20px);
+  }
+  
+  .gradient-border {
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Mejoras de accesibilidad y rendimiento */
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-button::before {
+    transition: none;
+  }
+  
+  .card-glow {
+    transition: none;
+  }
+  
+  body {
+    background-attachment: scroll;
+  }
 }
 
 #root {
@@ -158,4 +300,7 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
 }

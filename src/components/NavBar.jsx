@@ -53,7 +53,7 @@ export const NavBar = () => {
     };
 
     const navItems = [
-        { name: 'Home', href: '#home' },
+        { name: 'Inicio', href: '#inicio' },
         { name: 'Sobre mí', href: '#sobremi' },
         { name: 'Habilidades', href: '#habilidades' },
         { name: 'Proyectos', href: '#proyectos' },
@@ -79,10 +79,10 @@ export const NavBar = () => {
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <a 
-                            href="#home" 
+                            href="#inicio" 
                             onClick={(e) => {
                                 e.preventDefault();
-                                scrollToSection('#home');
+                                scrollToSection('#inicio');
                             }}
                             className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300"
                         >
