@@ -1,5 +1,7 @@
 import React from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import CV from '../Documents/MauricioJLugoGranadosCV.pdf'; 
+
 
 export const HeroSection = () => {
   const scrollToSection = (sectionId) => {
@@ -127,7 +129,7 @@ export const HeroSection = () => {
             {/* CV Download */}
             <div className="pt-6 border-t border-foreground/10">
               <a
-                href="/cv.pdf"
+                href={CV}
                 download
                 className="flex items-center justify-center gap-2 w-full p-3 rounded-lg border border-foreground/20 text-foreground/70 hover:text-foreground hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-200"
               >
