@@ -8,21 +8,14 @@ export const NavBar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setIsScrolled(window.scrollY > 30);
         };
 
-        // Inicializar tema
-        try {
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme === 'dark') {
-                setIsDarkMode(true);
-                document.documentElement.classList.add('dark'); 
-            } else {
-                setIsDarkMode(false);
-                document.documentElement.classList.remove('dark');
-            }
-        } catch (error) {
-            console.warn('localStorage no disponible:', error);
+        // Inicializar tema sin localStorage
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            setIsDarkMode(true);
+            document.documentElement.classList.add('dark');
         }
 
         window.addEventListener('scroll', handleScroll);
@@ -30,25 +23,12 @@ export const NavBar = () => {
     }, []);
 
     const toggleTheme = () => {
-        try {
-            if (isDarkMode) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                setIsDarkMode(false);
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                setIsDarkMode(true);
-            }
-        } catch (error) {
-            console.warn('Error al guardar tema:', error);
-            if (isDarkMode) {
-                document.documentElement.classList.remove('dark');
-                setIsDarkMode(false);
-            } else {
-                document.documentElement.classList.add('dark');
-                setIsDarkMode(true);
-            }
+        if (isDarkMode) {
+            document.documentElement.classList.remove('dark');
+            setIsDarkMode(false);
+        } else {
+            document.documentElement.classList.add('dark');
+            setIsDarkMode(true);
         }
     };
 
@@ -69,98 +49,111 @@ export const NavBar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
             isScrolled 
-                ? 'bg-card/80 backdrop-blur-md border-b border-border shadow-lg' 
+                ? 'bg-background/70 backdrop-blur-xl border-b border-foreground/10' 
                 : 'bg-transparent'
         }`}>
-            <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
-                    <div className="flex-shrink-0">
+                    
+                    {/* Logo - Asimétrico con punto decorativo */}
+                    <div className="flex items-center gap-3 group">
+                        <div className="w-2 h-2 bg-primary rounded-full transition-all duration-300 group-hover:scale-125"></div>
                         <a 
                             href="#inicio" 
                             onClick={(e) => {
                                 e.preventDefault();
                                 scrollToSection('#inicio');
                             }}
-                            className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300"
+                            className="text-lg font-semibold text-foreground hover:text-primary transition-colors duration-300"
                         >
                             Mauricio Lugo
                         </a>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:block">
-                        <div className="flex items-center space-x-8">
-                            {/* Navigation Links */}
-                            <div className="flex items-baseline space-x-8">
-                                {navItems.map((item) => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            scrollToSection(item.href);
-                                        }}
-                                        className="text-foreground/80 hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-300 relative group"
-                                    >
-                                        {item.name}
-                                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                                    </a>
-                                ))}
-                            </div>
-                            
-                            {/* Desktop Theme Toggle */}
-                            <button
-                                onClick={toggleTheme}
-                                className="p-2 rounded-full bg-card/80 backdrop-blur-sm text-foreground border border-border/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_10px_rgba(139,_92,_246,_0.3)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                            >
-                                {isDarkMode ? (
-                                    <Sun className="h-5 w-5" />
-                                ) : (
-                                    <Moon className="h-5 w-5" />
-                                )}
-                            </button>
+                    {/* Desktop Navigation - Layout asimétrico */}
+                    <div className="hidden md:flex items-center">
+                        <div className="flex items-center space-x-1">
+                            {navItems.map((item, index) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(item.href);
+                                    }}
+                                    className={`
+                                        px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground 
+                                        transition-all duration-300 rounded-lg hover:bg-foreground/5
+                                        relative group
+                                        ${index === 1 ? 'ml-4' : ''}
+                                        
+                                    `}
+                                >
+                                    {item.name}
+                                    {/* Underline sutil */}
+                                    <span className="absolute bottom-1 left-4 right-4 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                                </a>
+                            ))}
                         </div>
+                        
+                        {/* Separador minimalista */}
+                        <div className="w-px h-4 bg-foreground/20 mx-6"></div>
+                        
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 rounded-lg text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-all duration-300 group"
+                        >
+                            <div className="relative">
+                                {isDarkMode ? (
+                                    <Sun className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" />
+                                ) : (
+                                    <Moon className="h-4 w-4 group-hover:-rotate-12 transition-transform duration-300" />
+                                )}
+                            </div>
+                        </button>
                     </div>
 
                     {/* Mobile Controls */}
-                    <div className="md:hidden flex items-center space-x-2">
+                    <div className="md:hidden flex items-center space-x-3">
                         {/* Mobile Theme Toggle */}
                         <button
                             onClick={toggleTheme}
-                            className="p-2 rounded-full bg-card/80 backdrop-blur-sm text-foreground border border-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300 focus:outline-none"
+                            className="p-2 rounded-lg text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
                         >
                             {isDarkMode ? (
-                                <Sun className="h-5 w-5" />
+                                <Sun className="h-4 w-4" />
                             ) : (
-                                <Moon className="h-5 w-5" />
+                                <Moon className="h-4 w-4" />
                             )}
                         </button>
                         
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="text-foreground hover:text-primary p-2 rounded-md transition-colors duration-300"
+                            className="p-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
                         >
-                            {isMenuOpen ? (
-                                <X className="h-6 w-6" />
-                            ) : (
-                                <Menu className="h-6 w-6" />
-                            )}
+                            <div className="relative">
+                                {isMenuOpen ? (
+                                    <X className="h-5 w-5 rotate-90 transition-transform duration-200" />
+                                ) : (
+                                    <Menu className="h-5 w-5 transition-transform duration-200" />
+                                )}
+                            </div>
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile Navigation */}
-                <div className={`md:hidden transition-all duration-300 ease-in-out ${
+                {/* Mobile Navigation - Diseño asimétrico */}
+                <div className={`md:hidden transition-all duration-300 ease-out ${
                     isMenuOpen 
-                        ? 'max-h-64 opacity-100' 
-                        : 'max-h-0 opacity-0 overflow-hidden'
+                        ? 'max-h-64 opacity-100 translate-y-0' 
+                        : 'max-h-0 opacity-0 -translate-y-2 overflow-hidden'
                 }`}>
-                    <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-sm rounded-lg mt-2 border border-border">
-                        {navItems.map((item) => (
+                    <div className="py-4 space-y-1">
+                        {navItems.map((item, index) => (
                             <a
                                 key={item.name}
                                 href={item.href}
@@ -168,7 +161,14 @@ export const NavBar = () => {
                                     e.preventDefault();
                                     scrollToSection(item.href);
                                 }}
-                                className="text-foreground/80 hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-300 rounded-md hover:bg-primary/10"
+                                className={`
+                                    block py-3 text-foreground/70 hover:text-foreground transition-all duration-200
+                                    border-l-2 border-transparent hover:border-primary hover:pl-4
+                                    ${index % 2 === 0 ? 'pl-4' : 'pl-8'}
+                                `}
+                                style={{
+                                    transitionDelay: `${index * 50}ms`
+                                }}
                             >
                                 {item.name}
                             </a>
@@ -176,6 +176,11 @@ export const NavBar = () => {
                     </div>
                 </div>
             </div>
+            
+            {/* Línea decorativa sutil */}
+            {isScrolled && (
+                <div className="absolute bottom-0 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+            )}
         </nav>
     );
 };
