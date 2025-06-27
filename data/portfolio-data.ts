@@ -8,7 +8,7 @@ export const projects: Project[] = [
       "Aplicación integral de gestión de clientes potenciales con API RESTful en FastAPI y SQLAlchemy (Python), y frontend moderno en React y TypeScript. Incluye autenticación JWT, CRUD completo, dashboard interactivo y diseño responsivo.",
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["FastAPI", "React", "TypeScript", "SQLAlchemy", "JWT", "Tailwind CSS"],
-    githubUrl: "https://github.com/Justlugoo/leads-manager",
+    githubUrl: "https://github.com/justlugoo/LeadsManager",
     liveUrl: "https://leads-manager-demo.vercel.app",
     featured: true,
   },
@@ -29,17 +29,20 @@ export const projects: Project[] = [
       "API REST para gestión de usuarios y tareas desarrollada con FastAPI y arquitectura MVC. Incluye CRUD completo, filtrado avanzado por estado y usuario, y documentación interactiva con Swagger UI.",
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["FastAPI", "Python", "Pydantic", "SQLite", "Swagger UI"],
-    githubUrl: "https://github.com/Justlugoo/task-manager-api",
+    githubUrl: "https://github.com/justlugoo/TASK_MANAGER_API",
     featured: false,
   },
   {
     id: "4",
     title: "Plataforma RNI",
     description:
-      "Frontend de plataforma para gestión de relaciones nacionales e internacionales, desarrollado con metodología ágil SCRUM. Enfocado en crear una solución escalable y eficiente.",
+      "Frontend de plataforma para gestión de relaciones nacionales e internacionales, desarrollado con metodología ágil SCRUM. Proyecto en grupo actualmente en desarrollo, enfocado en crear una solución escalable y eficiente.",
     image: "/placeholder.svg?height=300&width=500",
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "SCRUM"],
+    githubUrl: "#",
     featured: false,
+    inDevelopment: true,
+    isGroupProject: true,
   },
 ]
 

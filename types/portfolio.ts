@@ -7,6 +7,8 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   featured: boolean
+  inDevelopment?: boolean
+  isGroupProject?: boolean
 }
 
 export interface Skill {
