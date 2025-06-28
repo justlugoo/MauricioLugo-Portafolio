@@ -85,7 +85,7 @@ function SkillCard({
             return (
               <div 
                 key={skill.name} 
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg border w-full max-w-xs transition-all duration-200 hover:shadow-md ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border w-full max-w-xs transition-all duration-200 hover:shadow-md hover:scale-102 hover:-translate-y-0.5 ${
                   isFavorite 
                     ? "bg-primary/10 border-primary/20" 
                     : "bg-muted/30 border-border hover:bg-muted/50"

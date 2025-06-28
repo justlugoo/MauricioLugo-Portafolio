@@ -6,7 +6,6 @@ export const projects: Project[] = [
     title: "LeadsManager",
     description:
       "Aplicación integral de gestión de clientes potenciales con API RESTful en FastAPI y SQLAlchemy (Python), y frontend moderno en React y TypeScript. Incluye autenticación JWT, CRUD completo, dashboard interactivo y diseño responsivo.",
-    image: "/placeholder.svg?height=300&width=500",
     technologies: ["FastAPI", "React", "TypeScript", "SQLAlchemy", "JWT", "Tailwind CSS"],
     githubUrl: "https://github.com/justlugoo/LeadsManager",
     liveUrl: "https://leads-manager-demo.vercel.app",
@@ -17,7 +16,6 @@ export const projects: Project[] = [
     title: "Apero: Innovación en Cada Copa",
     description:
       "E-commerce para compra de bebidas personalizables con Django como framework backend y MySQL. Incluye gestión completa de usuarios, personalización de productos, carrito de compras y panel de administración robusto.",
-    image: "/placeholder.svg?height=300&width=500",
     technologies: ["Django", "Python", "MySQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
     githubUrl: "https://github.com/Justlugoo/apero-ecommerce",
     featured: true,
@@ -27,7 +25,6 @@ export const projects: Project[] = [
     title: "Task Manager API",
     description:
       "API REST para gestión de usuarios y tareas desarrollada con FastAPI y arquitectura MVC. Incluye CRUD completo, filtrado avanzado por estado y usuario, y documentación interactiva con Swagger UI.",
-    image: "/placeholder.svg?height=300&width=500",
     technologies: ["FastAPI", "Python", "Pydantic", "SQLite", "Swagger UI"],
     githubUrl: "https://github.com/justlugoo/TASK_MANAGER_API",
     featured: false,
@@ -37,7 +34,6 @@ export const projects: Project[] = [
     title: "Plataforma RNI",
     description:
       "Frontend de plataforma para gestión de relaciones nacionales e internacionales, desarrollado con metodología ágil SCRUM. Proyecto en grupo actualmente en desarrollo, enfocado en crear una solución escalable y eficiente.",
-    image: "/placeholder.svg?height=300&width=500",
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "SCRUM"],
     githubUrl: "#",
     featured: false,
@@ -108,7 +104,7 @@ export const contactInfo: ContactInfo = {
 }
 
 export const cvInfo = {
-  url: "https://drive.google.com/file/d/19BGDXoYAhqr1kmVfLSlfv1rYvLEVO2yd/view?usp=sharing",
+  url: "https://drive.google.com/file/d/11xGclzonDli62jpUKheclvXtuZQPgwrY/view?usp=sharing",
   title: "CV",
   description: "Curriculum Vitae de Mauricio Jose Lugo Granados",
   fallbackUrl: "/cv-mauricio-lugo.pdf",

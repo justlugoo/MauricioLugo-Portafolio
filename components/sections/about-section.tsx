@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 
 export function AboutSection() {
   return (
@@ -33,8 +34,15 @@ export function AboutSection() {
                   </p>
                 </div>
                 <div className="flex justify-center">
-                  <div className="w-64 h-64 bg-muted rounded-full flex items-center justify-center">
-                    <span className="text-6xl">👨‍💻</span>
+                  <div className="w-64 h-64 bg-muted rounded-full overflow-hidden flex items-center justify-center hover:scale-110 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+                    <Image
+                      src="/profile-photo.jpg"
+                      alt="Foto de perfil"
+                      width={256}
+                      height={256}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
                   </div>
                 </div>
               </div>

@@ -3,15 +3,16 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, Users, Clock } from "lucide-react"
 import { projects } from "@/data/portfolio-data"
+import { getProjectImage } from "@/data/project-images"
 import type { Project } from "@/types/portfolio"
 import Link from "next/link"
 import Image from "next/image"
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="aspect-video relative">
-        <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+      <div className="aspect-video relative bg-muted">
+        <Image src={getProjectImage(project.id)} alt={project.title} fill className="object-contain p-2" />
         <div className="absolute top-2 right-2 flex gap-2">
           {project.inDevelopment && (
             <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 flex items-center gap-1">
