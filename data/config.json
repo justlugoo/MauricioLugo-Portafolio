@@ -1,0 +1,76 @@
+{
+  "site": {
+    "name": "Mauricio Lugo Portfolio",
+    "title": "Mauricio Lugo - DevOps Engineer & Cloud Architect",
+    "description": "Portfolio de Mauricio Lugo, DevOps Engineer especializado en Google Cloud Platform, Docker, Terraform y arquitectura cloud escalable",
+    "url": "https://mauricio-portfolio.vercel.app",
+    "locale": "es-CO",
+    "author": "Mauricio Lugo"
+  },
+  "theme": {
+    "defaultMode": "dark",
+    "primaryColor": "#1a73e8",
+    "accentColor": "#ea4335"
+  },
+  "features": {
+    "darkMode": true,
+    "animations": true,
+    "emailContact": true,
+    "analytics": false
+  },
+  "navigation": [
+    {
+      "name": "Inicio",
+      "href": "#hero",
+      "order": 1
+    },
+    {
+      "name": "Sobre mí",
+      "href": "#about",
+      "order": 2
+    },
+    {
+      "name": "Experiencia",
+      "href": "#experience",
+      "order": 3
+    },
+    {
+      "name": "Proyectos",
+      "href": "#projects",
+      "order": 4
+    },
+    {
+      "name": "Habilidades",
+      "href": "#skills",
+      "order": 5
+    },
+    {
+      "name": "Certificaciones",
+      "href": "#certifications",
+      "order": 6
+    },
+    {
+      "name": "Contacto",
+      "href": "#contact",
+      "order": 7
+    }
+  ],
+  "seo": {
+    "keywords": [
+      "devops",
+      "cloud engineer",
+      "google cloud platform",
+      "gcp",
+      "docker",
+      "terraform",
+      "kubernetes",
+      "fastapi",
+      "python",
+      "infraestructura cloud",
+      "ci/cd",
+      "portfolio"
+    ],
+    "ogImage": "/og-image.png",
+    "twitterHandle": "@mauriciolugo"
+  }
+}

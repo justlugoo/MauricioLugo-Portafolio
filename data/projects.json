@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "title": "LeadsManager",
+    "description": "Sistema de gestión de clientes con FastAPI y React, containerizado con Docker.",
+    "image": "/images/projects/project-placeholder.svg",
+    "tags": [
+      "FastAPI",
+      "React",
+      "Docker",
+      "PostgreSQL"
+    ],
+    "featured": true,
+    "links": {
+      "github": "https://github.com/justlugoo/LeadsManager",
+      "demo": "https://leads-manager-demo.vercel.app"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Apero E-commerce",
+    "description": "E-commerce de bebidas personalizables con Django y MySQL.",
+    "image": "/images/projects/project-placeholder.svg",
+    "tags": [
+      "Django",
+      "Python",
+      "MySQL"
+    ],
+    "featured": false,
+    "links": {
+      "github": "https://github.com/Justlugoo/apero-ecommerce"
+    }
+  },
+  {
+    "id": "3",
+    "title": "Plataforma RNI",
+    "description": "Frontend de plataforma para gestión de relaciones nacionales e internacionales",
+    "image": "/images/projects/project-placeholder.svg",
+    "tags": [
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "SCRUM"
+    ],
+    "featured": false,
+    "links": {
+      "github": "https://github.com/Justlugoo/PlataformaRNI"
+    }
+  }
+]

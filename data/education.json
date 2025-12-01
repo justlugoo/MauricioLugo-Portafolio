@@ -1,0 +1,44 @@
+{
+  "university": {
+    "id": "1",
+    "institution": "Universidad/Instituto",
+    "degree": "Ingeniería de Sistemas",
+    "level": "Pregrado",
+    "duration": "En curso - Ciclo Ingenieril",
+    "previousDegree": "Tecnólogo en Desarrollo de Sistemas de Información y Software (Completado)",
+    "description": "Ciclo propedéutico enfocado en arquitectura de software, infraestructura y sistemas distribuidos",
+    "status": "in_progress",
+    "type": "university"
+  },
+  "courses": [
+    {
+      "id": "cert-1",
+      "name": "Google Cloud Professional Cloud Architect",
+      "platform": "Google Cloud",
+      "duration": "2025 - En preparación",
+      "description": "Certificación profesional de nivel avanzado en diseño y arquitectura de soluciones cloud escalables, seguras y eficientes en Google Cloud Platform.",
+      "status": "in_progress",
+      "certificateUrl": null,
+      "progress": 60
+    },
+    {
+      "id": "1",
+      "name": "FastAPI - The Complete Course 2025 (Beginner + Advanced)",
+      "platform": "Udemy",
+      "duration": "04/2025 – En preparación",
+      "description": "Desarrollo de APIs RESTful y aplicaciones completas con FastAPI y Python, incluyendo autenticación moderna e implementación de bases de datos.",
+      "status": "in_progress",
+      "certificateUrl": null,
+      "progress": 60
+    },
+    {
+      "id": "2",
+      "name": "Marco Web Django",
+      "platform": "Coursera - Meta",
+      "duration": "11/2024 – 12/2024",
+      "description": "Desarrollo de proyectos web con Django, patrón MVT, administración del sitio y construcción de aplicaciones escalables.",
+      "status": "canceled",
+      "certificateUrl": null
+    }
+  ]
+}

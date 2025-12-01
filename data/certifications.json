@@ -1,0 +1,33 @@
+{
+  "credlyProfile": "https://www.credly.com/users/mauricio-lugo.2b7b8ee6/",
+  "certifications": [
+    {
+      "id": "1",
+      "name": "Cloud Security",
+      "issuer": "Google Cloud",
+      "icon": "shield"
+    },
+    {
+      "id": "2",
+      "name": "Networking & Load Balancing",
+      "issuer": "Google Cloud",
+      "icon": "network"
+    },
+    {
+      "id": "3",
+      "name": "Serverless (Cloud Run)",
+      "issuer": "Google Cloud",
+      "icon": "zap"
+    },
+    {
+      "id": "4",
+      "name": "Kubernetes (GKE)",
+      "issuer": "Google Cloud",
+      "icon": "box"
+    }
+  ],
+  "inProgress": {
+    "name": "GCP Professional Cloud Architect",
+    "status": "En preparación"
+  }
+}

@@ -2,52 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
-    /* Tema claro */
+    /* Google Light Theme */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* #ffffff */
+    --foreground: 216 19% 14%;
+    /* #202124 */
+
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    /* #ffffff */
+    --card-foreground: 216 19% 14%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 24 95% 53%; /* Naranja Claude */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 24 95% 53%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 24 95% 53%;
-    --radius: 0.75rem;
+    --popover-foreground: 216 19% 14%;
+
+    --primary: 217 89% 51%;
+    /* #1a73e8 Google Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 14% 97%;
+    /* #f8f9fa Google Surface */
+    --secondary-foreground: 216 19% 14%;
+
+    --muted: 210 14% 97%;
+    --muted-foreground: 216 12% 38%;
+    /* #5f6368 */
+
+    --accent: 217 89% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 90% 58%;
+    /* #ea4335 Google Red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    /* #dadce0 */
+    --input: 220 13% 91%;
+    --ring: 217 89% 51%;
+
+    --radius: 1.5rem;
+    /* rounded-3xl style */
   }
 
   .dark {
-    /* Tema oscuro principal con acentos Anthropic Claude */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 3.7% 15.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 24 95% 53%; /* Naranja Claude */
-    --primary-foreground: 240 10% 3.9%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 24 95% 53%;
-    --accent-foreground: 240 10% 3.9%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 24 95% 53%;
+    /* Google Dark Theme */
+    --background: 216 19% 14%;
+    /* #202124 */
+    --foreground: 220 13% 91%;
+    /* #e8eaed */
+
+    --card: 216 12% 20%;
+    /* #303134 */
+    --card-foreground: 220 13% 91%;
+
+    --popover: 216 12% 20%;
+    --popover-foreground: 220 13% 91%;
+
+    --primary: 214 100% 78%;
+    /* #8ab4f8 Lighter blue */
+    --primary-foreground: 216 19% 14%;
+
+    --secondary: 216 12% 20%;
+    --secondary-foreground: 220 13% 91%;
+
+    --muted: 216 12% 26%;
+    /* #3c4043 */
+    --muted-foreground: 220 9% 64%;
+    /* #9aa0a6 */
+
+    --accent: 214 100% 78%;
+    --accent-foreground: 216 19% 14%;
+
+    --destructive: 4 69% 65%;
+    /* #f28b82 */
+    --destructive-foreground: 216 19% 14%;
+
+    --border: 216 12% 26%;
+    /* #3c4043 */
+    --input: 216 12% 26%;
+    --ring: 214 100% 78%;
   }
 }
 
@@ -55,6 +91,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

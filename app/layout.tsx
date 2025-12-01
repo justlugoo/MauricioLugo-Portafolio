@@ -1,13 +1,46 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Outfit } from "next/font/google"
+import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { Toaster } from "sonner"
+import config from "@/data/config.json"
 import "./globals.css"
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-google",
+})
+
 export const metadata: Metadata = {
-  title: "Mauricio Lugo - Portfolio",
-  description: "Desarrollador Backend especializado en Python, FastAPI y Django",
-  generator: "v0.dev",
+  metadataBase: new URL(config.site.url),
+  title: config.site.title,
+  description: config.site.description,
+  keywords: config.seo.keywords,
+  authors: [{ name: config.site.author }],
+  openGraph: {
+    title: config.site.title,
+    description: config.site.description,
+    url: config.site.url,
+    siteName: config.site.name,
+    images: [
+      {
+        url: config.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: config.site.title,
+      },
+    ],
+    locale: config.site.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: config.site.title,
+    description: config.site.description,
+    images: [config.seo.ogImage],
+    creator: config.seo.twitterHandle,
+  },
 }
 
 export default function RootLayout({
@@ -16,20 +49,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning className={outfit.variable}>
+      <body className={outfit.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme={config.theme.defaultMode}
+          enableSystem={config.features.darkMode}
           disableTransitionOnChange
         >
           {children}
-          <Toaster 
-            position="top-right"
-            richColors
-            closeButton
-          />
+          <Toaster position="top-right" richColors closeButton />
         </ThemeProvider>
       </body>
     </html>

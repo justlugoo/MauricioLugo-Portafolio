@@ -1,22 +1,24 @@
-import { Header } from "@/components/header"
-import { HeroSection } from "@/components/sections/hero-section"
-import { AboutSection } from "@/components/sections/about-section"
-import { SkillsSection } from "@/components/sections/skills-section"
-import { ProjectsSection } from "@/components/sections/projects-section"
-import { ContactSection } from "@/components/sections/contact-section"
-import { Footer } from "@/components/footer"
-import { EducationSection } from "@/components/sections/education-section"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
+import { Hero } from "@/components/sections/Hero"
+import { About } from "@/components/sections/About"
+import { Experience } from "@/components/sections/Experience"
+import { Projects } from "@/components/sections/Projects"
+import { Skills } from "@/components/sections/Skills"
+import { Certifications } from "@/components/sections/Certifications"
+import { Contact } from "@/components/sections/Contact"
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Header />
-      <HeroSection />
-      <AboutSection />
-      <EducationSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Certifications />
+      <Contact />
       <Footer />
     </main>
   )

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "company": "38 Grados Lab",
+    "position": "Practicante DevOps",
+    "duration": "Julio 2025 - Noviembre 2025",
+    "durationShort": "5 meses",
+    "description": "Pasantía profesional diseñando y optimizando infraestructura cloud para multiples empresas/startups, con enfoque en Google Cloud Platform y prácticas DevOps modernas.",
+    "achievements": [
+      "Arquitecturé soluciones cloud en GCP",
+      "Administración de procesos DevOps reduciendo tiempo de deployment y mejorando consistencia",
+      "Implementación de buenas prácticas de arquitectura cloud y logica de negocio",
+      "Documentación de procesos y flujos operativos"
+    ],
+    "technologies": [
+      "Google Cloud Platform",
+      "Docker",
+      "Terraform",
+      "GitHub Actions",
+      "Cloud Run",
+      "GKE",
+      "Load Balancing",
+      "VPC Network",
+      "Monitoring & Logging"
+    ],
+    "type": "internship",
+    "current": false,
+    "featured": true
+  },
+  {
+    "id": "2",
+    "company": "Proyectos Académicos",
+    "position": "Full Stack Developer",
+    "duration": "2023 - ",
+    "durationShort": "2 años",
+    "description": "Desarrollo de aplicaciones web full-stack con enfoque en backend robusto, APIs RESTful y buenas prácticas de arquitectura.",
+    "achievements": [
+      "Desarrollé múltiples aplicaciones con Python (FastAPI/Django) y NextJS",
+      "Implementé arquitecturas MVC y patrones de diseño escalables",
+      "Integré bases de datos relacionales (PostgreSQL, MySQL) con ORMs",
+      "Containericé aplicaciones con Docker para deployment consistente"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "Django",
+      "NextJS",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "type": "academic",
+    "current": false,
+    "featured": false
+  }
+]

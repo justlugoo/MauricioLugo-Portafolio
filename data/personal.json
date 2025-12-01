@@ -1,0 +1,32 @@
+{
+  "name": "Mauricio Lugo",
+  "title": "DevOps Engineer & Cloud Architect in Training",
+  "tagline": "Construyo infraestructura cloud escalable y soluciones backend que impulsan negocios",
+  "bio": "Tecnólogo en Sistemas y estudiante de Ingeniería con experiencia en DevOps y Cloud Architecture. Mi enfoque es híbrido: combino expertise técnico en infraestructura cloud con visión de negocio para crear soluciones rentables y escalables.",
+  "location": "Colombia",
+  "locationDetail": "Cartagena de Indias, Bolívar, Colombia",
+  "availability": "Disponible para trabajo remoto global",
+  "avatar": "/profile-photo.jpg",
+  "email": "maurogranados31@gmail.com",
+  "phone": "+57 320 770 4340",
+  "social": {
+    "github": "https://github.com/Justlugoo",
+    "linkedin": "https://linkedin.com/in/justlugoo",
+    "website": "https://mauricio-portfolio.vercel.app"
+  },
+  "cv": {
+    "url": "https://drive.google.com/file/d/11xGclzonDli62jpUKheclvXtuZQPgwrY/view?usp=sharing",
+    "title": "Curriculum Vitae",
+    "description": "CV de Mauricio Lugo - DevOps Engineer"
+  },
+  "headline": {
+    "main": "De Desarrollador a DevOps:",
+    "sub": "Transformando código en infraestructura escalable"
+  },
+  "highlights": [
+    "Pasantía profesional en arquitectura cloud GCP",
+    "Estandarización de procesos DevOps",
+    "Múltiples certificaciones Google Cloud",
+    "Estudiando para GCP Professional Cloud Architect"
+  ]
+}

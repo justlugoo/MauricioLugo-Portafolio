@@ -52,20 +52,28 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Colores específicos para el tema oscuro con acentos Claude
-        claude: {
-          orange: {
-            400: "#fb923c",
-            500: "#f97316", // Color principal naranja Claude
-            600: "#ea580c",
-          },
-          dark: {
-            100: "hsl(240 3.7% 15.9%)", // Cards
-            200: "hsl(240 3.7% 20.9%)", // Hover states
-            300: "hsl(240 3.7% 25.9%)", // Borders
-            800: "hsl(240 10% 3.9%)", // Background
-            900: "hsl(240 10% 1.9%)", // Deep background
-          },
+        // Google Colors
+        "google-blue": {
+          50: "hsl(var(--google-blue-50))",
+          500: "hsl(var(--google-blue-500))",
+          700: "hsl(var(--google-blue-700))",
+        },
+        "google-red": {
+          500: "hsl(var(--google-red-500))",
+        },
+        "google-yellow": {
+          500: "hsl(var(--google-yellow-500))",
+        },
+        "google-green": {
+          500: "hsl(var(--google-green-500))",
+        },
+        "google-gray": {
+          50: "hsl(var(--google-gray-50))",
+          100: "hsl(var(--google-gray-100))",
+          200: "hsl(var(--google-gray-200))",
+          600: "hsl(var(--google-gray-600))",
+          700: "hsl(var(--google-gray-700))",
+          900: "hsl(var(--google-gray-900))",
         },
       },
       borderRadius: {

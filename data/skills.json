@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "id": "cloud-devops",
+      "name": "Cloud & DevOps",
+      "icon": "cloud",
+      "order": 1,
+      "featured": true,
+      "skills": [
+        "Google Cloud Platform (GCP)",
+        "Docker",
+        "Terraform",
+        "Kubernetes (GKE)",
+        "GitHub Actions",
+        "CI/CD Pipelines",
+        "Cloud Run",
+        "Load Balancing",
+        "Compute Engine",
+        "VPC Network"
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "Backend Development",
+      "icon": "server",
+      "order": 2,
+      "featured": true,
+      "skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Cloud SQL",
+        "RESTful APIs",
+        "gRPC APIs",
+        "Django"
+      ]
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend & Otros",
+      "icon": "monitor",
+      "order": 3,
+      "featured": false,
+      "skills": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Shadcn UI"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Platforms",
+      "icon": "wrench",
+      "order": 4,
+      "featured": false,
+      "skills": [
+        "Git & GitHub",
+        "VS Code",
+        "Linux/Bash",
+        "Postman",
+        "Swagger/OpenAPI",
+        "Claude Code"
+      ]
+    }
+  ]
+}
