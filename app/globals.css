@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    /* Google Light Theme */
-    --background: 0 0% 100%;
-    /* #ffffff */
-    --foreground: 216 19% 14%;
-    /* #202124 */
+    /* Google Light Theme - Soft Edition */
+    --background: 210 20% 98%;
+    /* Gris muy claro suave en vez de blanco puro */
+    --foreground: 216 15% 22%;
+    /* Gris oscuro más suave que negro */
 
-    --card: 0 0% 100%;
-    /* #ffffff */
-    --card-foreground: 216 19% 14%;
+    --card: 0 0% 99%;
+    /* Casi blanco pero más suave */
+    --card-foreground: 216 15% 22%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 19% 14%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 216 15% 22%;
 
-    --primary: 217 89% 51%;
-    /* #1a73e8 Google Blue */
+    --primary: 217 75% 48%;
+    /* Google Blue menos saturado y un poco más oscuro */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 14% 97%;
-    /* #f8f9fa Google Surface */
-    --secondary-foreground: 216 19% 14%;
+    --secondary: 210 15% 96%;
+    /* Gris claro ligeramente más oscuro */
+    --secondary-foreground: 216 15% 22%;
 
-    --muted: 210 14% 97%;
-    --muted-foreground: 216 12% 38%;
-    /* #5f6368 */
+    --muted: 210 15% 96%;
+    --muted-foreground: 216 10% 42%;
+    /* Más claro y menos saturado */
 
-    --accent: 217 89% 51%;
+    --accent: 217 75% 48%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 4 90% 58%;
-    /* #ea4335 Google Red */
+    --destructive: 4 75% 55%;
+    /* Google Red menos saturado */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    /* #dadce0 */
-    --input: 220 13% 91%;
-    --ring: 217 89% 51%;
+    --border: 220 12% 88%;
+    /* Border más visible pero suave */
+    --input: 220 12% 88%;
+    --ring: 217 75% 48%;
 
     --radius: 1.5rem;
     /* rounded-3xl style */
@@ -112,6 +112,20 @@
 /* Animaciones suaves */
 * {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Page load fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fadeIn 0.6s ease-out;
 }
 
 /* Scroll suave */

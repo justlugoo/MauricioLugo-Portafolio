@@ -1,5 +1,6 @@
 {
   "credlyProfile": "https://www.credly.com/users/mauricio-lugo.2b7b8ee6/",
+  "googleSkillsBoostProfile": "https://www.skills.google/public_profiles/6cde65e9-e2fa-4228-8bbf-5e959034c60b",
   "certifications": [
     {
       "id": "1",
@@ -26,8 +27,26 @@
       "icon": "box"
     }
   ],
-  "inProgress": {
-    "name": "GCP Professional Cloud Architect",
-    "status": "En preparación"
-  }
+  "courses": [
+    {
+      "id": "1",
+      "name": "Cloud Digital Leader Learning Path",
+      "provider": "Google Cloud Skills Boost",
+      "url": "https://www.skills.google/paths/9"
+    }
+  ],
+  "inProgress": [
+    {
+      "id": "1",
+      "name": "Professional Cloud Architect Certification",
+      "status": "En preparación",
+      "icon": "target"
+    },
+    {
+      "id": "2",
+      "name": "Professional Cloud DevOps Engineer Certification",
+      "status": "En preparación",
+      "icon": "rocket"
+    }
+  ]
 }

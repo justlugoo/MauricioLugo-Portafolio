@@ -6,12 +6,12 @@
   "location": "Colombia",
   "locationDetail": "Cartagena de Indias, Bolívar, Colombia",
   "availability": "Disponible para trabajo remoto global",
-  "avatar": "/profile-photo.jpg",
+  "avatar": "/images/mauricio-profile.png",
   "email": "maurogranados31@gmail.com",
   "phone": "+57 320 770 4340",
   "social": {
-    "github": "https://github.com/Justlugoo",
-    "linkedin": "https://linkedin.com/in/justlugoo",
+    "github": "https://github.com/justlugoo",
+    "linkedin": "https://www.linkedin.com/in/justlugoo/",
     "website": "https://mauricio-portfolio.vercel.app"
   },
   "cv": {

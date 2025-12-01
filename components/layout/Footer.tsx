@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail, Globe } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import personalData from "@/data/personal.json"
 import config from "@/data/config.json"

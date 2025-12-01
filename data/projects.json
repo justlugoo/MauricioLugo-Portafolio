@@ -3,6 +3,7 @@
     "id": "1",
     "title": "LeadsManager",
     "description": "Sistema de gestión de clientes con FastAPI y React, containerizado con Docker.",
+    "longDescription": "Sistema completo de gestión de clientes (CRM) desarrollado con arquitectura moderna. Backend construido con FastAPI y PostgreSQL, frontend con React, todo containerizado con Docker para facilitar el despliegue y escalabilidad.",
     "image": "/images/projects/project-placeholder.svg",
     "tags": [
       "FastAPI",
@@ -10,7 +11,11 @@
       "Docker",
       "PostgreSQL"
     ],
+    "category": "fullstack",
     "featured": true,
+    "inDevelopment": false,
+    "isGroupProject": false,
+    "year": "2024",
     "links": {
       "github": "https://github.com/justlugoo/LeadsManager",
       "demo": "https://leads-manager-demo.vercel.app"
@@ -20,13 +25,18 @@
     "id": "2",
     "title": "Apero E-commerce",
     "description": "E-commerce de bebidas personalizables con Django y MySQL.",
+    "longDescription": "Plataforma de e-commerce especializada en bebidas alcohólicas personalizables. Desarrollada con Django para un backend robusto y MySQL como base de datos. Incluye carrito de compras, gestión de inventario y procesamiento de pedidos.",
     "image": "/images/projects/project-placeholder.svg",
     "tags": [
       "Django",
       "Python",
       "MySQL"
     ],
+    "category": "fullstack",
     "featured": false,
+    "inDevelopment": false,
+    "isGroupProject": false,
+    "year": "2024",
     "links": {
       "github": "https://github.com/Justlugoo/apero-ecommerce"
     }
@@ -35,6 +45,7 @@
     "id": "3",
     "title": "Plataforma RNI",
     "description": "Frontend de plataforma para gestión de relaciones nacionales e internacionales",
+    "longDescription": "Interfaz frontend moderna para una plataforma de gestión de relaciones nacionales e internacionales. Desarrollada con Next.js 14, TypeScript y Tailwind CSS, utilizando componentes de Shadcn UI. Proyecto desarrollado bajo metodología SCRUM.",
     "image": "/images/projects/project-placeholder.svg",
     "tags": [
       "TypeScript",
@@ -43,7 +54,11 @@
       "Shadcn UI",
       "SCRUM"
     ],
+    "category": "frontend",
     "featured": false,
+    "inDevelopment": false,
+    "isGroupProject": true,
+    "year": "2024",
     "links": {
       "github": "https://github.com/Justlugoo/PlataformaRNI"
     }

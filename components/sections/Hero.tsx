@@ -5,14 +5,19 @@ import { ArrowRight, Download } from "lucide-react"
 import Link from "next/link"
 import { scrollToElement } from "@/lib/utils"
 import personalData from "@/data/personal.json"
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground"
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-32 md:py-40"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 md:py-40 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto text-center space-y-12">
+      {/* Animated Background */}
+      <AnimatedBackground />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-12">
         {/* Main Heading - MASSIVE Typography */}
         <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tighter leading-none text-foreground">
           {personalData.name}
