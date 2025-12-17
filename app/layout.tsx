@@ -4,6 +4,7 @@ import { Outfit } from "next/font/google"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { Toaster } from "sonner"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 import config from "@/data/config.json"
 import "./globals.css"
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
           <Toaster position="top-right" richColors closeButton />
           <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
