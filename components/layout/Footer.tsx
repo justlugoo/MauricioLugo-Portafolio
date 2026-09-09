@@ -11,7 +11,7 @@ export function Footer() {
   const total = String(sections.length).padStart(2, "0")
 
   return (
-    <footer className="fixed bottom-0 inset-x-0 z-40 h-12 border-t border-border bg-background/95">
+    <footer className="fixed bottom-0 inset-x-0 z-40 h-12 border-t border-border bg-background">
       <div
         className="h-0.5 bg-primary transition-all duration-500"
         style={{

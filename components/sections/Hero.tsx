@@ -56,8 +56,8 @@ export function Hero() {
               variants={item}
               className="text-base md:text-lg text-foreground/90 leading-relaxed mb-6 max-w-xl"
             >
-              Construyo <span className="text-primary">backend confiable</span> y doy soporte a
-              arquitecturas <span className="text-primary">cloud que escalan</span>.
+              Diseño y construyo <span className="text-primary">sistemas completos</span>: backend
+              sólido y <span className="text-primary">arquitectura cloud propia</span>.
             </motion.p>
 
             <motion.p variants={item} className="font-mono text-sm text-primary mb-2">

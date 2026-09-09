@@ -14,25 +14,25 @@
     --popover: 40 15% 98%;
     --popover-foreground: 220 15% 10%;
 
-    --primary: 32 95% 44%;
-    /* Amber / signal accent */
+    --primary: 30 70% 48%;
+    /* Amber / signal accent — muted for a softer, pastel light theme */
     --primary-foreground: 40 20% 98%;
 
     --secondary: 40 12% 91%;
     --secondary-foreground: 220 15% 10%;
 
     --muted: 40 12% 91%;
-    --muted-foreground: 220 8% 40%;
+    --muted-foreground: 220 8% 38%;
 
-    --accent: 32 95% 44%;
+    --accent: 30 70% 48%;
     --accent-foreground: 40 20% 98%;
 
-    --destructive: 4 75% 45%;
+    --destructive: 4 65% 48%;
     --destructive-foreground: 40 20% 98%;
 
-    --border: 220 10% 78%;
-    --input: 220 10% 78%;
-    --ring: 32 95% 44%;
+    --border: 220 10% 70%;
+    --input: 220 10% 70%;
+    --ring: 30 70% 48%;
 
     --radius: 0.25rem;
   }

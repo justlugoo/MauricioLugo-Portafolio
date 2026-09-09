@@ -19,7 +19,7 @@ export function Header() {
   }
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/95">
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-background">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14 gap-4">
         {/* Logo - terminal prompt style */}
         <button
