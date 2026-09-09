@@ -1,31 +1,21 @@
 {
   "university": {
     "id": "1",
-    "institution": "Universidad/Instituto",
+    "institution": "Corporación Universitaria Rafael Núñez (CURN)",
     "degree": "Ingeniería de Sistemas",
     "level": "Pregrado",
-    "duration": "En curso - Ciclo Ingenieril",
-    "previousDegree": "Tecnólogo en Desarrollo de Sistemas de Información y Software (Completado)",
+    "duration": "En curso — grado esperado 2027",
+    "previousDegree": "Tecnología en Desarrollo de Sistemas de Información y de Software (Completado, Nov 2025)",
     "description": "Ciclo propedéutico enfocado en arquitectura de software, infraestructura y sistemas distribuidos",
     "status": "in_progress",
     "type": "university"
   },
   "courses": [
     {
-      "id": "cert-1",
-      "name": "Google Cloud Professional Cloud Architect",
-      "platform": "Google Cloud",
-      "duration": "2025 - En preparación",
-      "description": "Certificación profesional de nivel avanzado en diseño y arquitectura de soluciones cloud escalables, seguras y eficientes en Google Cloud Platform.",
-      "status": "in_progress",
-      "certificateUrl": null,
-      "progress": 60
-    },
-    {
       "id": "1",
       "name": "FastAPI - The Complete Course 2025 (Beginner + Advanced)",
       "platform": "Udemy",
-      "duration": "04/2025 – En preparación",
+      "duration": "04/2025 – En progreso, esperado 2026",
       "description": "Desarrollo de APIs RESTful y aplicaciones completas con FastAPI y Python, incluyendo autenticación moderna e implementación de bases de datos.",
       "status": "in_progress",
       "certificateUrl": null,
@@ -33,6 +23,15 @@
     },
     {
       "id": "2",
+      "name": "UiPath RPA Automation Semester Course — AI Agentic Automation",
+      "platform": "Dream to Succeed Foundation & UiPath",
+      "duration": "2025",
+      "description": "Curso semestral de automatización RPA con UiPath, con enfoque en automatización agéntica con IA.",
+      "status": "completed",
+      "certificateUrl": null
+    },
+    {
+      "id": "3",
       "name": "Marco Web Django",
       "platform": "Coursera - Meta",
       "duration": "11/2024 – 12/2024",

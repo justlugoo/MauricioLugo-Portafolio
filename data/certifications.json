@@ -1,52 +1,27 @@
 {
   "credlyProfile": "https://www.credly.com/users/mauricio-lugo.2b7b8ee6/",
-  "googleSkillsBoostProfile": "https://www.skills.google/public_profiles/6cde65e9-e2fa-4228-8bbf-5e959034c60b",
   "certifications": [
     {
       "id": "1",
-      "name": "Cloud Security",
+      "name": "Associate Cloud Engineer",
       "issuer": "Google Cloud",
+      "credentialUrl": "https://drive.google.com/file/d/1XUA8pYnv3nZYi6R0CVs0CUsOs_Kn_yWu/view?usp=sharing",
       "icon": "shield"
     },
     {
       "id": "2",
-      "name": "Networking & Load Balancing",
-      "issuer": "Google Cloud",
-      "icon": "network"
-    },
-    {
-      "id": "3",
-      "name": "Serverless (Cloud Run)",
-      "issuer": "Google Cloud",
+      "name": "UiPath RPA Automation",
+      "issuer": "UiPath & Dream to Succeed Foundation",
+      "credentialUrl": "https://drive.google.com/file/d/1N2YgioLDQxMJREZwnhofyJerYPmyNGGR/view?usp=sharing",
       "icon": "zap"
-    },
-    {
-      "id": "4",
-      "name": "Kubernetes (GKE)",
-      "issuer": "Google Cloud",
-      "icon": "box"
-    }
-  ],
-  "courses": [
-    {
-      "id": "1",
-      "name": "Cloud Digital Leader Learning Path",
-      "provider": "Google Cloud Skills Boost",
-      "url": "https://www.skills.google/paths/9"
     }
   ],
   "inProgress": [
     {
       "id": "1",
-      "name": "Professional Cloud Architect Certification",
-      "status": "En preparación",
+      "name": "FastAPI - The Complete Course (Beginner + Advanced)",
+      "status": "En progreso · Udemy",
       "icon": "target"
-    },
-    {
-      "id": "2",
-      "name": "Professional Cloud DevOps Engineer Certification",
-      "status": "En preparación",
-      "icon": "rocket"
     }
   ]
 }

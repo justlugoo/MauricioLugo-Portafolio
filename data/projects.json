@@ -1,10 +1,50 @@
 [
   {
     "id": "1",
+    "title": "Ecosistema Educativo para Instrumentación Quirúrgica",
+    "description": "Ecosistema de IA para el aprendizaje autónomo de Instrumentación Quirúrgica (CURN), con visión por computador que valida el instrumental en tiempo real.",
+    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), en conjunto con el programa de Instrumentación Quirúrgica. Su primer módulo, SIVRI, usa visión por computador (YOLO26) para validar en tiempo real la disposición del instrumental quirúrgico sobre la mesa, dando retroalimentación inmediata al estudiante.",
+    "tags": [
+      "IA Aplicada",
+      "Visión por Computador",
+      "YOLO26",
+      "Proyecto de Grado"
+    ],
+    "category": "ai",
+    "featured": true,
+    "inDevelopment": true,
+    "isGroupProject": true,
+    "year": "2026",
+    "links": {
+      "github": "https://github.com/curn-iq/iq-platform"
+    }
+  },
+  {
+    "id": "2",
+    "title": "FinCapX",
+    "description": "App de escritorio para gestión financiera personal: ingresos, gastos, tanqueos y metas de ahorro.",
+    "longDescription": "Aplicación de escritorio para Linux construida con Tauri (Rust) y Svelte. Registra ingresos, gastos y tanqueos, controla presupuestos por categoría, unifica objetivos de ahorro, deudas y préstamos en un módulo de Metas, y estima la autonomía de combustible por vehículo. Base de datos SQLite local, sin dependencias cloud. En uso personal desde junio de 2026.",
+    "tags": [
+      "Rust",
+      "Tauri",
+      "Svelte",
+      "SQLite",
+      "Linux"
+    ],
+    "category": "desktop",
+    "featured": false,
+    "inDevelopment": false,
+    "isGroupProject": false,
+    "year": "2026",
+    "links": {
+      "github": "https://github.com/justlugoo/finanzas"
+    }
+  },
+  {
+    "id": "3",
     "title": "LeadsManager",
     "description": "Sistema de gestión de clientes con FastAPI y React, containerizado con Docker.",
     "longDescription": "Sistema completo de gestión de clientes (CRM) desarrollado con arquitectura moderna. Backend construido con FastAPI y PostgreSQL, frontend con React, todo containerizado con Docker para facilitar el despliegue y escalabilidad.",
-    "image": "/images/projects/project-placeholder.svg",
     "tags": [
       "FastAPI",
       "React",
@@ -12,41 +52,19 @@
       "PostgreSQL"
     ],
     "category": "fullstack",
-    "featured": true,
-    "inDevelopment": false,
-    "isGroupProject": false,
-    "year": "2024",
-    "links": {
-      "github": "https://github.com/justlugoo/LeadsManager",
-      "demo": "https://leads-manager-demo.vercel.app"
-    }
-  },
-  {
-    "id": "2",
-    "title": "Apero E-commerce",
-    "description": "E-commerce de bebidas personalizables con Django y MySQL.",
-    "longDescription": "Plataforma de e-commerce especializada en bebidas alcohólicas personalizables. Desarrollada con Django para un backend robusto y MySQL como base de datos. Incluye carrito de compras, gestión de inventario y procesamiento de pedidos.",
-    "image": "/images/projects/project-placeholder.svg",
-    "tags": [
-      "Django",
-      "Python",
-      "MySQL"
-    ],
-    "category": "fullstack",
     "featured": false,
     "inDevelopment": false,
     "isGroupProject": false,
     "year": "2024",
     "links": {
-      "github": "https://github.com/Justlugoo/apero-ecommerce"
+      "github": "https://github.com/justlugoo/LeadsManager"
     }
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "Plataforma RNI",
     "description": "Frontend de plataforma para gestión de relaciones nacionales e internacionales",
     "longDescription": "Interfaz frontend moderna para una plataforma de gestión de relaciones nacionales e internacionales. Desarrollada con Next.js 14, TypeScript y Tailwind CSS, utilizando componentes de Shadcn UI. Proyecto desarrollado bajo metodología SCRUM.",
-    "image": "/images/projects/project-placeholder.svg",
     "tags": [
       "TypeScript",
       "Next.js",
@@ -59,8 +77,26 @@
     "inDevelopment": false,
     "isGroupProject": true,
     "year": "2024",
+    "private": true,
+    "links": {}
+  },
+  {
+    "id": "5",
+    "title": "Apero E-commerce",
+    "description": "E-commerce de bebidas personalizables con Django y MySQL.",
+    "longDescription": "Plataforma de e-commerce especializada en bebidas alcohólicas personalizables. Desarrollada con Django para un backend robusto y MySQL como base de datos. Incluye carrito de compras, gestión de inventario y procesamiento de pedidos. Uno de mis primeros proyectos.",
+    "tags": [
+      "Django",
+      "Python",
+      "MySQL"
+    ],
+    "category": "fullstack",
+    "featured": false,
+    "inDevelopment": false,
+    "isGroupProject": false,
+    "year": "2024",
     "links": {
-      "github": "https://github.com/Justlugoo/PlataformaRNI"
+      "github": "https://github.com/justlugoo/Apero-ecommerce"
     }
   }
 ]

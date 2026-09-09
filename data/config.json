@@ -1,8 +1,8 @@
 {
   "site": {
     "name": "Mauricio Lugo Portfolio",
-    "title": "Mauricio Lugo - DevOps Engineer & Cloud Architect",
-    "description": "Portfolio de Mauricio Lugo, DevOps Engineer especializado en Google Cloud Platform, Docker, Terraform y arquitectura cloud escalable",
+    "title": "Mauricio Lugo - Ingeniería de Sistemas | Backend & Cloud",
+    "description": "Portfolio de Mauricio Lugo, estudiante de Ingeniería de Sistemas con experiencia en desarrollo backend (Python, Rust) y soporte de infraestructura en Google Cloud Platform",
     "url": "https://mauricio-portfolio.vercel.app",
     "locale": "es-CO",
     "author": "Mauricio Lugo"
@@ -25,18 +25,18 @@
       "order": 1
     },
     {
-      "name": "Sobre mí",
-      "href": "#about",
-      "order": 2
-    },
-    {
       "name": "Experiencia",
       "href": "#experience",
-      "order": 3
+      "order": 2
     },
     {
       "name": "Proyectos",
       "href": "#projects",
+      "order": 3
+    },
+    {
+      "name": "Certificaciones",
+      "href": "#certifications",
       "order": 4
     },
     {
@@ -45,29 +45,22 @@
       "order": 5
     },
     {
-      "name": "Certificaciones",
-      "href": "#certifications",
-      "order": 6
-    },
-    {
       "name": "Contacto",
       "href": "#contact",
-      "order": 7
+      "order": 6
     }
   ],
   "seo": {
     "keywords": [
-      "devops",
-      "cloud engineer",
+      "ingeniería de sistemas",
+      "backend developer",
       "google cloud platform",
       "gcp",
+      "python",
+      "rust",
+      "fastapi",
       "docker",
       "terraform",
-      "kubernetes",
-      "fastapi",
-      "python",
-      "infraestructura cloud",
-      "ci/cd",
       "portfolio"
     ],
     "ogImage": "/og-image.png",

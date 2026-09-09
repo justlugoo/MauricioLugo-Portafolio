@@ -2,54 +2,44 @@
   {
     "id": "1",
     "company": "38 Grados Lab",
-    "position": "Practicante DevOps",
+    "position": "Backend e Ingeniero Cloud Intern",
     "duration": "Julio 2025 - Noviembre 2025",
     "durationShort": "5 meses",
-    "description": "Pasantía profesional diseñando y optimizando infraestructura cloud para multiples empresas/startups, con enfoque en Google Cloud Platform y prácticas DevOps modernas.",
+    "description": "Pasantía remota en arquitectura cloud (GCP) para múltiples clientes.",
     "achievements": [
-      "Arquitecturé soluciones cloud en GCP",
-      "Administración de procesos DevOps reduciendo tiempo de deployment y mejorando consistencia",
-      "Implementación de buenas prácticas de arquitectura cloud y logica de negocio",
-      "Documentación de procesos y flujos operativos"
+      "Apoyé el diseño de arquitecturas cloud en GCP, con documentación técnica y evaluaciones de modernización",
+      "Participé en la planeación y análisis técnico de proyectos como ASCyber, Hyatsi, Vemobile y UniDigiHub",
+      "Colaboré directamente con clientes, traduciendo requerimientos de negocio en especificaciones técnicas"
     ],
     "technologies": [
       "Google Cloud Platform",
-      "Docker",
       "Terraform",
-      "GitHub Actions",
-      "Cloud Run",
-      "GKE",
-      "Load Balancing",
-      "VPC Network",
-      "Monitoring & Logging"
+      "Docker",
+      "Linux/Bash",
+      "PostgreSQL"
     ],
-    "type": "internship",
+    "type": "professional",
     "current": false,
     "featured": true
   },
   {
     "id": "2",
-    "company": "Proyectos Académicos",
-    "position": "Full Stack Developer",
-    "duration": "2023 - actualidad",
-    "durationShort": "2 años",
-    "description": "Desarrollo de aplicaciones web full-stack con enfoque en backend robusto, APIs RESTful y buenas prácticas de arquitectura.",
+    "company": "Corporación Universitaria Rafael Núñez",
+    "position": "Frontend Developer — Relaciones Nacionales e Internacionales (RNI)",
+    "duration": "Enero 2025 - Diciembre 2025",
+    "durationShort": "1 año",
+    "description": "Desarrollo frontend para digitalizar procesos administrativos internos.",
     "achievements": [
-      "Desarrollé múltiples aplicaciones con Python (FastAPI/Django) y NextJS",
-      "Implementé arquitecturas MVC y patrones de diseño escalables",
-      "Integré bases de datos relacionales (PostgreSQL, MySQL) con ORMs",
-      "Containericé aplicaciones con Docker para deployment consistente"
+      "Desarrollé funcionalidades con Next.js y TypeScript para la plataforma interna",
+      "Contribuí a migrar flujos administrativos legacy a una interfaz web moderna"
     ],
     "technologies": [
-      "Python",
-      "FastAPI",
-      "Django",
-      "NextJS",
+      "Next.js",
       "TypeScript",
-      "PostgreSQL",
-      "Docker"
+      "Tailwind CSS",
+      "Shadcn UI"
     ],
-    "type": "academic",
+    "type": "professional",
     "current": false,
     "featured": false
   }

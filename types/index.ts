@@ -20,10 +20,6 @@ export interface PersonalInfo {
     title: string
     description: string
   }
-  headline: {
-    main: string
-    sub: string
-  }
   highlights: string[]
 }
 
@@ -33,27 +29,17 @@ export interface Project {
   title: string
   description: string
   longDescription: string
-  image: string
   tags: string[]
-  category: 'fullstack' | 'frontend' | 'backend' | 'mobile' | 'devops'
+  category: 'fullstack' | 'frontend' | 'backend' | 'mobile' | 'devops' | 'desktop' | 'ai'
   featured: boolean
   inDevelopment: boolean
   isGroupProject: boolean
-  devopsHighlights?: string[]
+  private?: boolean
   links: {
     github?: string
     demo?: string
   }
   year: string
-  techStack?: {
-    backend?: string[]
-    frontend?: string[]
-    devops?: string[]
-    iac?: string[]
-    scripting?: string[]
-    'ci-cd'?: string[]
-    cloud?: string[]
-  }
 }
 
 // Skills
@@ -90,31 +76,21 @@ export interface Certification {
   id: string
   name: string
   issuer: string
-  category: string
-  date: string
   credentialUrl: string
-  badgeUrl: string
-  skills: string[]
-  featured: boolean
+  icon: string
 }
 
 export interface CertificationInProgress {
   id: string
   name: string
-  issuer: string
-  expectedDate: string
   status: string
-  progress: number
-  description: string
+  icon: string
 }
 
 export interface CertificationsData {
+  credlyProfile: string
   certifications: Certification[]
   inProgress: CertificationInProgress[]
-  stats: {
-    total: number
-    categories: Record<string, number>
-  }
 }
 
 // Education

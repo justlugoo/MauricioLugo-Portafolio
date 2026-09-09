@@ -21,16 +21,6 @@ export function formatDate(date: Date | string): string {
 }
 
 /**
- * Smooth scroll to an element
- */
-export function scrollToElement(elementId: string) {
-  const element = document.querySelector(elementId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
-/**
  * Check if running on client side
  */
 export function isClient(): boolean {
