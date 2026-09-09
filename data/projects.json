@@ -2,12 +2,12 @@
   {
     "id": "1",
     "title": "SIVRI",
-    "description": "Sistema de visión artificial que valida en tiempo real la disposición de instrumental quirúrgico en mesa.",
-    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), desarrollado junto al programa de Instrumentación Quirúrgica. Usa YOLO26 para reconocer instrumental quirúrgico por cámara y validar si la disposición en mesa corresponde al tiempo quirúrgico evaluado, entregando retroalimentación inmediata al estudiante. Defensa estimada antes de noviembre de 2026.",
+    "description": "Ecosistema de IA para el aprendizaje autónomo en Instrumentación Quirúrgica: visión por computador que valida el instrumental en tiempo real.",
+    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), en conjunto con el programa de Instrumentación Quirúrgica. Propone un ecosistema de IA para el aprendizaje autónomo de los estudiantes de IQ, cerrando la brecha de retroalimentación objetiva fuera del laboratorio. Integra tres componentes: SIVRI, visión por computador (YOLO26) que valida en tiempo real la disposición del instrumental sobre la mesa; DataIQ, una plataforma web que digitaliza el conocimiento clínico en un dataset escalable; y SIMIQ3D, un entorno interactivo de exploración 3D de las configuraciones de mesa. Juntos automatizan la validación de la práctica estudiantil y reducen la dependencia de la supervisión docente presencial.",
     "tags": [
-      "Visión Artificial",
+      "Visión por Computador",
       "YOLO26",
-      "Python",
+      "IA Aplicada",
       "Proyecto de Grado"
     ],
     "category": "ai",
@@ -15,7 +15,9 @@
     "inDevelopment": true,
     "isGroupProject": true,
     "year": "2026",
-    "links": {}
+    "links": {
+      "github": "https://github.com/curn-iq/iq-platform"
+    }
   },
   {
     "id": "2",
@@ -75,9 +77,8 @@
     "inDevelopment": false,
     "isGroupProject": true,
     "year": "2024",
-    "links": {
-      "github": "https://github.com/Justlugoo/PlataformaRNI"
-    }
+    "private": true,
+    "links": {}
   },
   {
     "id": "5",

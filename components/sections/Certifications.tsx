@@ -20,7 +20,7 @@ export function Certifications() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
-            index="05"
+            index="04"
             title="Certificaciones"
             subtitle="Aprendizaje continuo y validación de conocimientos"
           />
@@ -44,32 +44,31 @@ export function Certifications() {
         )}
 
         <ScrollReveal delay={0.15}>
-          <div className="border-t border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border">
             {certifications.map((cert) => {
               const Icon = certIconMap[cert.icon] || Shield
               return (
-                <div
+                <Link
                   key={cert.id}
-                  className="py-5 border-b border-border flex items-center justify-between gap-4 flex-wrap"
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-background hover:bg-secondary/40 transition-colors p-6 flex items-start gap-4"
                 >
-                  <div className="flex items-center gap-3">
-                    <Icon className="h-4 w-4 text-primary shrink-0" />
-                    <div>
-                      <p className="text-foreground font-medium">{cert.name}</p>
-                      <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                    </div>
+                  <div className="shrink-0 w-11 h-11 border border-primary/40 flex items-center justify-center">
+                    <Icon className="h-5 w-5 text-primary" />
                   </div>
-
-                  <Link
-                    href={cert.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-sm text-primary hover:underline underline-offset-4 inline-flex items-center gap-1.5 shrink-0"
-                  >
-                    Ver credencial
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
+                  <div className="min-w-0">
+                    <p className="text-foreground font-semibold text-lg leading-tight">
+                      {cert.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-3">{cert.issuer}</p>
+                    <span className="font-mono text-xs text-primary inline-flex items-center gap-1.5 group-hover:underline underline-offset-4">
+                      Ver credencial
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
               )
             })}
           </div>

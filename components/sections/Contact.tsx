@@ -71,11 +71,14 @@ export function Contact() {
     <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
-          <SectionTitle
-            index="06"
-            title="Contacto"
-            subtitle="Estoy disponible para nuevos proyectos y colaboraciones"
-          />
+          <SectionTitle index="06" title="Contacto" />
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.05}>
+          <div className="inline-flex items-center gap-2 border border-primary/40 px-4 py-2 mb-10 font-mono text-xs uppercase tracking-wide">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-primary">{personalData.availability}</span>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
@@ -85,7 +88,7 @@ export function Contact() {
               <div className="space-y-6">
                 <div>
                   <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground mb-1.5 flex items-center gap-1.5">
-                    <Mail className="h-3.5 w-3.5" /> email
+                    <Mail className="h-3.5 w-3.5" /> correo
                   </p>
                   <a
                     href={`mailto:${personalData.email}`}

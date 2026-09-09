@@ -15,7 +15,7 @@
     },
     {
       "id": "backend",
-      "name": "Backend Development",
+      "name": "Desarrollo Backend",
       "icon": "server",
       "order": 2,
       "featured": true,
@@ -31,7 +31,7 @@
     },
     {
       "id": "frontend",
-      "name": "Frontend & Otros",
+      "name": "Frontend y Otros",
       "icon": "monitor",
       "order": 3,
       "featured": false,
@@ -46,7 +46,7 @@
     },
     {
       "id": "tools",
-      "name": "Tools & Platforms",
+      "name": "Herramientas y Plataformas",
       "icon": "wrench",
       "order": 4,
       "featured": false,

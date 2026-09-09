@@ -34,6 +34,7 @@ export interface Project {
   featured: boolean
   inDevelopment: boolean
   isGroupProject: boolean
+  private?: boolean
   links: {
     github?: string
     demo?: string

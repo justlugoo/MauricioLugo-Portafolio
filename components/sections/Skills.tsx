@@ -21,7 +21,7 @@ export function Skills() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
-            index="04"
+            index="05"
             title="Tecnologías"
             subtitle="Herramientas y frameworks con los que construyo soluciones"
           />

@@ -19,7 +19,7 @@ interface SectionPagerContextValue {
 
 const SectionPagerContext = createContext<SectionPagerContextValue | null>(null)
 
-const TRANSITION_LOCK_MS = 450
+const TRANSITION_LOCK_MS = 550
 const WHEEL_THRESHOLD = 20
 const SWIPE_THRESHOLD = 50
 

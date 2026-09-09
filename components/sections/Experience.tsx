@@ -26,14 +26,10 @@ export function Experience() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">
+                  <h3 className="text-2xl font-semibold text-foreground">
                     {exp.position}
                   </h3>
-                  <p className="text-muted-foreground mb-4">{exp.company}</p>
-
-                  <p className="text-muted-foreground leading-relaxed mb-5">
-                    {exp.description}
-                  </p>
+                  <p className="text-muted-foreground mb-5">{exp.company}</p>
 
                   <ul className="space-y-2 mb-5">
                     {exp.achievements.map((achievement, i) => (

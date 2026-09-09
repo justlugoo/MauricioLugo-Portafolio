@@ -40,13 +40,13 @@
       "order": 4
     },
     {
-      "name": "Habilidades",
-      "href": "#skills",
+      "name": "Certificaciones",
+      "href": "#certifications",
       "order": 5
     },
     {
-      "name": "Certificaciones",
-      "href": "#certifications",
+      "name": "Habilidades",
+      "href": "#skills",
       "order": 6
     },
     {

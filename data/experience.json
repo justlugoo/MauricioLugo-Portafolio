@@ -5,13 +5,11 @@
     "position": "Backend & Cloud Engineering Intern",
     "duration": "Julio 2025 - Noviembre 2025",
     "durationShort": "5 meses",
-    "description": "Pasantía remota apoyando el diseño de arquitecturas cloud en GCP para distintos clientes, con foco en documentación técnica y evaluación de estrategias de modernización de infraestructura.",
+    "description": "Pasantía remota en arquitectura cloud (GCP) para múltiples clientes.",
     "achievements": [
-      "Apoyé el diseño de arquitecturas cloud en GCP, con documentación técnica y evaluaciones de modernización de infraestructura",
-      "Contribuí a análisis comparativos entre migración e implementación desde cero, enfocados en costo-eficiencia y continuidad de negocio",
-      "Participé en la planeación arquitectónica y el análisis técnico de proyectos como ASCyber, Hyatsi, Vemobile y UniDigiHub",
-      "Documenté procesos operativos y flujos de trabajo, estandarizando entregables técnicos para equipos multidisciplinarios",
-      "Colaboré directamente con clientes para levantar requerimientos y traducirlos en especificaciones técnicas"
+      "Apoyé el diseño de arquitecturas cloud en GCP, con documentación técnica y evaluaciones de modernización",
+      "Participé en la planeación y análisis técnico de proyectos como ASCyber, Hyatsi, Vemobile y UniDigiHub",
+      "Colaboré directamente con clientes, traduciendo requerimientos de negocio en especificaciones técnicas"
     ],
     "technologies": [
       "Google Cloud Platform",
@@ -30,11 +28,10 @@
     "position": "Frontend Developer — Relaciones Nacionales e Internacionales (RNI)",
     "duration": "Enero 2025 - Diciembre 2025",
     "durationShort": "1 año",
-    "description": "Desarrollo frontend para una plataforma interna que digitaliza procesos administrativos manuales, antes gestionados en Google Workspace, en una aplicación web centralizada.",
+    "description": "Desarrollo frontend para digitalizar procesos administrativos internos.",
     "achievements": [
-      "Desarrollé funcionalidades frontend con Next.js y TypeScript para la plataforma interna",
-      "Colaboré con equipos multidisciplinarios para definir requerimientos UI/UX e implementar componentes de visualización de datos",
-      "Contribuí a migrar flujos administrativos legacy a una interfaz web moderna y mantenible"
+      "Desarrollé funcionalidades con Next.js y TypeScript para la plataforma interna",
+      "Contribuí a migrar flujos administrativos legacy a una interfaz web moderna"
     ],
     "technologies": [
       "Next.js",

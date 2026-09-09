@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react"
+import { Github, ExternalLink, ArrowUpRight, Lock } from "lucide-react"
 import { SkillBadge } from "@/components/shared/SkillBadge"
 import type { Project } from "@/types"
 
@@ -90,6 +90,15 @@ function ProjectLinks({ project, compact = false }: { project: Project; compact?
   const hasDemo = Boolean(project.links.demo)
 
   if (!hasGithub && !hasDemo) {
+    if (project.private) {
+      return (
+        <div className="inline-flex items-center gap-1.5 font-mono text-sm text-muted-foreground/70">
+          <Github className="h-4 w-4" />
+          <Lock className="h-3 w-3" />
+          Privado
+        </div>
+      )
+    }
     return null
   }
 
