@@ -25,34 +25,29 @@
       "order": 1
     },
     {
-      "name": "Sobre mí",
-      "href": "#about",
-      "order": 2
-    },
-    {
       "name": "Experiencia",
       "href": "#experience",
-      "order": 3
+      "order": 2
     },
     {
       "name": "Proyectos",
       "href": "#projects",
-      "order": 4
+      "order": 3
     },
     {
       "name": "Certificaciones",
       "href": "#certifications",
-      "order": 5
+      "order": 4
     },
     {
       "name": "Habilidades",
       "href": "#skills",
-      "order": 6
+      "order": 5
     },
     {
       "name": "Contacto",
       "href": "#contact",
-      "order": 7
+      "order": 6
     }
   ],
   "seo": {

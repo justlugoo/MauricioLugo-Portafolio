@@ -2,6 +2,7 @@
 
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { SkillBadge } from "@/components/shared/SkillBadge"
+import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import experienceData from "@/data/experience.json"
 import { ScrollReveal } from "@/components/ui/ScrollReveal"
 
@@ -11,10 +12,14 @@ export function Experience() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
-            index="02"
+            index="01"
             title="Experiencia"
             subtitle="Trayectoria profesional y logros destacados"
           />
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.05}>
+          <TerminalPrompt command="git log --oneline" />
         </ScrollReveal>
 
         <div className="border-t border-border">

@@ -2,25 +2,26 @@
 
 import { motion, type Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, FileText } from "lucide-react"
 import Link from "next/link"
 import personalData from "@/data/personal.json"
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground"
+import { TerminalWindow } from "@/components/shared/TerminalWindow"
 import { useSectionPager } from "@/hooks/useSectionPager"
 
 const container: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
   },
 }
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const },
   },
 }
 
@@ -31,64 +32,78 @@ export function Hero() {
     <>
       <AnimatedBackground />
 
-      {/* Oversized watermark, purely decorative */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute right-0 bottom-0 translate-x-[10%] translate-y-[18%] font-mono font-bold text-foreground/[0.04] text-[28vw] leading-none"
-      >
-        {"</>"}
-      </span>
+      <div className="relative z-10 max-w-2xl mx-auto w-full">
+        <TerminalWindow title="mauricio@lugo — zsh — 80x24">
+          <motion.div initial="hidden" animate="visible" variants={container}>
+            <motion.p variants={item} className="font-mono text-sm text-primary mb-2">
+              <span className="text-muted-foreground">$</span> whoami
+            </motion.p>
+            <motion.h1
+              variants={item}
+              className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-1 leading-tight"
+            >
+              {personalData.name}
+              <span className="cursor-blink text-primary">_</span>
+            </motion.h1>
+            <motion.p variants={item} className="text-lg md:text-xl text-foreground/80 mb-6">
+              {personalData.title}
+            </motion.p>
 
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={container}
-        className="relative z-10 max-w-3xl mx-auto w-full"
-      >
-        <motion.p variants={item} className="font-mono text-sm text-primary mb-6">
-          <span className="text-muted-foreground">$</span> whoami
-        </motion.p>
+            <motion.p variants={item} className="font-mono text-sm text-primary mb-2">
+              <span className="text-muted-foreground">$</span> cat mision.txt
+            </motion.p>
+            <motion.p
+              variants={item}
+              className="text-base md:text-lg text-foreground/90 leading-relaxed mb-6 max-w-xl"
+            >
+              Construyo <span className="text-primary">backend confiable</span> y doy soporte a
+              arquitecturas <span className="text-primary">cloud que escalan</span>.
+            </motion.p>
 
-        <motion.h1
-          variants={item}
-          className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-5 leading-[0.95]"
-        >
-          {personalData.name}
-          <span className="cursor-blink text-primary">_</span>
-        </motion.h1>
+            <motion.p variants={item} className="font-mono text-sm text-primary mb-2">
+              <span className="text-muted-foreground">$</span> cat status.json
+            </motion.p>
+            <motion.div
+              variants={item}
+              className="border border-border grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border font-mono text-xs mb-8"
+            >
+              <div className="p-3">
+                <span className="block mb-1 text-muted-foreground">ubicación</span>
+                <span className="text-foreground">{personalData.location}</span>
+              </div>
+              <div className="p-3">
+                <span className="block mb-1 text-muted-foreground">enfoque</span>
+                <span className="text-foreground">Backend &amp; Cloud</span>
+              </div>
+              <div className="p-3">
+                <span className="block mb-1 text-muted-foreground">estado</span>
+                <span className="text-primary">{personalData.availability}</span>
+              </div>
+            </motion.div>
 
-        <motion.p variants={item} className="text-xl md:text-2xl lg:text-3xl text-foreground/80 mb-6">
-          {personalData.title}
-        </motion.p>
+            <motion.div variants={item} className="flex flex-wrap gap-4">
+              <Button
+                onClick={() => goToId("projects")}
+                className="rounded-none px-6 h-11 font-mono text-sm uppercase tracking-wide bg-primary hover:bg-primary/90"
+              >
+                Ver Trabajo
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
 
-        <motion.p
-          variants={item}
-          className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10 border-l-2 border-primary/50 pl-4"
-        >
-          {personalData.tagline}
-        </motion.p>
-
-        <motion.div variants={item} className="flex flex-wrap gap-4">
-          <Button
-            onClick={() => goToId("projects")}
-            className="rounded-none px-6 h-12 font-mono text-sm uppercase tracking-wide bg-primary hover:bg-primary/90"
-          >
-            Ver Trabajo
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-
-          <Button
-            variant="outline"
-            className="rounded-none px-6 h-12 font-mono text-sm uppercase tracking-wide border-border hover:bg-secondary"
-            asChild
-          >
-            <Link href={personalData.cv.url} target="_blank" rel="noopener noreferrer">
-              <Download className="mr-2 h-4 w-4" />
-              Descargar CV
-            </Link>
-          </Button>
-        </motion.div>
-      </motion.div>
+              <Button
+                variant="outline"
+                className="rounded-none px-6 h-11 font-mono text-sm uppercase tracking-wide border-border hover:bg-secondary"
+                asChild
+              >
+                <Link href={personalData.cv.url} target="_blank" rel="noopener noreferrer">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Ver CV
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </TerminalWindow>
+      </div>
     </>
   )
 }

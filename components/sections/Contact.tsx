@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Mail, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin } from "lucide-react"
 import { SectionTitle } from "@/components/shared/SectionTitle"
+import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import { toast } from "sonner"
 import emailjs from "@emailjs/browser"
 import personalData from "@/data/personal.json"
@@ -71,7 +72,11 @@ export function Contact() {
     <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
-          <SectionTitle index="06" title="Contacto" />
+          <SectionTitle index="05" title="Contacto" />
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.03}>
+          <TerminalPrompt command="curl -X POST /contact" />
         </ScrollReveal>
 
         <ScrollReveal delay={0.05}>

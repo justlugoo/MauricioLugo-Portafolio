@@ -1,6 +1,7 @@
 "use client"
 
 import { SectionTitle } from "@/components/shared/SectionTitle"
+import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import { ProjectCard } from "@/components/shared/ProjectCard"
 import projectsDataRaw from "@/data/projects.json"
 import { ScrollReveal } from "@/components/ui/ScrollReveal"
@@ -17,10 +18,14 @@ export function Projects() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
-            index="03"
+            index="02"
             title="Proyectos"
             subtitle="Algunas de las soluciones que he desarrollado usando tecnologías modernas"
           />
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.05}>
+          <TerminalPrompt command="ls -la ~/proyectos" />
         </ScrollReveal>
 
         {spotlight && (

@@ -1,6 +1,7 @@
 "use client"
 
 import { SectionTitle } from "@/components/shared/SectionTitle"
+import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Shield, Zap, type LucideIcon } from "lucide-react"
 import Link from "next/link"
@@ -20,10 +21,14 @@ export function Certifications() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
-            index="04"
+            index="03"
             title="Certificaciones"
             subtitle="Aprendizaje continuo y validación de conocimientos"
           />
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.05}>
+          <TerminalPrompt command="ls ~/certs" />
         </ScrollReveal>
 
         {inProgress && inProgress.length > 0 && (

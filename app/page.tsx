@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/Footer"
 import { PagerEdgeControls } from "@/components/layout/PagerEdgeControls"
 import { SectionSlide } from "@/components/layout/SectionSlide"
 import { Hero } from "@/components/sections/Hero"
-import { About } from "@/components/sections/About"
 import { Experience } from "@/components/sections/Experience"
 import { Projects } from "@/components/sections/Projects"
 import { Certifications } from "@/components/sections/Certifications"
@@ -15,7 +14,6 @@ import { SectionPagerProvider, useSectionPager } from "@/hooks/useSectionPager"
 
 const SECTION_IDS = [
   "hero",
-  "about",
   "experience",
   "projects",
   "certifications",
@@ -36,9 +34,6 @@ function PagerTrack() {
     >
       <SectionSlide id="hero">
         <Hero />
-      </SectionSlide>
-      <SectionSlide id="about">
-        <About />
       </SectionSlide>
       <SectionSlide id="experience">
         <Experience />
