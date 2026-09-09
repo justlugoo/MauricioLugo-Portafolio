@@ -13,7 +13,7 @@ export function Projects() {
   const rest = projectsData.filter((p) => !p.featured)
 
   return (
-    <section id="projects" className="py-16 md:py-20 px-6 border-t border-border">
+    <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
@@ -41,6 +41,6 @@ export function Projects() {
           </ScrollReveal>
         )}
       </div>
-    </section>
+    </div>
   )
 }

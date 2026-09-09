@@ -17,7 +17,7 @@ export function Skills() {
   const sortedCategories = skillsData.categories.sort((a, b) => a.order - b.order)
 
   return (
-    <section id="skills" className="py-16 md:py-20 px-6 border-t border-border">
+    <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
@@ -49,6 +49,6 @@ export function Skills() {
           </div>
         </ScrollReveal>
       </div>
-    </section>
+    </div>
   )
 }

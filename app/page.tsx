@@ -1,5 +1,8 @@
+"use client"
+
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
+import { SectionSlide } from "@/components/layout/SectionSlide"
 import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
 import { Experience } from "@/components/sections/Experience"
@@ -7,19 +10,62 @@ import { Projects } from "@/components/sections/Projects"
 import { Skills } from "@/components/sections/Skills"
 import { Certifications } from "@/components/sections/Certifications"
 import { Contact } from "@/components/sections/Contact"
+import { SectionPagerProvider, useSectionPager } from "@/hooks/useSectionPager"
+
+const SECTION_IDS = [
+  "hero",
+  "about",
+  "experience",
+  "projects",
+  "skills",
+  "certifications",
+  "contact",
+]
+
+function PagerTrack() {
+  const { activeIndex, registerSectionRef } = useSectionPager()
+
+  return (
+    <div
+      className="w-full transition-transform duration-700"
+      style={{
+        transform: `translateY(-${activeIndex * 100}dvh)`,
+        transitionTimingFunction: "cubic-bezier(0.65, 0, 0.35, 1)",
+      }}
+    >
+      <SectionSlide id="hero" ref={registerSectionRef(0)}>
+        <Hero />
+      </SectionSlide>
+      <SectionSlide id="about" ref={registerSectionRef(1)}>
+        <About />
+      </SectionSlide>
+      <SectionSlide id="experience" ref={registerSectionRef(2)}>
+        <Experience />
+      </SectionSlide>
+      <SectionSlide id="projects" ref={registerSectionRef(3)}>
+        <Projects />
+      </SectionSlide>
+      <SectionSlide id="skills" ref={registerSectionRef(4)}>
+        <Skills />
+      </SectionSlide>
+      <SectionSlide id="certifications" ref={registerSectionRef(5)}>
+        <Certifications />
+      </SectionSlide>
+      <SectionSlide id="contact" ref={registerSectionRef(6)}>
+        <Contact />
+      </SectionSlide>
+    </div>
+  )
+}
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Certifications />
-      <Contact />
-      <Footer />
-    </main>
+    <SectionPagerProvider sections={SECTION_IDS}>
+      <main className="fixed inset-0 overflow-hidden">
+        <Header />
+        <PagerTrack />
+        <Footer />
+      </main>
+    </SectionPagerProvider>
   )
 }

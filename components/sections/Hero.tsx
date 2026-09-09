@@ -3,16 +3,15 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download } from "lucide-react"
 import Link from "next/link"
-import { scrollToElement } from "@/lib/utils"
 import personalData from "@/data/personal.json"
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground"
+import { useSectionPager } from "@/hooks/useSectionPager"
 
 export function Hero() {
+  const { goToId } = useSectionPager()
+
   return (
-    <section
-      id="hero"
-      className="relative min-h-[90vh] flex items-center px-6 pt-24 pb-16 overflow-hidden"
-    >
+    <>
       <AnimatedBackground />
 
       <div className="relative z-10 max-w-3xl mx-auto w-full">
@@ -35,7 +34,7 @@ export function Hero() {
 
         <div className="flex flex-wrap gap-4">
           <Button
-            onClick={() => scrollToElement("#experience")}
+            onClick={() => goToId("experience")}
             className="rounded-none px-6 h-11 font-mono text-sm uppercase tracking-wide bg-primary hover:bg-primary/90"
           >
             Ver Trabajo
@@ -54,6 +53,6 @@ export function Hero() {
           </Button>
         </div>
       </div>
-    </section>
+    </>
   )
 }

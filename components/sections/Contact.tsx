@@ -68,7 +68,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-20 px-6 border-t border-border">
+    <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
@@ -199,6 +199,6 @@ export function Contact() {
           </div>
         </ScrollReveal>
       </div>
-    </section>
+    </div>
   )
 }

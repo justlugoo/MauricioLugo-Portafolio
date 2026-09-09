@@ -6,7 +6,7 @@ import personalData from "@/data/personal.json"
 
 export function About() {
   return (
-    <section id="about" className="py-16 md:py-20 px-6 border-t border-border">
+    <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle index="01" title="Sobre mí" />
@@ -35,6 +35,6 @@ export function About() {
           </p>
         </ScrollReveal>
       </div>
-    </section>
+    </div>
   )
 }

@@ -16,7 +16,7 @@ export function Certifications() {
   const { credlyProfile, certifications, inProgress } = certificationsData
 
   return (
-    <section id="certifications" className="py-16 md:py-20 px-6 border-t border-border">
+    <div className="w-full">
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
@@ -90,6 +90,6 @@ export function Certifications() {
           </div>
         </ScrollReveal>
       </div>
-    </section>
+    </div>
   )
 }
