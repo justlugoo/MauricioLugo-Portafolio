@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronUp, ChevronDown, Github, Linkedin, Mail } from "lucide-react"
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail } from "lucide-react"
 import personalData from "@/data/personal.json"
 import { useSectionPager } from "@/hooks/useSectionPager"
 
@@ -13,11 +13,8 @@ export function Footer() {
   return (
     <footer className="fixed bottom-0 inset-x-0 z-40 h-12 border-t border-border bg-background/95">
       <div
-        className="h-0.5 bg-primary transition-all duration-700"
-        style={{
-          width: `${((activeIndex + 1) / sections.length) * 100}%`,
-          transitionTimingFunction: "cubic-bezier(0.65, 0, 0.35, 1)",
-        }}
+        className="h-0.5 bg-primary transition-all duration-300 ease-out"
+        style={{ width: `${((activeIndex + 1) / sections.length) * 100}%` }}
       />
       <div className="h-[calc(3rem-2px)] max-w-5xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-3 font-mono text-xs text-muted-foreground">
@@ -27,7 +24,7 @@ export function Footer() {
             aria-label="Sección anterior"
             className="hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
           >
-            <ChevronUp className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
           </button>
           <span>
             <span className="text-primary">{current}</span>
@@ -40,7 +37,7 @@ export function Footer() {
             aria-label="Sección siguiente"
             className="hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
           >
-            <ChevronDown className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
           </button>
         </div>
 

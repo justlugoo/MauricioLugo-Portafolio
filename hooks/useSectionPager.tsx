@@ -15,13 +15,12 @@ interface SectionPagerContextValue {
   activeIndex: number
   goTo: (index: number) => void
   goToId: (id: string) => void
-  registerSectionRef: (index: number) => (el: HTMLDivElement | null) => void
 }
 
 const SectionPagerContext = createContext<SectionPagerContextValue | null>(null)
 
-const TRANSITION_LOCK_MS = 700
-const WHEEL_THRESHOLD = 24
+const TRANSITION_LOCK_MS = 450
+const WHEEL_THRESHOLD = 20
 const SWIPE_THRESHOLD = 50
 
 export function SectionPagerProvider({
@@ -34,8 +33,7 @@ export function SectionPagerProvider({
   const [activeIndex, setActiveIndex] = useState(0)
   const activeIndexRef = useRef(0)
   const isAnimating = useRef(false)
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
-  const touchStartY = useRef<number | null>(null)
+  const touchStart = useRef<{ x: number; y: number } | null>(null)
 
   const goTo = useCallback(
     (index: number) => {
@@ -59,39 +57,18 @@ export function SectionPagerProvider({
     [sections, goTo]
   )
 
-  const registerSectionRef = useCallback(
-    (index: number) => (el: HTMLDivElement | null) => {
-      sectionRefs.current[index] = el
-    },
-    []
-  )
-
   useEffect(() => {
-    const getEdges = () => {
-      const container = sectionRefs.current[activeIndexRef.current]
-      if (!container) return { atTop: true, atBottom: true }
-      const atTop = container.scrollTop <= 1
-      const atBottom =
-        container.scrollTop + container.clientHeight >= container.scrollHeight - 1
-      return { atTop, atBottom }
-    }
-
+    // Horizontal paging only: a purely vertical gesture always scrolls the
+    // active section's own content, never advances the page.
     const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
+      if (Math.abs(e.deltaX) < WHEEL_THRESHOLD) return
       if (isAnimating.current) {
         e.preventDefault()
         return
       }
-      if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return
-
-      const { atTop, atBottom } = getEdges()
-
-      if (e.deltaY > 0 && atBottom) {
-        e.preventDefault()
-        goTo(activeIndexRef.current + 1)
-      } else if (e.deltaY < 0 && atTop) {
-        e.preventDefault()
-        goTo(activeIndexRef.current - 1)
-      }
+      e.preventDefault()
+      goTo(activeIndexRef.current + (e.deltaX > 0 ? 1 : -1))
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -100,10 +77,10 @@ export function SectionPagerProvider({
       if (tag === "INPUT" || tag === "TEXTAREA" || target?.isContentEditable) return
       if (isAnimating.current) return
 
-      if (e.key === "ArrowDown" || e.key === "PageDown") {
+      if (e.key === "ArrowRight") {
         e.preventDefault()
         goTo(activeIndexRef.current + 1)
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+      } else if (e.key === "ArrowLeft") {
         e.preventDefault()
         goTo(activeIndexRef.current - 1)
       } else if (e.key === "Home") {
@@ -116,23 +93,23 @@ export function SectionPagerProvider({
     }
 
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0]?.clientY ?? null
+      const t = e.touches[0]
+      touchStart.current = t ? { x: t.clientX, y: t.clientY } : null
     }
 
     const handleTouchEnd = (e: TouchEvent) => {
-      if (touchStartY.current === null || isAnimating.current) return
-      const endY = e.changedTouches[0]?.clientY ?? touchStartY.current
-      const deltaY = touchStartY.current - endY
-      touchStartY.current = null
-      if (Math.abs(deltaY) < SWIPE_THRESHOLD) return
+      if (!touchStart.current || isAnimating.current) return
+      const t = e.changedTouches[0]
+      const start = touchStart.current
+      touchStart.current = null
+      if (!t) return
 
-      const { atTop, atBottom } = getEdges()
+      const deltaX = start.x - t.clientX
+      const deltaY = start.y - t.clientY
+      if (Math.abs(deltaX) <= Math.abs(deltaY)) return
+      if (Math.abs(deltaX) < SWIPE_THRESHOLD) return
 
-      if (deltaY > 0 && atBottom) {
-        goTo(activeIndexRef.current + 1)
-      } else if (deltaY < 0 && atTop) {
-        goTo(activeIndexRef.current - 1)
-      }
+      goTo(activeIndexRef.current + (deltaX > 0 ? 1 : -1))
     }
 
     window.addEventListener("wheel", handleWheel, { passive: false })
@@ -149,9 +126,7 @@ export function SectionPagerProvider({
   }, [goTo, sections.length])
 
   return (
-    <SectionPagerContext.Provider
-      value={{ sections, activeIndex, goTo, goToId, registerSectionRef }}
-    >
+    <SectionPagerContext.Provider value={{ sections, activeIndex, goTo, goToId }}>
       {children}
     </SectionPagerContext.Provider>
   )

@@ -20,18 +20,18 @@ export function Header() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-background/95">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 h-14">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14 gap-4">
         {/* Logo - terminal prompt style */}
         <button
           onClick={() => handleNavClick("#hero")}
-          className="font-mono text-sm hover:text-primary transition-colors"
+          className="font-mono text-sm hover:text-primary transition-colors shrink-0 whitespace-nowrap"
         >
           <span className="text-muted-foreground">mauricio@lugo</span>
           <span className="text-primary">:~$</span>
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:items-center lg:gap-6">
+        <div className="hidden xl:flex xl:items-center xl:gap-5">
           {navigation.map((item, idx) => {
             const isActive = sections[activeIndex] === item.href.replace("#", "")
             return (
@@ -39,7 +39,7 @@ export function Header() {
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
                 className={cn(
-                  "group font-mono text-xs uppercase tracking-wide transition-colors",
+                  "group shrink-0 whitespace-nowrap font-mono text-xs uppercase tracking-wide transition-colors",
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 )}
               >
@@ -57,13 +57,13 @@ export function Header() {
               </button>
             )
           })}
-          <div className="pl-4 border-l border-border">
+          <div className="pl-4 border-l border-border shrink-0">
             <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-3 xl:hidden shrink-0">
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -78,7 +78,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-14 z-40 bg-background border-t border-border lg:hidden">
+        <div className="fixed inset-0 top-14 z-40 bg-background border-t border-border xl:hidden">
           <div className="flex flex-col">
             {navigation.map((item, idx) => {
               const isActive = sections[activeIndex] === item.href.replace("#", "")

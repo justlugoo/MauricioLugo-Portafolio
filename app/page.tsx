@@ -23,35 +23,32 @@ const SECTION_IDS = [
 ]
 
 function PagerTrack() {
-  const { activeIndex, registerSectionRef } = useSectionPager()
+  const { activeIndex } = useSectionPager()
 
   return (
     <div
-      className="w-full transition-transform duration-700"
-      style={{
-        transform: `translateY(-${activeIndex * 100}dvh)`,
-        transitionTimingFunction: "cubic-bezier(0.65, 0, 0.35, 1)",
-      }}
+      className="h-[100dvh] flex transition-transform duration-300 ease-out"
+      style={{ transform: `translateX(-${activeIndex * 100}dvw)` }}
     >
-      <SectionSlide id="hero" ref={registerSectionRef(0)}>
+      <SectionSlide id="hero">
         <Hero />
       </SectionSlide>
-      <SectionSlide id="about" ref={registerSectionRef(1)}>
+      <SectionSlide id="about">
         <About />
       </SectionSlide>
-      <SectionSlide id="experience" ref={registerSectionRef(2)}>
+      <SectionSlide id="experience">
         <Experience />
       </SectionSlide>
-      <SectionSlide id="projects" ref={registerSectionRef(3)}>
+      <SectionSlide id="projects">
         <Projects />
       </SectionSlide>
-      <SectionSlide id="skills" ref={registerSectionRef(4)}>
+      <SectionSlide id="skills">
         <Skills />
       </SectionSlide>
-      <SectionSlide id="certifications" ref={registerSectionRef(5)}>
+      <SectionSlide id="certifications">
         <Certifications />
       </SectionSlide>
-      <SectionSlide id="contact" ref={registerSectionRef(6)}>
+      <SectionSlide id="contact">
         <Contact />
       </SectionSlide>
     </div>
