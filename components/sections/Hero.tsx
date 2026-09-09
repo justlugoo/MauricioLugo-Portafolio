@@ -11,35 +11,35 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 md:py-40 overflow-hidden"
+      className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-20 md:py-24 overflow-hidden"
     >
       {/* Animated Background */}
       <AnimatedBackground />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-12">
-        {/* Main Heading - MASSIVE Typography */}
-        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tighter leading-none text-foreground">
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+        {/* Main Heading */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-foreground">
           {personalData.name}
         </h1>
 
         {/* Title & Tagline Container */}
-        <div className="space-y-6 max-w-3xl mx-auto">
-          <p className="text-2xl md:text-3xl lg:text-4xl text-primary font-medium">
+        <div className="space-y-4 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-primary font-medium">
             {personalData.title}
           </p>
 
-          <p className="text-xl md:text-2xl text-muted-foreground font-normal leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground font-normal leading-relaxed">
             {personalData.tagline}
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
           <Button
             size="lg"
             onClick={() => scrollToElement("#experience")}
-            className="text-lg px-8 py-7 rounded-full bg-primary hover:bg-primary/90 min-w-[200px] shadow-lg hover:shadow-xl transition-all"
+            className="text-base px-7 py-6 rounded-full bg-primary hover:bg-primary/90 min-w-[180px] shadow-md hover:shadow-lg transition-all"
           >
             Ver Trabajo
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -48,7 +48,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="text-lg px-8 py-7 rounded-full border-2 min-w-[200px] hover:bg-secondary transition-all"
+            className="text-base px-7 py-6 rounded-full border-2 min-w-[180px] hover:bg-secondary transition-all"
             asChild
           >
             <Link href={personalData.cv.url} target="_blank" rel="noopener noreferrer">

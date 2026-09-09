@@ -18,7 +18,7 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-medium text-foreground mb-2">{personalData.name}</h3>
             <p className="text-muted-foreground">
-              DevOps Engineer & Cloud Architect
+              {personalData.title}
             </p>
           </div>
 

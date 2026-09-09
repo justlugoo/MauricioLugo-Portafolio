@@ -8,15 +8,9 @@
       "featured": true,
       "skills": [
         "Google Cloud Platform (GCP)",
-        "Docker",
         "Terraform",
-        "Kubernetes (GKE)",
-        "GitHub Actions",
-        "CI/CD Pipelines",
-        "Cloud Run",
-        "Load Balancing",
-        "Compute Engine",
-        "VPC Network"
+        "Docker",
+        "Linux/Bash"
       ]
     },
     {
@@ -27,12 +21,12 @@
       "featured": true,
       "skills": [
         "Python",
+        "Rust",
         "FastAPI",
+        "Django",
         "PostgreSQL",
-        "Cloud SQL",
-        "RESTful APIs",
-        "gRPC APIs",
-        "Django"
+        "SQLite",
+        "RESTful APIs"
       ]
     },
     {
@@ -44,8 +38,8 @@
       "skills": [
         "Next.js",
         "React",
+        "Svelte",
         "TypeScript",
-        "JavaScript",
         "Tailwind CSS",
         "Shadcn UI"
       ]
@@ -58,10 +52,10 @@
       "featured": false,
       "skills": [
         "Git & GitHub",
-        "VS Code",
-        "Linux/Bash",
+        "Tauri",
         "Postman",
         "Swagger/OpenAPI",
+        "VS Code",
         "Claude Code"
       ]
     }

@@ -17,7 +17,7 @@ export function Skills() {
   const sortedCategories = skillsData.categories.sort((a, b) => a.order - b.order)
 
   return (
-    <section id="skills" className="py-32 px-6 relative">
+    <section id="skills" className="py-20 px-6 relative">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-transparent to-secondary/20 pointer-events-none" />
 

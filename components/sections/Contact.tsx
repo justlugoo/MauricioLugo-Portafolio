@@ -50,7 +50,7 @@ export function Contact() {
         icon: <CheckCircle className="h-4 w-4" />,
       })
       setFormData({ name: "", email: "", message: "" })
-    } catch (error) {
+    } catch {
       toast.error("Error al enviar el mensaje. Por favor, intenta de nuevo.", {
         icon: <AlertCircle className="h-4 w-4" />,
       })
@@ -69,7 +69,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 px-6 relative overflow-hidden">
+    <section id="contact" className="py-20 px-6 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 

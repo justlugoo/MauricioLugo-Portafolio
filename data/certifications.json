@@ -4,49 +4,24 @@
   "certifications": [
     {
       "id": "1",
-      "name": "Cloud Security",
+      "name": "Associate Cloud Engineer",
       "issuer": "Google Cloud",
       "icon": "shield"
     },
     {
       "id": "2",
-      "name": "Networking & Load Balancing",
-      "issuer": "Google Cloud",
-      "icon": "network"
-    },
-    {
-      "id": "3",
-      "name": "Serverless (Cloud Run)",
-      "issuer": "Google Cloud",
+      "name": "UiPath RPA Automation",
+      "issuer": "UiPath & Dream to Succeed Foundation",
       "icon": "zap"
-    },
-    {
-      "id": "4",
-      "name": "Kubernetes (GKE)",
-      "issuer": "Google Cloud",
-      "icon": "box"
     }
   ],
-  "courses": [
-    {
-      "id": "1",
-      "name": "Cloud Digital Leader Learning Path",
-      "provider": "Google Cloud Skills Boost",
-      "url": "https://www.skills.google/paths/9"
-    }
-  ],
+  "courses": [],
   "inProgress": [
     {
       "id": "1",
-      "name": "Professional Cloud Architect Certification",
-      "status": "En preparación",
+      "name": "FastAPI - The Complete Course (Beginner + Advanced)",
+      "status": "En progreso · Udemy",
       "icon": "target"
-    },
-    {
-      "id": "2",
-      "name": "Professional Cloud DevOps Engineer Certification",
-      "status": "En preparación",
-      "icon": "rocket"
     }
   ]
 }

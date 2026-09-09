@@ -20,10 +20,6 @@ export interface PersonalInfo {
     title: string
     description: string
   }
-  headline: {
-    main: string
-    sub: string
-  }
   highlights: string[]
 }
 
@@ -35,7 +31,7 @@ export interface Project {
   longDescription: string
   image: string
   tags: string[]
-  category: 'fullstack' | 'frontend' | 'backend' | 'mobile' | 'devops'
+  category: 'fullstack' | 'frontend' | 'backend' | 'mobile' | 'devops' | 'desktop' | 'ai'
   featured: boolean
   inDevelopment: boolean
   isGroupProject: boolean

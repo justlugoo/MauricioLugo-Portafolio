@@ -8,10 +8,10 @@ import personalData from "@/data/personal.json"
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 px-6">
+    <section id="about" className="py-16 md:py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
             {/* Image Container */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative w-full max-w-md aspect-square">
@@ -30,21 +30,13 @@ export function About() {
 
             {/* Content */}
             <div className="space-y-8">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-[1.1]">
-                DevOps <br />
-                <span className="text-muted-foreground">Engineer.</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground leading-[1.1]">
+                Ingeniería <br />
+                <span className="text-muted-foreground">de Sistemas.</span>
               </h2>
 
-              <div className="space-y-6 text-xl text-muted-foreground leading-relaxed font-light">
-                <p>
-                  Tecnólogo en Sistemas y estudiante de Ingeniería, apasionado por la
-                  <span className="text-foreground font-medium"> arquitectura cloud</span> y la automatización.
-                </p>
-                <p>
-                  Mi enfoque combina la robustez del <span className="text-foreground font-medium">Backend</span> con
-                  la eficiencia de <span className="text-foreground font-medium">DevOps</span> para crear
-                  soluciones escalables y resilientes.
-                </p>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-light">
+                <p>{personalData.bio}</p>
               </div>
             </div>
           </div>
@@ -72,7 +64,7 @@ export function About() {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-foreground mb-2">Enfoque</h3>
-                  <p className="text-muted-foreground text-lg">Cloud Architecture & Automation</p>
+                  <p className="text-muted-foreground text-lg">Backend & Cloud Engineering</p>
                 </div>
               </CardContent>
             </Card>

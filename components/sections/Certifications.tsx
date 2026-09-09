@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Shield, Network, Zap, Box, BookOpen, Target, Rocket, type LucideIcon } from "lucide-react"
 import Link from "next/link"
-import certificationsData from "@/data/certifications.json"
+import certificationsDataRaw from "@/data/certifications.json"
 import { ScrollReveal } from "@/components/ui/ScrollReveal"
 
 const certIconMap: Record<string, LucideIcon> = {
@@ -21,11 +21,22 @@ const inProgressIconMap: Record<string, LucideIcon> = {
   rocket: Rocket,
 }
 
+interface LearningCourse {
+  id: string
+  name: string
+  provider: string
+  url: string
+}
+
+const certificationsData = certificationsDataRaw as Omit<typeof certificationsDataRaw, "courses"> & {
+  courses: LearningCourse[]
+}
+
 export function Certifications() {
   const { credlyProfile, googleSkillsBoostProfile, certifications, courses, inProgress } = certificationsData
 
   return (
-    <section id="certifications" className="py-32 px-6 relative overflow-hidden">
+    <section id="certifications" className="py-20 px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/10 to-transparent pointer-events-none" />
 
@@ -101,7 +112,7 @@ export function Certifications() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16 max-w-xl mx-auto">
           {certifications.map((cert, idx) => {
             const Icon = certIconMap[cert.icon] || Shield
             return (
@@ -132,54 +143,58 @@ export function Certifications() {
         </div>
 
         {/* Learning Paths */}
-        <ScrollReveal delay={0.4}>
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-3">
-              Rutas de Aprendizaje
-            </h3>
-            <p className="text-muted-foreground">
-              Cursos y especializaciones completadas
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {courses.map((course, idx) => (
-            <ScrollReveal key={course.id} delay={0.45 + idx * 0.05}>
-              <Card className="group relative overflow-hidden border border-border/40 hover:border-primary/20 transition-all duration-300 bg-card/30 backdrop-blur-sm h-full flex flex-col">
-                <div className="p-6 flex flex-col flex-grow">
-                  {/* Icon */}
-                  <div className="mb-5">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
-                      <BookOpen className="w-6 h-6 text-primary" />
-                    </div>
-                  </div>
-
-                  {/* Name */}
-                  <h4 className="font-semibold text-foreground text-base leading-tight mb-3 flex-grow group-hover:text-primary transition-colors">
-                    {course.name}
-                  </h4>
-
-                  {/* Provider */}
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {course.provider}
-                  </p>
-
-                  {/* Link */}
-                  <Link
-                    href={course.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-sm font-medium mt-auto group/link"
-                  >
-                    Ver curso
-                    <ExternalLink className="ml-1.5 h-4 w-4 group-hover/link:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-              </Card>
+        {courses && courses.length > 0 && (
+          <>
+            <ScrollReveal delay={0.4}>
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  Rutas de Aprendizaje
+                </h3>
+                <p className="text-muted-foreground">
+                  Cursos y especializaciones completadas
+                </p>
+              </div>
             </ScrollReveal>
-          ))}
-        </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+              {courses.map((course, idx) => (
+                <ScrollReveal key={course.id} delay={0.45 + idx * 0.05}>
+                  <Card className="group relative overflow-hidden border border-border/40 hover:border-primary/20 transition-all duration-300 bg-card/30 backdrop-blur-sm h-full flex flex-col">
+                    <div className="p-6 flex flex-col flex-grow">
+                      {/* Icon */}
+                      <div className="mb-5">
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
+                          <BookOpen className="w-6 h-6 text-primary" />
+                        </div>
+                      </div>
+
+                      {/* Name */}
+                      <h4 className="font-semibold text-foreground text-base leading-tight mb-3 flex-grow group-hover:text-primary transition-colors">
+                        {course.name}
+                      </h4>
+
+                      {/* Provider */}
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {course.provider}
+                      </p>
+
+                      {/* Link */}
+                      <Link
+                        href={course.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-sm font-medium mt-auto group/link"
+                      >
+                        Ver curso
+                        <ExternalLink className="ml-1.5 h-4 w-4 group-hover/link:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </div>
+                  </Card>
+                </ScrollReveal>
+              ))}
+            </div>
+          </>
+        )}
 
         {/* CTAs - Two buttons */}
         <ScrollReveal delay={0.6}>

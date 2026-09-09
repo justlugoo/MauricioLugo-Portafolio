@@ -12,7 +12,7 @@ export function Experience() {
   const others = experienceData.filter((exp) => !exp.featured)
 
   return (
-    <section id="experience" className="py-24 md:py-32 px-6 bg-secondary/30">
+    <section id="experience" className="py-16 md:py-20 px-6 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionTitle

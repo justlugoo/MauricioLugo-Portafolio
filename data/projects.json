@@ -62,5 +62,44 @@
     "links": {
       "github": "https://github.com/Justlugoo/PlataformaRNI"
     }
+  },
+  {
+    "id": "4",
+    "title": "FinCapX",
+    "description": "App de escritorio para gestión financiera personal: ingresos, gastos, tanqueos y metas de ahorro.",
+    "longDescription": "Aplicación de escritorio para Linux construida con Tauri (Rust) y Svelte. Registra ingresos, gastos y tanqueos, controla presupuestos por categoría, unifica objetivos de ahorro, deudas y préstamos en un módulo de Metas, y estima la autonomía de combustible por vehículo. Base de datos SQLite local, sin dependencias cloud. En uso personal desde junio de 2026.",
+    "image": "/images/projects/project-placeholder.svg",
+    "tags": [
+      "Rust",
+      "Tauri",
+      "Svelte",
+      "SQLite",
+      "Linux"
+    ],
+    "category": "desktop",
+    "featured": true,
+    "inDevelopment": false,
+    "isGroupProject": false,
+    "year": "2026",
+    "links": {}
+  },
+  {
+    "id": "5",
+    "title": "SIVRI — Visión Artificial para Instrumentación Quirúrgica",
+    "description": "Sistema de visión artificial que valida en tiempo real la disposición de instrumental quirúrgico en mesa.",
+    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), desarrollado junto al programa de Instrumentación Quirúrgica. Usa YOLO26 para reconocer instrumental quirúrgico por cámara y validar si la disposición en mesa corresponde al tiempo quirúrgico evaluado, entregando retroalimentación inmediata al estudiante. Defensa estimada antes de noviembre de 2026.",
+    "image": "/images/projects/indevelopment.png",
+    "tags": [
+      "Visión Artificial",
+      "YOLO26",
+      "Python",
+      "Proyecto de Grado"
+    ],
+    "category": "ai",
+    "featured": false,
+    "inDevelopment": true,
+    "isGroupProject": true,
+    "year": "2026",
+    "links": {}
   }
 ]
