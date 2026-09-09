@@ -17,57 +17,37 @@ export function Skills() {
   const sortedCategories = skillsData.categories.sort((a, b) => a.order - b.order)
 
   return (
-    <section id="skills" className="py-20 px-6 relative">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-transparent to-secondary/20 pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto relative">
+    <section id="skills" className="py-16 md:py-20 px-6 border-t border-border">
+      <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <SectionTitle
+            index="04"
             title="Tecnologías"
             subtitle="Herramientas y frameworks con los que construyo soluciones"
-            align="center"
           />
         </ScrollReveal>
 
-        {/* Uniform Grid - All same height */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sortedCategories.map((category, idx) => {
-            const Icon = iconMap[category.icon] || Server
+        <ScrollReveal delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
+            {sortedCategories.map((category) => {
+              const Icon = iconMap[category.icon] || Server
 
-            return (
-              <ScrollReveal key={category.id} delay={idx * 0.1}>
-                <div className="group relative h-full">
-                  {/* Card with fixed structure */}
-                  <div className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 bg-card/50 backdrop-blur-sm">
-
-                    {/* Subtle hover background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    <div className="relative p-8 flex flex-col h-full">
-                      {/* Header - Fixed height */}
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/15 transition-colors duration-300 flex-shrink-0">
-                          <Icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                          {category.name}
-                        </h3>
-                      </div>
-
-                      {/* Skills - Flexible height with consistent spacing */}
-                      <div className="flex flex-wrap gap-2 flex-grow">
-                        {category.skills.map((skill) => (
-                          <SkillBadge key={skill} skill={skill} size="sm" />
-                        ))}
-                      </div>
-                    </div>
+              return (
+                <div key={category.id} className="bg-background p-6">
+                  <h3 className="font-mono text-sm uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
+                    <Icon className="h-4 w-4 text-primary" />
+                    {category.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <SkillBadge key={skill} skill={skill} size="sm" />
+                    ))}
                   </div>
                 </div>
-              </ScrollReveal>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

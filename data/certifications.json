@@ -1,21 +1,21 @@
 {
   "credlyProfile": "https://www.credly.com/users/mauricio-lugo.2b7b8ee6/",
-  "googleSkillsBoostProfile": "https://www.skills.google/public_profiles/6cde65e9-e2fa-4228-8bbf-5e959034c60b",
   "certifications": [
     {
       "id": "1",
       "name": "Associate Cloud Engineer",
       "issuer": "Google Cloud",
+      "credentialUrl": "https://drive.google.com/file/d/1XUA8pYnv3nZYi6R0CVs0CUsOs_Kn_yWu/view?usp=sharing",
       "icon": "shield"
     },
     {
       "id": "2",
       "name": "UiPath RPA Automation",
       "issuer": "UiPath & Dream to Succeed Foundation",
+      "credentialUrl": "https://drive.google.com/file/d/1NzHEeJ2-ojxG_MnwIBisdyQYLMGm6--6/view?usp=sharing",
       "icon": "zap"
     }
   ],
-  "courses": [],
   "inProgress": [
     {
       "id": "1",

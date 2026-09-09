@@ -11,48 +11,44 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-20 md:py-24 overflow-hidden"
+      className="relative min-h-[90vh] flex items-center px-6 pt-24 pb-16 overflow-hidden"
     >
-      {/* Animated Background */}
       <AnimatedBackground />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-        {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-foreground">
+      <div className="relative z-10 max-w-3xl mx-auto w-full">
+        <p className="font-mono text-sm text-primary mb-6">
+          <span className="text-muted-foreground">$</span> whoami
+        </p>
+
+        <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-4 leading-tight">
           {personalData.name}
+          <span className="cursor-blink text-primary">_</span>
         </h1>
 
-        {/* Title & Tagline Container */}
-        <div className="space-y-4 max-w-2xl mx-auto">
-          <p className="text-xl md:text-2xl text-primary font-medium">
-            {personalData.title}
-          </p>
+        <p className="text-xl md:text-2xl text-foreground/80 mb-6">
+          {personalData.title}
+        </p>
 
-          <p className="text-lg md:text-xl text-muted-foreground font-normal leading-relaxed">
-            {personalData.tagline}
-          </p>
-        </div>
+        <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10 border-l-2 border-border pl-4">
+          {personalData.tagline}
+        </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+        <div className="flex flex-wrap gap-4">
           <Button
-            size="lg"
             onClick={() => scrollToElement("#experience")}
-            className="text-base px-7 py-6 rounded-full bg-primary hover:bg-primary/90 min-w-[180px] shadow-md hover:shadow-lg transition-all"
+            className="rounded-none px-6 h-11 font-mono text-sm uppercase tracking-wide bg-primary hover:bg-primary/90"
           >
             Ver Trabajo
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
 
           <Button
-            size="lg"
             variant="outline"
-            className="text-base px-7 py-6 rounded-full border-2 min-w-[180px] hover:bg-secondary transition-all"
+            className="rounded-none px-6 h-11 font-mono text-sm uppercase tracking-wide border-border hover:bg-secondary"
             asChild
           >
             <Link href={personalData.cv.url} target="_blank" rel="noopener noreferrer">
-              <Download className="mr-2 h-5 w-5" />
+              <Download className="mr-2 h-4 w-4" />
               Descargar CV
             </Link>
           </Button>

@@ -52,29 +52,10 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Google Colors
-        "google-blue": {
-          50: "hsl(var(--google-blue-50))",
-          500: "hsl(var(--google-blue-500))",
-          700: "hsl(var(--google-blue-700))",
-        },
-        "google-red": {
-          500: "hsl(var(--google-red-500))",
-        },
-        "google-yellow": {
-          500: "hsl(var(--google-yellow-500))",
-        },
-        "google-green": {
-          500: "hsl(var(--google-green-500))",
-        },
-        "google-gray": {
-          50: "hsl(var(--google-gray-50))",
-          100: "hsl(var(--google-gray-100))",
-          200: "hsl(var(--google-gray-200))",
-          600: "hsl(var(--google-gray-600))",
-          700: "hsl(var(--google-gray-700))",
-          900: "hsl(var(--google-gray-900))",
-        },
+      },
+      fontFamily: {
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -90,15 +71,10 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        glow: {
-          "0%, 100%": { boxShadow: "0 0 5px hsl(24 95% 53%)" },
-          "50%": { boxShadow: "0 0 20px hsl(24 95% 53%), 0 0 30px hsl(24 95% 53%)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        glow: "glow 2s ease-in-out infinite alternate",
       },
     },
   },

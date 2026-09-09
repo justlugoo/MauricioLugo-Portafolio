@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { JetBrains_Mono, Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { Toaster } from "sonner"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -8,10 +8,16 @@ import { Analytics } from "@vercel/analytics/next"
 import config from "@/data/config.json"
 import "./globals.css"
 
-const outfit = Outfit({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-google",
+  variable: "--font-mono",
+})
+
+const sans = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
 })
 
 export const metadata: Metadata = {
@@ -51,8 +57,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={outfit.variable}>
-      <body className={outfit.className} suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning className={`${mono.variable} ${sans.variable}`}>
+      <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme={config.theme.defaultMode}

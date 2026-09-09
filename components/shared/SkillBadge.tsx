@@ -1,35 +1,27 @@
-import { Badge } from "@/components/ui/badge"
-
 interface SkillBadgeProps {
   skill: string
-  variant?: 'default' | 'outline' | 'secondary'
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md'
 }
 
-export function SkillBadge({ skill, variant = 'secondary', size = 'md' }: SkillBadgeProps) {
+export function SkillBadge({ skill, size = 'md' }: SkillBadgeProps) {
   const sizeClasses = {
-    sm: 'text-xs px-3 py-1',
-    md: 'text-sm px-3 py-1.5',
-    lg: 'text-base px-4 py-2',
+    sm: 'text-xs px-2 py-1',
+    md: 'text-sm px-2.5 py-1.5',
   }
 
   return (
-    <Badge
-      variant={variant}
+    <span
       className={`
         ${sizeClasses[size]}
-        relative
-        bg-primary/5 hover:bg-primary/10
-        border border-primary/20 hover:border-primary/30
-        text-foreground/80 hover:text-foreground
-        font-medium
-        rounded-lg
-        transition-all duration-300
-        cursor-default
-        hover:scale-[1.02]
+        font-mono
+        border border-border
+        text-foreground/80
+        bg-background
+        hover:border-primary/60 hover:text-foreground
+        transition-colors
       `}
     >
       {skill}
-    </Badge>
+    </span>
   )
 }
