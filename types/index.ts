@@ -3,6 +3,10 @@ export interface PersonalInfo {
   name: string
   title: string
   tagline: string
+  /** Frase del Hero; `**así**` marca el texto resaltado. */
+  mission: string
+  /** Valor de «enfoque» en el Hero. */
+  focus: string
   bio: string
   location: string
   locationDetail: string
@@ -91,35 +95,6 @@ export interface CertificationsData {
   credlyProfile: string
   certifications: Certification[]
   inProgress: CertificationInProgress[]
-}
-
-// Education
-export interface University {
-  id: string
-  institution: string
-  degree: string
-  level: string
-  duration: string
-  previousDegree: string
-  description: string
-  status: 'completed' | 'in_progress'
-  type: 'university'
-}
-
-export interface Course {
-  id: string
-  name: string
-  platform: string
-  duration: string
-  description: string
-  status: 'completed' | 'in_progress'
-  certificateUrl: string | null
-  progress?: number
-}
-
-export interface EducationData {
-  university: University
-  courses: Course[]
 }
 
 // Site Configuration

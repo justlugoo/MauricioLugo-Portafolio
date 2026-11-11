@@ -1,30 +1,14 @@
-"use client"
-
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 import personalData from "@/data/personal.json"
-import { useSectionPager } from "@/hooks/useSectionPager"
+import { PagerCounter, PagerProgressBar } from "@/components/layout/PagerProgress"
 
 export function Footer() {
-  const { sections, activeIndex } = useSectionPager()
-  const current = String(activeIndex + 1).padStart(2, "0")
-  const total = String(sections.length).padStart(2, "0")
-
   return (
     <footer className="fixed bottom-0 inset-x-0 z-40 h-12 border-t border-border bg-background">
-      <div
-        className="h-0.5 bg-primary transition-all duration-500"
-        style={{
-          width: `${((activeIndex + 1) / sections.length) * 100}%`,
-          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      />
+      <PagerProgressBar />
       <div className="h-[calc(3rem-2px)] max-w-5xl mx-auto px-6 flex items-center justify-between">
-        <div className="font-mono text-xs text-muted-foreground">
-          <span className="text-primary">{current}</span>
-          <span className="mx-0.5">/</span>
-          {total}
-        </div>
+        <PagerCounter />
 
         <div className="hidden sm:flex gap-4">
           {personalData.social.github && (

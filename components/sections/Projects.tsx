@@ -1,5 +1,3 @@
-"use client"
-
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import { ProjectCard } from "@/components/shared/ProjectCard"

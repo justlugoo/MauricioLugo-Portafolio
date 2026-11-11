@@ -1,5 +1,3 @@
-"use client"
-
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { TerminalPrompt } from "@/components/shared/TerminalPrompt"
 import { SKILL_ICONS } from "@/lib/skill-icons"
@@ -7,7 +5,7 @@ import skillsData from "@/data/skills.json"
 import { ScrollReveal } from "@/components/ui/ScrollReveal"
 
 export function Skills() {
-  const sortedCategories = skillsData.categories.sort((a, b) => a.order - b.order)
+  const sortedCategories = [...skillsData.categories].sort((a, b) => a.order - b.order)
 
   return (
     <div className="w-full">

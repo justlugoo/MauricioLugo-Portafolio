@@ -1,182 +1,69 @@
-# 🚀 Portfolio de Mauricio Lugo
+# Portafolio de Mauricio Lugo
 
-Portfolio personal desarrollado con **Next.js 15.2.4**, **React 19**, **TypeScript** y **Tailwind CSS**, siguiendo las mejores prácticas de desarrollo web moderno.
+Sitio personal de una sola página, con identidad de terminal y navegación horizontal por secciones a pantalla completa. Publicado en [mauricio-portfolio.vercel.app](https://mauricio-portfolio.vercel.app).
 
-## 🛠️ Tecnologías Utilizadas
+## Stack
 
-### Frontend
-- **Next.js 15.2.4** - Framework de React con App Router
-- **React 19** - Biblioteca de UI moderna
-- **TypeScript 5.8.3** - Tipado estático para JavaScript
-- **Tailwind CSS 3.4.17** - Framework de CSS utilitario
-- **shadcn/ui** - Componentes de UI modernos y accesibles
-- **Lucide React** - Iconos SVG optimizados
-- **Radix UI** - Componentes primitivos accesibles
+- Next.js 15 (App Router), React 19 y TypeScript
+- Tailwind CSS 3 con tokens de color como variables CSS (`app/globals.css`), tema claro y oscuro con `next-themes`
+- Componentes base de shadcn/ui (`components/ui/`) sobre Radix
+- Framer Motion solo para la aparición al hacer scroll (`ScrollReveal`)
+- EmailJS para el formulario de contacto
+- Vercel Analytics y Speed Insights
 
-### Backend & Herramientas
-- **pnpm** - Gestor de paquetes rápido y eficiente
-- **PostCSS** - Procesador de CSS
-- **Autoprefixer** - Prefijos CSS automáticos
+## Cómo está armado
 
-### Características del Portfolio
-- ✅ **Responsive Design** - Adaptable a todos los dispositivos
-- ✅ **Server Components** - Optimización de rendimiento
-- ✅ **TypeScript Estricto** - Type safety en toda la aplicación
-- ✅ **SEO Optimizado** - Metadata y estructura semántica
-- ✅ **Accesibilidad** - Cumple con estándares WCAG
-- ✅ **Animaciones Suaves** - Transiciones y efectos visuales
-- ✅ **Gradientes Personalizados** - Tema Claude con acentos naranjas
+Casi todo es **Server Components**: las secciones se renderizan en el servidor y su contenido llega completo en el HTML. Solo son componentes de cliente las piezas que necesitan estado o eventos:
 
-## 📁 Estructura del Proyecto
+| Componente de cliente | Para qué |
+|---|---|
+| `hooks/useSectionPager.tsx` | Estado de la sección activa; rueda horizontal, teclado y gestos táctiles |
+| `components/layout/PagerTrack.tsx` | Desplaza el carril horizontal |
+| `components/layout/PagerProgress.tsx` | Barra y contador del pie de página |
+| `components/layout/PagerEdgeControls.tsx` | Flechas laterales |
+| `components/layout/GoToSectionButton.tsx` | Botón que salta a una sección |
+| `components/layout/Header.tsx`, `ThemeToggle.tsx`, `ThemeProvider.tsx` | Menú móvil y tema |
+| `components/sections/ContactForm.tsx` | Formulario y envío con EmailJS |
+| `components/ui/ScrollReveal.tsx` | Animación de entrada |
+
+Regla: si un componente no necesita estado ni eventos, no lleva `"use client"`. Cuando una sección necesite interactividad, se extrae la parte interactiva a un componente pequeño en lugar de marcar la sección entera.
 
 ```
-portfolio/
-├── app/                    # App Router de Next.js
-│   ├── layout.tsx         # Layout principal con ThemeProvider
-│   ├── page.tsx           # Página de inicio
-│   └── globals.css        # Estilos globales con temas claro/oscuro
-├── components/            # Componentes reutilizables
-│   ├── ui/               # Componentes de shadcn/ui
-│   ├── sections/         # Secciones del portfolio
-│   │   ├── hero-section.tsx      # Sección principal con botón CV
-│   │   ├── about-section.tsx     # Información personal
-│   │   ├── education-section.tsx # Educación y cursos
-│   │   ├── skills-section.tsx    # Habilidades técnicas
-│   │   ├── projects-section.tsx  # Proyectos destacados
-│   │   └── contact-section.tsx   # Formulario de contacto
-│   ├── header.tsx        # Navegación principal
-│   ├── footer.tsx        # Pie de página
-│   ├── theme-provider.tsx # Proveedor de temas
-│   └── theme-toggle.tsx  # Toggle de modo oscuro
-├── data/                 # Datos del portfolio
-│   └── portfolio-data.ts # Información personal, proyectos y CV
-├── types/                # Definiciones de TypeScript
-│   └── portfolio.ts      # Tipos del portfolio
-├── lib/                  # Utilidades
-│   └── utils.ts          # Funciones auxiliares
-├── public/               # Archivos estáticos
-└── hooks/                # Hooks personalizados
+app/                 layout, página y estilos globales
+components/
+  layout/            header, footer, pager y tema
+  sections/          Hero, Experience, Projects, Certifications, Skills, Contact
+  shared/            piezas reutilizables (ProjectCard, SkillBadge, TerminalWindow…)
+  ui/                base shadcn/ui y ScrollReveal
+data/                contenido del sitio en JSON (ver abajo)
+hooks/               useSectionPager
+lib/                 utilidades e iconos de tecnologías
+types/               tipos del contenido
 ```
 
-## 🎨 Secciones del Portfolio
+## Contenido
 
-### 🏠 Hero Section
-- Presentación personal con llamadas a la acción
-- **Botón CV** con enlace a Google Drive
-- Enlaces a redes sociales y contacto
-- Animación de scroll suave
+Todo el texto del sitio vive en `data/*.json`; los componentes solo lo leen. Para cambiar información personal, proyectos, experiencia, certificaciones o tecnologías se editan esos archivos, sin tocar componentes. Los metadatos de SEO y la navegación están en `data/config.json`.
 
-### 👨‍💻 Sobre Mí
-- Historia profesional y personal
-- Objetivos y aspiraciones
-- Intereses y hobbies
+## Desarrollo
 
-### 🎓 Educación y Cursos
-- Formación académica actual
-- Cursos en progreso
-- Desarrollo profesional continuo
+Requiere Node.js 20 o superior y [pnpm](https://pnpm.io/installation).
 
-### 💪 Habilidades
-- Tecnologías Backend
-- Tecnologías Frontend
-- Herramientas de desarrollo
-- Diseño
-
-### 🚀 Proyectos Destacados
-- **LeadsManager**: Gestión integral de clientes potenciales (FastAPI + React)
-- **Apero**: E-commerce de bebidas personalizables (Django + MySQL)
-- **Task Manager API**: API REST con arquitectura MVC (FastAPI)
-- **Plataforma RNI**: Frontend para gestión de relaciones (React + TypeScript)
-
-### 📞 Contacto
-- Formulario de contacto funcional
-- Información de contacto directa
-- Enlaces a redes sociales
-
-## 🚀 Instalación y Uso
-
-### Prerrequisitos
-- Node.js 18+ 
-- pnpm (recomendado), npm, yarn o bun
-
-### Instalación
-
-1. **Clonar el repositorio**
-```bash
-git clone https://github.com/Justlugoo/portfolio.git
-cd portfolio
-```
-
-2. **Instalar dependencias (recomendado: pnpm)**
 ```bash
 pnpm install
+cp .env.example .env.local   # completar las claves de EmailJS
+pnpm dev                     # http://localhost:3000
 ```
 
-3. **Ejecutar en desarrollo**
-```bash
-pnpm dev
-```
+| Comando | Qué hace |
+|---|---|
+| `pnpm dev` | Servidor de desarrollo |
+| `pnpm build` | Build de producción; falla ante errores de tipos o de lint |
+| `pnpm start` | Sirve el build de producción |
+| `pnpm lint` | ESLint |
 
-4. **Abrir en el navegador**
-```
-http://localhost:3000 (o 3001 si 3000 está ocupado)
-```
+Sin las variables `NEXT_PUBLIC_EMAILJS_*` el sitio funciona, pero el formulario de contacto no envía.
 
-### Scripts Disponibles
+## Despliegue
 
-```bash
-pnpm dev          # Servidor de desarrollo
-pnpm build        # Build de producción
-pnpm start        # Servidor de producción
-pnpm lint         # Linter ESLint
-```
-
-## 🎨 Personalización
-
-### Modificar Información Personal
-Edita el archivo `data/portfolio-data.ts` para actualizar:
-- Información de contacto
-- Proyectos y experiencia
-- Habilidades y tecnologías
-- Enlaces sociales
-- **URL del CV** (Google Drive)
-
-### Cambiar Colores y Temas
-Modifica `app/globals.css` para personalizar:
-- Paleta de colores
-- Variables CSS para temas claro y oscuro
-- Gradientes personalizados
-
-### Agregar Nuevas Secciones
-1. Crear componente en `components/sections/`
-2. Definir tipos en `types/portfolio.ts`
-3. Agregar datos en `data/portfolio-data.ts`
-4. Importar en `app/page.tsx`
-
-## 📱 Responsive Design
-
-El portfolio está optimizado para:
-- 📱 **Mobile**: 320px - 768px
-- 📱 **Tablet**: 768px - 1024px
-- 💻 **Desktop**: 1024px+
-- 🖥️ **Large Desktop**: 1440px+
-
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
-## 📞 Contacto
-
-- **Email**: maurogranados31@gmail.com
-- **GitHub**: [@Justlugoo](https://github.com/Justlugoo)
-- **LinkedIn**: [Mauricio Lugo](https://linkedin.com/in/justlugoo)
-- **Portfolio**: [mauricio-portfolio.vercel.app](https://mauricio-portfolio.vercel.app)
-
----
-
-⭐ **¡Si te gusta este proyecto, no olvides darle una estrella!** ⭐
+Vercel. Las variables de `.env.example` se configuran en el proyecto de Vercel.

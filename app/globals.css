@@ -124,3 +124,28 @@ body {
   overflow: hidden;
   overscroll-behavior: none;
 }
+
+/* Entrada escalonada del Hero: cada bloque define su posición con --i */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: reveal-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.15s + var(--i, 0) * 0.12s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1;
+    animation: none;
+  }
+}

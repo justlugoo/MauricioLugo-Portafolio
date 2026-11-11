@@ -11,7 +11,7 @@ import { useSectionPager } from "@/hooks/useSectionPager"
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { sections, activeIndex, goToId } = useSectionPager()
-  const navigation = config.navigation.sort((a, b) => a.order - b.order)
+  const navigation = [...config.navigation].sort((a, b) => a.order - b.order)
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false)

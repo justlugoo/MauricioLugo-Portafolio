@@ -2,6 +2,8 @@
   "name": "Mauricio Lugo",
   "title": "Estudiante de Ingeniería de Sistemas · Backend & Cloud",
   "tagline": "Desarrollo backend en Python y Rust, con experiencia dando soporte a arquitecturas cloud en GCP",
+  "mission": "Diseño y construyo **sistemas completos**: backend sólido y **arquitectura cloud propia**.",
+  "focus": "Backend & Cloud",
   "bio": "Estudiante de Ingeniería de Sistemas con experiencia práctica en desarrollo backend y soporte de infraestructura cloud. Certificado como Google Cloud Associate Cloud Engineer, he colaborado en diseño de arquitecturas GCP, documentación técnica y evaluaciones de migración para distintos proyectos.",
   "location": "Colombia",
   "locationDetail": "Cartagena de Indias, Bolívar, Colombia",
