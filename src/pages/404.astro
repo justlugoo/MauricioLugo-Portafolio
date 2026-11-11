@@ -1,0 +1,38 @@
+---
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout
+  title="Página no encontrada | Mauricio Lugo"
+  description="La página que buscas no existe."
+  noindex
+>
+  <main id="contenido" class="container missing">
+    <h1>Página no encontrada</h1>
+    <p>La dirección que buscas no existe o cambió de lugar.</p>
+    <a class="button" href="/">Volver al inicio</a>
+  </main>
+</Layout>
+
+<style>
+  .missing {
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    gap: 1.25rem;
+    min-block-size: 100svh;
+    padding-block: 4rem;
+  }
+
+  h1 {
+    font-size: var(--fs-h2);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  p {
+    max-inline-size: 36ch;
+    color: var(--ink-2);
+  }
+</style>

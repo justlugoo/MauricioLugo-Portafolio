@@ -1,0 +1,73 @@
+---
+/**
+ * Datos estructurados (schema.org) en JSON-LD. Le dicen a los buscadores, de forma
+ * explícita, que esta página es el perfil de una persona y cuáles son sus datos.
+ * Todo sale de `data/*.json`, así que se mantiene al día con el contenido.
+ */
+import config from "@data/config.json"
+import personal from "@data/personal.json"
+import skills from "@data/skills.json"
+import certifications from "@data/certifications.json"
+
+const base = config.site.url
+const url = `${base}/`
+
+const person = {
+  "@type": "Person",
+  "@id": `${base}/#persona`,
+  name: personal.name,
+  alternateName: "Mauricio Jose Lugo Granados",
+  url,
+  jobTitle: personal.title,
+  description: config.site.description,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cartagena de Indias",
+    addressRegion: "Bolívar",
+    addressCountry: "CO",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Corporación Universitaria Rafael Núñez",
+    address: { "@type": "PostalAddress", addressLocality: "Cartagena de Indias", addressCountry: "CO" },
+  },
+  knowsLanguage: ["es", "en"],
+  knowsAbout: skills.categories.flatMap((category) => category.skills),
+  hasCredential: certifications.certifications.map((cert) => ({
+    "@type": "EducationalOccupationalCredential",
+    name: cert.name,
+    credentialCategory: "certificate",
+    recognizedBy: { "@type": "Organization", name: cert.issuer },
+  })),
+  sameAs: [personal.social.github, personal.social.linkedin],
+}
+
+const website = {
+  "@type": "WebSite",
+  "@id": `${base}/#sitio`,
+  url,
+  name: config.site.name,
+  inLanguage: config.site.locale,
+  author: { "@id": person["@id"] },
+}
+
+const profilePage = {
+  "@type": "ProfilePage",
+  "@id": `${base}/#perfil`,
+  url,
+  name: config.site.title,
+  description: config.site.description,
+  inLanguage: config.site.locale,
+  dateModified: new Date().toISOString(),
+  isPartOf: { "@id": website["@id"] },
+  mainEntity: { "@id": person["@id"] },
+}
+
+// «<» escapado para que el JSON nunca pueda cerrar la etiqueta <script>
+const json = JSON.stringify({ "@context": "https://schema.org", "@graph": [website, profilePage, person] }).replace(
+  /</g,
+  "\\u003c",
+)
+---
+
+<script type="application/ld+json" set:html={json} />

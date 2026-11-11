@@ -3,11 +3,24 @@ import Analytics from "@vercel/analytics/astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 import fontLatin from "@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url"
 import config from "@data/config.json"
+import personal from "@data/personal.json"
 import "@/styles/global.css"
 
+interface Props {
+  title?: string
+  description?: string
+  /** Páginas que no deben aparecer en buscadores (por ejemplo, el 404). */
+  noindex?: boolean
+}
+
 const { site, seo } = config
+const { title = site.title, description = site.description, noindex = false } = Astro.props
+
 const canonical = new URL(Astro.url.pathname, site.url).href
 const ogImage = new URL(seo.ogImage, site.url).href
+const robots = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 ---
 
 <!doctype html>
@@ -17,29 +30,52 @@ const ogImage = new URL(seo.ogImage, site.url).href
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=no" />
 
-    <title>{site.title}</title>
-    <meta name="description" content={site.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="keywords" content={seo.keywords.join(", ")} />
     <meta name="author" content={site.author} />
-    <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content={robots} />
+    {
+      !noindex && (
+        <>
+          <link rel="canonical" href={canonical} />
+          <link rel="alternate" hreflang="es" href={canonical} />
+          <link rel="alternate" hreflang="x-default" href={canonical} />
+        </>
+      )
+    }
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Perfiles propios: ayudan a los buscadores a asociar este sitio con la misma persona -->
+    <link rel="me" href={personal.social.github} />
+    <link rel="me" href={personal.social.linkedin} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={site.title} />
-    <meta property="og:description" content={site.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={site.locale.replace("-", "_")} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={site.title} />
+    <meta property="og:image:alt" content={`${personal.name}, ${personal.title}`} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={site.title} />
-    <meta name="twitter:description" content={site.description} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={`${personal.name}, ${personal.title}`} />
+
+    <slot name="head" />
 
     <link rel="preload" href={fontLatin} as="font" type="font/woff2" crossorigin />
     <script is:inline>

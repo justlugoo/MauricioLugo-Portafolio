@@ -8,9 +8,11 @@ import Certifications from "@/components/Certifications.astro"
 import Skills from "@/components/Skills.astro"
 import Contact from "@/components/Contact.astro"
 import Footer from "@/components/Footer.astro"
+import JsonLd from "@/components/JsonLd.astro"
 ---
 
 <Layout>
+  <JsonLd slot="head" />
   <Header />
   <main id="contenido">
     <Hero />

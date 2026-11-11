@@ -1,0 +1,14 @@
+{
+  "name": "Mauricio Lugo",
+  "short_name": "Mauricio Lugo",
+  "description": "Portafolio de Mauricio Lugo",
+  "lang": "es",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
