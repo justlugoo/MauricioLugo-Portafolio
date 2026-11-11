@@ -1,69 +1,108 @@
 # Portafolio de Mauricio Lugo
 
-Sitio personal de una sola página, con identidad de terminal y navegación horizontal por secciones a pantalla completa. Publicado en [mauricio-portfolio.vercel.app](https://mauricio-portfolio.vercel.app).
+Mi portafolio personal: un sitio de una sola página donde presento mi perfil, mi experiencia y los proyectos en los que he trabajado. Está publicado en [mauricio-portfolio.vercel.app](https://mauricio-portfolio.vercel.app).
 
-## Stack
+## Contenido del sitio
 
-- Next.js 15 (App Router), React 19 y TypeScript
-- Tailwind CSS 3 con tokens de color como variables CSS (`app/globals.css`), tema claro y oscuro con `next-themes`
-- Componentes base de shadcn/ui (`components/ui/`) sobre Radix
-- Framer Motion solo para la aparición al hacer scroll (`ScrollReveal`)
-- EmailJS para el formulario de contacto
-- Vercel Analytics y Speed Insights
+La página se organiza en seis secciones:
 
-## Cómo está armado
+- Inicio
+- Experiencia
+- Proyectos
+- Certificaciones
+- Tecnologías
+- Contacto
 
-Casi todo es **Server Components**: las secciones se renderizan en el servidor y su contenido llega completo en el HTML. Solo son componentes de cliente las piezas que necesitan estado o eventos:
+El contacto incluye un formulario que envía el mensaje por correo.
 
-| Componente de cliente | Para qué |
+## Tecnologías
+
+| Para qué | Qué se usa |
 |---|---|
-| `hooks/useSectionPager.tsx` | Estado de la sección activa; rueda horizontal, teclado y gestos táctiles |
-| `components/layout/PagerTrack.tsx` | Desplaza el carril horizontal |
-| `components/layout/PagerProgress.tsx` | Barra y contador del pie de página |
-| `components/layout/PagerEdgeControls.tsx` | Flechas laterales |
-| `components/layout/GoToSectionButton.tsx` | Botón que salta a una sección |
-| `components/layout/Header.tsx`, `ThemeToggle.tsx`, `ThemeProvider.tsx` | Menú móvil y tema |
-| `components/sections/ContactForm.tsx` | Formulario y envío con EmailJS |
-| `components/ui/ScrollReveal.tsx` | Animación de entrada |
+| Framework | [Astro](https://astro.build) |
+| Lenguaje | TypeScript |
+| Estilos | CSS propio, sin librerías de estilos |
+| Tipografía | Hanken Grotesk, alojada en el propio sitio |
+| Formulario de contacto | [EmailJS](https://www.emailjs.com) |
+| Métricas | Vercel Analytics y Speed Insights |
+| Despliegue | [Vercel](https://vercel.com) |
 
-Regla: si un componente no necesita estado ni eventos, no lleva `"use client"`. Cuando una sección necesite interactividad, se extrae la parte interactiva a un componente pequeño en lugar de marcar la sección entera.
+## Estructura del proyecto
 
 ```
-app/                 layout, página y estilos globales
-components/
-  layout/            header, footer, pager y tema
-  sections/          Hero, Experience, Projects, Certifications, Skills, Contact
-  shared/            piezas reutilizables (ProjectCard, SkillBadge, TerminalWindow…)
-  ui/                base shadcn/ui y ScrollReveal
-data/                contenido del sitio en JSON (ver abajo)
-hooks/               useSectionPager
-lib/                 utilidades e iconos de tecnologías
-types/               tipos del contenido
+.
+├── data/                 Contenido del sitio en archivos JSON
+├── public/               Favicon e imagen para compartir el enlace
+├── src/
+│   ├── components/       Secciones y piezas de la página
+│   ├── icons/            Íconos SVG
+│   ├── layouts/          Estructura base del HTML y SEO
+│   ├── pages/            Página principal
+│   ├── scripts/          Comportamiento en TypeScript
+│   ├── styles/           Estilos globales
+│   └── types.ts          Tipos del contenido
+├── astro.config.ts       Configuración de Astro
+├── DESIGN.md             Sistema visual: colores, tipografía y componentes
+├── package.json
+└── tsconfig.json
 ```
 
-## Contenido
+## Cómo ejecutarlo
 
-Todo el texto del sitio vive en `data/*.json`; los componentes solo lo leen. Para cambiar información personal, proyectos, experiencia, certificaciones o tecnologías se editan esos archivos, sin tocar componentes. Los metadatos de SEO y la navegación están en `data/config.json`.
+### Requisitos
 
-## Desarrollo
+- Node.js 22.23.4 o superior
+- [pnpm](https://pnpm.io/installation)
 
-Requiere Node.js 20 o superior y [pnpm](https://pnpm.io/installation).
+### Instalación
 
 ```bash
+git clone git@github.com:justlugoo/MauricioLugo-Portafolio.git
+cd MauricioLugo-Portafolio
 pnpm install
-cp .env.example .env.local   # completar las claves de EmailJS
-pnpm dev                     # http://localhost:3000
 ```
+
+### Variables de entorno
+
+Copia el archivo de ejemplo y completa las claves de EmailJS:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Descripción |
+|---|---|
+| `PUBLIC_EMAILJS_SERVICE_ID` | Identificador del servicio de EmailJS |
+| `PUBLIC_EMAILJS_TEMPLATE_ID` | Identificador de la plantilla del mensaje |
+| `PUBLIC_EMAILJS_PUBLIC_KEY` | Clave pública de EmailJS |
+
+Sin estas variables el sitio funciona igual, pero el formulario de contacto no puede enviar mensajes.
+
+### Comandos
 
 | Comando | Qué hace |
 |---|---|
-| `pnpm dev` | Servidor de desarrollo |
-| `pnpm build` | Build de producción; falla ante errores de tipos o de lint |
-| `pnpm start` | Sirve el build de producción |
-| `pnpm lint` | ESLint |
+| `pnpm dev` | Inicia el servidor de desarrollo en `http://localhost:4321` |
+| `pnpm check` | Revisa los tipos de TypeScript |
+| `pnpm build` | Revisa los tipos y genera el sitio en `dist/` |
+| `pnpm preview` | Sirve el sitio ya compilado para probarlo |
 
-Sin las variables `NEXT_PUBLIC_EMAILJS_*` el sitio funciona, pero el formulario de contacto no envía.
+## Editar el contenido
+
+Todo el texto del sitio está en la carpeta `data/`, separado del código:
+
+| Archivo | Contenido |
+|---|---|
+| `personal.json` | Nombre, presentación, ubicación y enlaces personales |
+| `experience.json` | Experiencia profesional |
+| `projects.json` | Proyectos |
+| `certifications.json` | Certificaciones y cursos |
+| `skills.json` | Tecnologías por categoría |
+| `sections.json` | Títulos y subtítulos de cada sección |
+| `config.json` | Datos de SEO y navegación |
+
+Para actualizar la información basta con editar esos archivos; no hace falta tocar los componentes.
 
 ## Despliegue
 
-Vercel. Las variables de `.env.example` se configuran en el proyecto de Vercel.
+El sitio se despliega en Vercel. Las tres variables `PUBLIC_EMAILJS_*` deben estar configuradas en el proyecto de Vercel para que el formulario de contacto funcione en producción.

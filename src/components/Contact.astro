@@ -1,0 +1,211 @@
+---
+import Figure from "@/components/Figure.astro"
+import Icon from "@/components/Icon.astro"
+import SectionHead from "@/components/SectionHead.astro"
+import personal from "@data/personal.json"
+import sections from "@data/sections.json"
+import type { Personal } from "@/types"
+
+const { email, locationDetail, availability, social } = personal as Personal
+const copy = sections.contact
+---
+
+<section
+  id="contact"
+  class="section section--tint"
+  data-section
+  aria-labelledby="contact-title"
+>
+  <Figure variant="ripples" corner="bottom-left" />
+
+  <div class="container">
+    <SectionHead id="contact" title={copy.title} />
+
+    <div class="grid">
+      <div class="info">
+        <p class="availability">{availability}</p>
+
+        <dl>
+          <div>
+            <dt class="meta">Correo</dt>
+            <dd><a href={`mailto:${email}`}>{email}</a></dd>
+          </div>
+          <div>
+            <dt class="meta">Ubicación</dt>
+            <dd>{locationDetail}</dd>
+          </div>
+        </dl>
+
+        <ul class="social">
+          <li>
+            <a class="link-arrow" href={social.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+              <Icon name="arrow-up-right" />
+              <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+          <li>
+            <a class="link-arrow" href={social.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <Icon name="arrow-up-right" />
+              <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="form" data-contact-form data-email={email} novalidate>
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Jose Gonzalez" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="josegonzales@example.com"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="message">Mensaje</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Describe tu idea, tus objetivos y cómo puedo ayudarte..."
+            required></textarea>
+        </div>
+
+        <div class="submit">
+          <button class="button" type="submit" data-submit>Enviar mensaje</button>
+          <p class="status" role="status" aria-live="polite" data-status></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    gap: 2.5rem 4.5rem;
+  }
+
+  @media (min-width: 56rem) {
+    .grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    }
+  }
+
+  .availability {
+    max-inline-size: 22ch;
+    margin-block-end: 1.5rem;
+    font-size: var(--fs-lead);
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  dl {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  dd {
+    margin-block-start: 0.2rem;
+    margin-inline-start: 0;
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-block-start: 1.5rem;
+    padding-block-start: 1.25rem;
+    border-block-start: 1px solid var(--rule-strong);
+  }
+
+  .form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+
+  input,
+  textarea {
+    inline-size: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--field);
+    border-radius: 6px;
+    background: var(--paper);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    transition: border-color 0.2s var(--ease-out);
+  }
+
+  textarea {
+    resize: vertical;
+    min-block-size: 8rem;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--ink-3);
+    opacity: 1;
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: var(--ink-2);
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+
+  input:user-invalid,
+  textarea:user-invalid {
+    border-color: var(--error);
+  }
+
+  .submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+
+  .status {
+    flex: 1 1 14rem;
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  .status[data-state="error"] {
+    color: var(--error);
+  }
+</style>
+
+<script>
+  import { initContactForm } from "@/scripts/contact"
+  initContactForm()
+</script>

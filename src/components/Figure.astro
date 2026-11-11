@@ -1,0 +1,214 @@
+---
+/**
+ * Figuras abstractas de un píxel, parientes del borde de nube del hero.
+ * Cada sección tiene la suya y la coloca en un lugar distinto; ninguna lleva
+ * información. Con scroll cobran movimiento (ver `scripts/figures.ts`): lo que
+ * se ve aquí es el estado en reposo, con el scroll en cero.
+ */
+import {
+  DROPLETS,
+  GEARS,
+  RIPPLE_COUNT,
+  droplet,
+  gearAngles,
+  gearPath,
+  rippleRing,
+} from "@/scripts/figure-math"
+
+interface Props {
+  variant: "ripples" | "droplets" | "gears" | "waves"
+  /** Esquina de la que nacen las ondas (solo `ripples`). */
+  corner?: "top-right" | "bottom-left"
+}
+
+const { variant, corner = "top-right" } = Astro.props
+
+const colors = ["var(--band-mint)", "var(--band-rose)", "var(--band-violet)"]
+const pick = (i: number) => colors[i % colors.length]
+
+const ripples = Array.from({ length: RIPPLE_COUNT }, (_, i) => ({ i, color: pick(i), ...rippleRing(i, 0) }))
+const origin = corner === "top-right" ? { cx: 400, cy: 0 } : { cx: 0, cy: 240 }
+const droplets = DROPLETS.map((d, i) => ({ i, color: pick(d.c), r: d.r, ...droplet(i, 0) }))
+
+// Tres engranajes encajados, cada uno con su color; giran por separado
+const restAngles = gearAngles(0)
+const gears = GEARS.map((g, i) => ({
+  ...g,
+  d: gearPath(g.teeth),
+  angle: restAngles[i],
+  color: colors[[2, 1, 0][i]],
+  hub: g.r * 0.22,
+}))
+
+// Tres ondas con distinta fase, para una franja horizontal
+const waves = [96, 124, 152].map((y, i) => ({
+  d: `M -10 ${y} C 60 ${y - 52}, 120 ${y - 52}, 190 ${y} S 320 ${y + 52}, 410 ${y}`,
+  color: pick(i),
+}))
+
+// Cómo encaja cada figura en su caja (ancla a la esquina de donde nace)
+const fit =
+  variant === "ripples"
+    ? corner === "top-right"
+      ? "xMaxYMin slice"
+      : "xMinYMax slice"
+    : { droplets: "xMidYMid slice", gears: "xMidYMid meet", waves: "none" }[variant]
+
+// Los engranajes caben en un cuadrado y se dibujan completos
+const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
+---
+
+<div
+  class:list={["decor", `decor--${variant}`, variant === "ripples" && `decor--${corner}`]}
+  data-figure={variant}
+  aria-hidden="true"
+>
+  <svg viewBox={viewBox} preserveAspectRatio={fit} fill="none">
+    {
+      variant === "ripples" &&
+        ripples.map((c) => (
+          <circle
+            cx={origin.cx}
+            cy={origin.cy}
+            r={c.r}
+            stroke={c.color}
+            stroke-opacity={c.opacity}
+            vector-effect="non-scaling-stroke"
+          />
+        ))
+    }
+    {
+      variant === "droplets" &&
+        droplets.map((d) => (
+          <circle
+            cx={d.x}
+            cy={d.y}
+            r={d.r}
+            stroke={d.color}
+            stroke-opacity={d.opacity}
+            vector-effect="non-scaling-stroke"
+          />
+        ))
+    }
+    {
+      variant === "gears" &&
+        gears.map((g) => (
+          <g transform={`translate(${g.cx} ${g.cy}) rotate(${g.angle})`}>
+            <path d={g.d} stroke={g.color} vector-effect="non-scaling-stroke" />
+            <circle r={g.hub} stroke={g.color} stroke-opacity="0.7" vector-effect="non-scaling-stroke" />
+          </g>
+        ))
+    }
+    {
+      variant === "waves" &&
+        waves.map((w) => <path d={w.d} stroke={w.color} vector-effect="non-scaling-stroke" />)
+    }
+  </svg>
+</div>
+
+<style>
+  /* En pantallas chicas todas las figuras quedan pequeñas, arriba a la derecha */
+  .decor {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    z-index: 0;
+    inline-size: 42vw;
+    block-size: 7.5rem;
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 1s var(--ease-out);
+  }
+
+  svg {
+    inline-size: 100%;
+    block-size: 100%;
+    overflow: visible;
+  }
+
+  svg :global(*) {
+    stroke-width: 1;
+  }
+
+  /* Tecnologías: el recorrido de las ondas crece y se acorta con el scroll */
+  .decor--waves svg {
+    clip-path: inset(0 calc((1 - var(--reveal, 1)) * 100%) 0 0);
+  }
+
+  /* La figura de la sección activa se enciende */
+  :global(.section[data-active="true"]) .decor {
+    opacity: 0.85;
+  }
+
+  /* En pantallas anchas cada figura ocupa su propio rincón */
+  @media (min-width: 56rem) {
+    .decor {
+      opacity: 0.5;
+    }
+
+    :global(.section[data-active="true"]) .decor {
+      opacity: 1;
+    }
+
+    /* Esquina superior derecha */
+    .decor--top-right {
+      inline-size: min(50vw, 30rem);
+      block-size: 12rem;
+    }
+
+    /* Esquina inferior izquierda */
+    .decor--bottom-left {
+      inset-block: auto 0;
+      inset-inline: 0 auto;
+      inline-size: min(44vw, 34rem);
+      block-size: 22rem;
+    }
+
+    /* Un poco más abajo del borde superior, desplazada hacia el centro */
+    .decor--droplets {
+      inset-block-start: 3.5rem;
+      inset-inline-end: 18%;
+      inline-size: min(44vw, 28rem);
+      block-size: 12rem;
+    }
+
+    /* Franja a todo lo ancho, pegada al borde inferior */
+    .decor--waves {
+      inset-block: auto 0;
+      inset-inline: 0;
+      inline-size: auto;
+      block-size: 8rem;
+    }
+  }
+
+  /* Certificaciones: engranajes completos en el margen izquierdo, centrado en vertical.
+     Su tamaño sigue al margen libre y se desvanece al llegar al texto. */
+  @media (min-width: 64rem) {
+    .decor--gears {
+      --margin: max(var(--gutter), calc((100vw - var(--page)) / 2));
+      --radius: clamp(5rem, calc(var(--margin) * 0.8), 9rem);
+      --left: calc(1rem - var(--radius) / 3);
+      inset-block: 50% auto;
+      inset-inline: var(--left) auto;
+      inline-size: calc(var(--radius) * 2.667);
+      block-size: calc(var(--radius) * 2.667);
+      transform: translateY(-50%);
+      -webkit-mask-image: linear-gradient(
+        to right,
+        #000 calc(var(--margin) - var(--left) - 1rem),
+        transparent calc(var(--margin) - var(--left) + 3rem)
+      );
+      mask-image: linear-gradient(
+        to right,
+        #000 calc(var(--margin) - var(--left) - 1rem),
+        transparent calc(var(--margin) - var(--left) + 3rem)
+      );
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .decor {
+      transition: none;
+    }
+  }
+</style>

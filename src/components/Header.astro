@@ -1,0 +1,305 @@
+---
+import Icon from "@/components/Icon.astro"
+import config from "@data/config.json"
+import type { NavigationItem } from "@/types"
+
+const navigation = ([...config.navigation] as NavigationItem[]).sort((a, b) => a.order - b.order)
+---
+
+<header class="site-header">
+  <button
+    class="menu-button"
+    type="button"
+    aria-expanded="false"
+    aria-controls="menu"
+    data-menu-button
+  >
+    <span class="menu-icon menu-icon--open"><Icon name="menu" /></span>
+    <span class="menu-icon menu-icon--close"><Icon name="close" /></span>
+    <span class="visually-hidden">Menú</span>
+  </button>
+
+  <nav id="menu" class="menu" aria-label="Secciones" data-menu>
+    <ul>
+      {
+        navigation.map((item, i) => (
+          <li style={`--i:${i}`}>
+            <a href={item.href} data-nav-link={item.href.slice(1)}>
+              <span class="label">{item.name}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    inset-inline: 0;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  .menu,
+  .menu-button {
+    pointer-events: auto;
+  }
+
+  .menu a {
+    position: relative;
+    display: block;
+    color: var(--ink-2);
+    font-size: var(--fs-sm);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+  }
+
+  .menu a:hover,
+  .menu a[aria-current="true"] {
+    color: var(--ink);
+  }
+
+  /* El hilo espectral marca el enlace de la sección activa */
+  .menu a::after {
+    content: "";
+    position: absolute;
+    block-size: 1px;
+    background: var(--spectrum);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .menu a[aria-current="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .menu-button {
+    display: none;
+    place-items: center;
+    inline-size: 2.9rem;
+    block-size: 2.9rem;
+    padding: 0;
+    border: 1px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: var(--fs-lead);
+    cursor: pointer;
+  }
+
+  .menu-icon--close,
+  .menu-button[aria-expanded="true"] .menu-icon--open {
+    display: none;
+  }
+
+  .menu-button[aria-expanded="true"] .menu-icon--close {
+    display: inline-flex;
+  }
+
+  /* ------------------------------------------------------------------
+     Pantallas chicas: un botón que abre el menú
+     ------------------------------------------------------------------ */
+  @media (max-width: 47.99rem) {
+    .site-header {
+      inset-block-start: 0.9rem;
+      display: flex;
+      justify-content: flex-end;
+      padding-inline: var(--gutter);
+    }
+
+    :global(.js) .menu-button {
+      display: grid;
+    }
+
+    .menu {
+      background: var(--paper);
+      border: 1px solid var(--rule-strong);
+      border-radius: 6px;
+    }
+
+    :global(.js) .menu {
+      position: absolute;
+      inset-block-start: calc(100% + 0.5rem);
+      inset-inline: var(--gutter);
+      padding: 0.4rem;
+    }
+
+    :global(.js) .menu:not([data-open="true"]) {
+      display: none;
+    }
+
+    .menu ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu a {
+      padding: 0.85rem 1rem;
+      font-size: 1.0625rem;
+    }
+
+    /* La sección actual no depende solo del color: también pesa más */
+    .menu a[aria-current="true"] {
+      font-weight: 600;
+    }
+
+    .menu a::after {
+      inset-inline: 1rem;
+      inset-block-end: 0.55rem;
+    }
+
+    /* Sin JavaScript: la navegación queda visible y se acomoda en varias líneas */
+    :global(html:not(.js)) .site-header {
+      justify-content: center;
+    }
+
+    :global(html:not(.js)) .menu ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     Pantallas medianas: barra rectangular compacta (no hay margen para el índice)
+     ------------------------------------------------------------------ */
+  @media (min-width: 48rem) and (max-width: 74.99rem) {
+    .site-header {
+      inset-block-start: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu {
+      background: var(--paper);
+      border: 1px solid var(--rule-strong);
+      border-radius: 6px;
+      overflow: clip;
+    }
+
+    .menu ul {
+      display: flex;
+    }
+
+    .menu li + li {
+      border-inline-start: 1px solid var(--rule);
+    }
+
+    .menu a {
+      padding: 0.65rem 1.15rem;
+    }
+
+    .menu a:hover {
+      background: var(--mist);
+    }
+
+    .menu a::after {
+      inset-inline: 0;
+      inset-block-end: 0;
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     Pantallas anchas: índice de marcas en el margen izquierdo
+     ------------------------------------------------------------------ */
+  @media (min-width: 75rem) {
+    .site-header {
+      inset-block: 50% auto;
+      inset-inline: 0 auto;
+      transform: translateY(-50%);
+      padding-inline-start: 1.5rem;
+    }
+
+    .menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-block: 0.55rem;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+    }
+
+    /* La marca: un trazo corto que crece y se enciende en la sección activa */
+    .menu a::before {
+      content: "";
+      inline-size: 1rem;
+      block-size: 1px;
+      background: var(--ink-3);
+      transition: inline-size 0.4s var(--ease-out), background-color 0.3s var(--ease-out);
+    }
+
+    .menu a:hover::before,
+    .menu a:focus-visible::before {
+      inline-size: 1.6rem;
+      background: var(--ink);
+    }
+
+    .menu a[aria-current="true"]::before {
+      inline-size: 2rem;
+      background: var(--spectrum);
+    }
+
+    .menu a::after {
+      display: none;
+    }
+
+    /* El nombre aparece al pasar el cursor o enfocar; al cargar, asoma un instante */
+    .label {
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+
+    .menu a:hover .label,
+    .menu a:focus-visible .label {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .label {
+        animation: hint 3.4s var(--ease-out) calc(0.7s + var(--i) * 0.1s) 1;
+      }
+
+      @keyframes hint {
+        0% {
+          opacity: 0;
+          transform: translateX(-6px);
+        }
+        14%,
+        72% {
+          opacity: 1;
+          transform: none;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(-4px);
+        }
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu a,
+    .menu a::before,
+    .menu a::after,
+    .label {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { initMenu } from "@/scripts/menu"
+  initMenu()
+</script>

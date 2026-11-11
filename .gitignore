@@ -1,29 +1,25 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# build
+dist/
+.astro/
 
 # dependencies
-/node_modules
+node_modules/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# debug
+# logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
 # env files
-.env*
-.env.local*
+.env
+.env.*
 !.env.example
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# notas de trabajo de diseño: solo locales, no se publican
+PRODUCT.md
+.impeccable/
+
+# sistema
+.DS_Store

@@ -1,0 +1,46 @@
+---
+import arrowUpRight from "@/icons/arrow-up-right.svg?raw"
+import lock from "@/icons/lock.svg?raw"
+import mail from "@/icons/mail.svg?raw"
+import mapPin from "@/icons/map-pin.svg?raw"
+import menu from "@/icons/menu.svg?raw"
+import close from "@/icons/x.svg?raw"
+import fileText from "@/icons/file-text.svg?raw"
+
+const icons = {
+  "arrow-up-right": arrowUpRight,
+  lock,
+  mail,
+  "map-pin": mapPin,
+  menu,
+  close,
+  "file-text": fileText,
+} as const
+
+interface Props {
+  name: keyof typeof icons
+}
+
+const { name } = Astro.props
+// Quita el comentario de licencia y el tamaño fijo: el tamaño lo da el CSS.
+const svg = icons[name]
+  .replace(/<!--[\s\S]*?-->/, "")
+  .replace(/\s(width|height)="24"/g, "")
+  .replace(/\sclass="[^"]*"/, "")
+---
+
+<span class="icon" aria-hidden="true" set:html={svg} />
+
+<style>
+  .icon {
+    display: inline-flex;
+    inline-size: 1.05em;
+    block-size: 1.05em;
+    flex: none;
+  }
+  .icon :global(svg) {
+    inline-size: 100%;
+    block-size: 100%;
+    stroke-width: 1.6;
+  }
+</style>

@@ -1,0 +1,214 @@
+---
+import Figure from "@/components/Figure.astro"
+import Icon from "@/components/Icon.astro"
+import SectionHead from "@/components/SectionHead.astro"
+import projects from "@data/projects.json"
+import sections from "@data/sections.json"
+import type { Project } from "@/types"
+
+const all = projects as Project[]
+const featured = all.find((p) => p.featured)
+const rest = all.filter((p) => p !== featured)
+const copy = sections.projects
+
+const hasLink = (url?: string) => Boolean(url) && url !== "#"
+
+/** Año y marcas del proyecto en una sola línea. */
+const marks = (p: Project) =>
+  [p.year, p.featured && "Proyecto principal", p.inDevelopment && "En desarrollo", p.isGroupProject && "Equipo"].filter(
+    Boolean,
+  ) as string[]
+---
+
+<section id="projects" class="section" data-section aria-labelledby="projects-title">
+  <Figure variant="droplets" />
+
+  <div class="container">
+    <SectionHead id="projects" title={copy.title} subtitle={copy.subtitle} />
+
+    {
+      featured && (
+        <article class="item featured">
+          <ul class="marks" aria-label="Datos del proyecto">
+            {marks(featured).map((mark) => (
+              <li class:list={{ strong: mark === "Proyecto principal" }}>{mark}</li>
+            ))}
+          </ul>
+
+          <div class="featured-body">
+            <div>
+              <h3 class="item-title">{featured.title}</h3>
+              <p class="description">{featured.longDescription}</p>
+            </div>
+
+            <div class="side">
+              <ul class="inline-list" aria-label="Tecnologías">
+                {featured.tags.map((tag) => (
+                  <li>{tag}</li>
+                ))}
+              </ul>
+              <ul class="links">
+                {hasLink(featured.links.github) && (
+                  <li>
+                    <a class="link-arrow" href={featured.links.github} target="_blank" rel="noopener noreferrer">
+                      Código
+                      <Icon name="arrow-up-right" />
+                      <span class="visually-hidden">de {featured.title} (se abre en una pestaña nueva)</span>
+                    </a>
+                  </li>
+                )}
+                {hasLink(featured.links.demo) && (
+                  <li>
+                    <a class="link-arrow" href={featured.links.demo} target="_blank" rel="noopener noreferrer">
+                      Demo
+                      <Icon name="arrow-up-right" />
+                      <span class="visually-hidden">de {featured.title} (se abre en una pestaña nueva)</span>
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+        </article>
+      )
+    }
+
+    <ul class="cols cols--2 others">
+      {
+        rest.map((project) => (
+          <li class="item">
+            <ul class="marks" aria-label="Datos del proyecto">
+              {marks(project).map((mark) => (
+                <li>{mark}</li>
+              ))}
+            </ul>
+
+            <h3 class="item-title">{project.title}</h3>
+            <p class="description">{project.description}</p>
+
+            <ul class="inline-list" aria-label="Tecnologías">
+              {project.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+
+            <ul class="links">
+              {hasLink(project.links.github) && (
+                <li>
+                  <a class="link-arrow" href={project.links.github} target="_blank" rel="noopener noreferrer">
+                    Código
+                    <Icon name="arrow-up-right" />
+                    <span class="visually-hidden">de {project.title} (se abre en una pestaña nueva)</span>
+                  </a>
+                </li>
+              )}
+              {hasLink(project.links.demo) && (
+                <li>
+                  <a class="link-arrow" href={project.links.demo} target="_blank" rel="noopener noreferrer">
+                    Demo
+                    <Icon name="arrow-up-right" />
+                    <span class="visually-hidden">de {project.title} (se abre en una pestaña nueva)</span>
+                  </a>
+                </li>
+              )}
+              {!hasLink(project.links.github) && !hasLink(project.links.demo) && project.private && (
+                <li class="private">
+                  <Icon name="lock" />
+                  Repositorio privado
+                </li>
+              )}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .marks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 1.1rem;
+    margin-block-end: 0.7rem;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .marks .strong {
+    color: var(--ink);
+  }
+
+  .description {
+    max-inline-size: var(--measure);
+    margin-block: 0.55rem 1.1rem;
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    margin-block-start: 1rem;
+  }
+
+  .private {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+  }
+
+  /* El proyecto principal ocupa todo el ancho: título grande y descripción más larga */
+  .featured {
+    margin-block-end: 2.5rem;
+    padding-block-end: 0.5rem;
+  }
+
+  .featured .item-title {
+    font-size: var(--fs-feature);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    max-inline-size: 24ch;
+  }
+
+  .featured .description {
+    max-inline-size: 58ch;
+    margin-block-end: 0;
+    font-size: var(--fs-base);
+    color: var(--ink);
+  }
+
+  .featured-body {
+    display: grid;
+    gap: 1.5rem 4rem;
+  }
+
+  .side {
+    display: grid;
+    align-content: start;
+    gap: 1.25rem;
+  }
+
+  .side .links {
+    margin-block-start: 0;
+  }
+
+  @media (min-width: 56rem) {
+    .featured-body {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .side {
+      padding-block-start: 0.5rem;
+    }
+  }
+</style>

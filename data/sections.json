@@ -1,0 +1,21 @@
+{
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "Trayectoria profesional y logros destacados"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunas de las soluciones que he desarrollado usando tecnologías modernas"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "subtitle": "Aprendizaje continuo y validación de conocimientos"
+  },
+  "skills": {
+    "title": "Tecnologías",
+    "subtitle": "Herramientas y frameworks con los que construyo soluciones"
+  },
+  "contact": {
+    "title": "Contacto"
+  }
+}

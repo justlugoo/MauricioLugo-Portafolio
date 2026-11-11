@@ -1,0 +1,55 @@
+---
+import Figure from "@/components/Figure.astro"
+import SectionHead from "@/components/SectionHead.astro"
+import skills from "@data/skills.json"
+import sections from "@data/sections.json"
+import type { SkillCategory } from "@/types"
+
+const categories = [...(skills.categories as SkillCategory[])].sort((a, b) => a.order - b.order)
+const copy = sections.skills
+---
+
+<section id="skills" class="section skills" data-section aria-labelledby="skills-title">
+  <Figure variant="waves" />
+
+  <div class="container">
+    <SectionHead id="skills" title={copy.title} subtitle={copy.subtitle} />
+
+    <div class="cols cols--4">
+      {
+        categories.map((category) => (
+          <div class="item">
+            <h3 class="category">{category.name}</h3>
+            <ul class="skill-list">
+              {category.skills.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Deja sitio abajo para la franja de ondas */
+  .section.skills {
+    padding-block-end: clamp(5rem, 4rem + 4vw, 8rem);
+  }
+
+  .category {
+    margin-block-end: 0.9rem;
+    font-size: var(--fs-base);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+  }
+
+  .skill-list {
+    display: grid;
+    gap: 0.45rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+  }
+</style>
