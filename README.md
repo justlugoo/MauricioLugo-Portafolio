@@ -1,6 +1,6 @@
 # Portafolio de Mauricio Lugo
 
-Mi portafolio personal: un sitio de una sola página donde presento mi perfil, mi experiencia y los proyectos en los que he trabajado. Está publicado en [mauricio-portfolio.vercel.app](https://mauricio-portfolio.vercel.app).
+Mi portafolio personal: un sitio de una sola página donde presento mi perfil, mi experiencia y los proyectos en los que he trabajado. Está publicado en [mauricio-lugo-portafolio.vercel.app](https://mauricio-lugo-portafolio.vercel.app).
 
 ## Contenido del sitio
 
