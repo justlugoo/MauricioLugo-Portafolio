@@ -52,4 +52,12 @@ const copy = sections.skills
     font-size: var(--fs-sm);
     color: var(--ink-2);
   }
+
+  /* En pantallas chicas las tecnologías van en dos columnas, para no alargar la página */
+  @media (max-width: 43.99rem) {
+    .skill-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.45rem 1rem;
+    }
+  }
 </style>

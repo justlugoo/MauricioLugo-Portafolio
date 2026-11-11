@@ -120,6 +120,11 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
     transition: opacity 1s var(--ease-out);
   }
 
+  /* Las ondas de la esquina inferior izquierda no caben en pantallas chicas */
+  .decor--bottom-left {
+    display: none;
+  }
+
   svg {
     inline-size: 100%;
     block-size: 100%;
@@ -158,6 +163,7 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
 
     /* Esquina inferior izquierda */
     .decor--bottom-left {
+      display: block;
       inset-block: auto 0;
       inset-inline: 0 auto;
       inline-size: min(44vw, 34rem);
@@ -181,9 +187,9 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
     }
   }
 
-  /* Certificaciones: engranajes completos en el margen izquierdo, centrado en vertical.
+  /* Certificaciones (desde 87rem, cuando el margen alcanza): engranajes completos en el margen izquierdo, centrado en vertical.
      Su tamaño sigue al margen libre y se desvanece al llegar al texto. */
-  @media (min-width: 64rem) {
+  @media (min-width: 87rem) {
     .decor--gears {
       --margin: max(var(--gutter), calc((100vw - var(--page)) / 2));
       --radius: clamp(5rem, calc(var(--margin) * 0.8), 9rem);
@@ -195,13 +201,13 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
       transform: translateY(-50%);
       -webkit-mask-image: linear-gradient(
         to right,
-        #000 calc(var(--margin) - var(--left) - 1rem),
-        transparent calc(var(--margin) - var(--left) + 3rem)
+        #000 calc(var(--margin) - var(--left) - 3rem),
+        transparent calc(var(--margin) - var(--left) - 0.25rem)
       );
       mask-image: linear-gradient(
         to right,
-        #000 calc(var(--margin) - var(--left) - 1rem),
-        transparent calc(var(--margin) - var(--left) + 3rem)
+        #000 calc(var(--margin) - var(--left) - 3rem),
+        transparent calc(var(--margin) - var(--left) - 0.25rem)
       );
     }
   }
