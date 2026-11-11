@@ -144,10 +144,22 @@ const { name, title, summary, focus, location, availability, cv } = personal as 
     pointer-events: none;
   }
 
+  /* Una neblina apenas más fría que el blanco, que se funde con la sección siguiente */
+  .band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 75% at 62% 100%, var(--mist) 0%, transparent 72%);
+  }
+
   .band svg {
+    position: relative;
     inline-size: 100%;
     block-size: 100%;
     overflow: visible;
+    /* Los hilos se desvanecen al acercarse a la costura, en vez de cortarse en seco */
+    -webkit-mask-image: linear-gradient(to top, transparent 0, var(--paper) 26%);
+    mask-image: linear-gradient(to top, transparent 0, var(--paper) 26%);
   }
 
   .band path {

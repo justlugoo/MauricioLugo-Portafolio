@@ -21,14 +21,20 @@ const copy = sections.certifications
   <Figure variant="gears" />
 
   <div class="container">
-    <SectionHead id="certifications" title={copy.title} subtitle={copy.subtitle} />
+    <SectionHead id="certifications" title={copy.title} subtitle={copy.subtitle}>
+      <a class="link-arrow" href={credlyProfile} target="_blank" rel="noopener noreferrer">
+        Ver perfil en Credly
+        <Icon name="arrow-up-right" />
+        <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+      </a>
+    </SectionHead>
 
     <ul class="cols cols--3">
       {
         earned.map((cert) => (
           <li class="item">
-            <p class="meta">{cert.issuer}</p>
             <h3 class="item-title" lang="en">{cert.name}</h3>
+            <p class="issuer">{cert.issuer}</p>
             <p class="credential">
               <a class="link-arrow" href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
                 Ver credencial
@@ -42,26 +48,24 @@ const copy = sections.certifications
       {
         inProgress.map((cert) => (
           <li class="item">
-            <p class="meta">{cert.status}</p>
             <h3 class="item-title pending" lang="en">{cert.name}</h3>
+            <p class="issuer">{cert.status}</p>
           </li>
         ))
       }
     </ul>
 
-    <p class="profile">
-      <a class="link-arrow" href={credlyProfile} target="_blank" rel="noopener noreferrer">
-        Ver perfil en Credly
-        <Icon name="arrow-up-right" />
-        <span class="visually-hidden">(se abre en una pestaña nueva)</span>
-      </a>
-    </p>
   </div>
 </section>
 
 <style>
+  .issuer {
+    margin-block-start: 0.35rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+  }
+
   .item-title {
-    margin-block-start: 0.6rem;
     font-size: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
     line-height: 1.25;
   }
@@ -75,7 +79,4 @@ const copy = sections.certifications
     font-weight: 400;
   }
 
-  .profile {
-    margin-block-start: 2rem;
-  }
 </style>

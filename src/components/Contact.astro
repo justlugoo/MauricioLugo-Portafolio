@@ -152,10 +152,14 @@ const copy = sections.contact
     padding: 0.8rem 1rem;
     border: 1px solid var(--field);
     border-radius: 6px;
-    background: var(--paper);
+    background-color: var(--paper);
+    background-image: var(--spectrum);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0 1px;
     font-size: var(--fs-base);
     line-height: 1.5;
-    transition: border-color 0.2s var(--ease-out);
+    transition: border-color 0.2s var(--ease-out), background-size 0.5s var(--ease-out);
   }
 
   textarea {
@@ -179,6 +183,14 @@ const copy = sections.contact
     outline: 2px solid var(--accent);
     outline-offset: 1px;
     border-color: var(--accent);
+    background-size: 100% 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    input,
+    textarea {
+      transition: none;
+    }
   }
 
   input:user-invalid,

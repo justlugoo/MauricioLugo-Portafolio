@@ -24,12 +24,11 @@ const copy = sections.experience
       {
         entries.map((entry) => (
           <li class="item">
+            <h3 class="item-title">{entry.position}</h3>
+            <p class="company">{entry.company}</p>
             <p class="date">
               {entry.duration} <span class="duration">· {entry.durationShort}</span>
             </p>
-
-            <h3 class="item-title">{entry.position}</h3>
-            <p class="company">{entry.company}</p>
 
             <ul class="achievements">
               {entry.achievements.map((achievement) => (
@@ -51,10 +50,10 @@ const copy = sections.experience
 
 <style>
   .date {
-    margin-block-end: 0.6rem;
+    margin-block-start: 0.4rem;
     font-size: var(--fs-sm);
     font-weight: 500;
-    color: var(--ink-2);
+    color: var(--ink-3);
   }
 
   .duration {

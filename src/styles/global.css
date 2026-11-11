@@ -221,6 +221,7 @@ textarea {
 
 /* Botones */
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -241,9 +242,27 @@ textarea {
 }
 
 .button:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink);
+  background: var(--ink-2);
+  border-color: var(--ink-2);
+  color: var(--paper);
+}
+
+/* El hilo espectral recorre el botón al explorarlo */
+.button::after {
+  content: "";
+  position: absolute;
+  inset-inline: 1.5rem;
+  inset-block-end: 0.45rem;
+  block-size: 1px;
+  background: var(--spectrum);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.button:hover::after,
+.button:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .button--quiet {
@@ -262,6 +281,10 @@ textarea {
   cursor: progress;
   background: var(--ink-3);
   border-color: var(--ink-3);
+}
+
+.button:disabled::after {
+  display: none;
 }
 
 /* ------------------------------------------------------------------
@@ -417,9 +440,17 @@ textarea {
   }
 }
 
+/* En pantallas táctiles no hay cursor: el hilo del ítem se enciende al llegar al centro */
+@media (hover: none) {
+  .item[data-lit="true"]::after {
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .section::after,
-  .item::after {
+  .item::after,
+  .button::after {
     transition: none;
   }
 }

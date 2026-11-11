@@ -201,12 +201,12 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
       transform: translateY(-50%);
       -webkit-mask-image: linear-gradient(
         to right,
-        #000 calc(var(--margin) - var(--left) - 3rem),
+        var(--paper) calc(var(--margin) - var(--left) - 3rem),
         transparent calc(var(--margin) - var(--left) - 0.25rem)
       );
       mask-image: linear-gradient(
         to right,
-        #000 calc(var(--margin) - var(--left) - 3rem),
+        var(--paper) calc(var(--margin) - var(--left) - 3rem),
         transparent calc(var(--margin) - var(--left) - 0.25rem)
       );
     }

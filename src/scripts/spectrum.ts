@@ -3,6 +3,8 @@
  * se subraya su enlace en la barra. Es el único movimiento del sitio.
  */
 export function initSpectrum(): void {
+  lightItemsOnTouch()
+
   const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-section]"))
   const links = new Map<string, HTMLAnchorElement>()
   document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
@@ -32,4 +34,20 @@ export function initSpectrum(): void {
 
   sections.forEach((section) => observer.observe(section))
   activate(sections[0].id)
+}
+
+/** En pantallas sin cursor, enciende el hilo del ítem que cruza el centro de la ventana. */
+function lightItemsOnTouch(): void {
+  if (!window.matchMedia("(hover: none)").matches) return
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        ;(entry.target as HTMLElement).dataset.lit = String(entry.isIntersecting)
+      }
+    },
+    { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+  )
+
+  document.querySelectorAll<HTMLElement>(".item").forEach((item) => observer.observe(item))
 }
