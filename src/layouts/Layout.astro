@@ -39,6 +39,11 @@ const robots = noindex
     <meta name="author" content={site.author} />
     <meta name="robots" content={robots} />
     {
+      seo.googleSiteVerification && (
+        <meta name="google-site-verification" content={seo.googleSiteVerification} />
+      )
+    }
+    {
       !noindex && (
         <>
           <link rel="canonical" href={canonical} />
