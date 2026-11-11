@@ -1,15 +1,12 @@
 [
   {
-    "id": "1",
-    "company": "38 Grados Lab",
-    "position": "Backend e Ingeniero Cloud Intern",
+    "company": "38 Grados Lab · Querétaro, México (remoto)",
+    "position": "Practicante de Ingeniería Backend y Cloud",
     "duration": "Julio 2025 - Noviembre 2025",
     "durationShort": "5 meses",
-    "description": "Pasantía remota en arquitectura cloud (GCP) para múltiples clientes.",
     "achievements": [
       "Apoyé el diseño de arquitecturas cloud en GCP, con documentación técnica y evaluaciones de modernización",
-      "Participé en la planeación y análisis técnico de proyectos como ASCyber, Hyatsi, Vemobile y UniDigiHub",
-      "Colaboré directamente con clientes, traduciendo requerimientos de negocio en especificaciones técnicas"
+      "Analicé requerimientos de negocio de clientes como ASCyber, Hyatsi, Vemobile y UniDigiHub, contribuyendo a su traducción en especificaciones técnicas"
     ],
     "technologies": [
       "Google Cloud Platform",
@@ -17,18 +14,13 @@
       "Docker",
       "Linux/Bash",
       "PostgreSQL"
-    ],
-    "type": "professional",
-    "current": false,
-    "featured": true
+    ]
   },
   {
-    "id": "2",
     "company": "Corporación Universitaria Rafael Núñez",
     "position": "Frontend Developer — Relaciones Nacionales e Internacionales (RNI)",
     "duration": "Enero 2025 - Diciembre 2025",
     "durationShort": "1 año",
-    "description": "Desarrollo frontend para digitalizar procesos administrativos internos.",
     "achievements": [
       "Desarrollé funcionalidades con Next.js y TypeScript para la plataforma interna",
       "Contribuí a migrar flujos administrativos legacy a una interfaz web moderna"
@@ -38,9 +30,6 @@
       "TypeScript",
       "Tailwind CSS",
       "Shadcn UI"
-    ],
-    "type": "professional",
-    "current": false,
-    "featured": false
+    ]
   }
 ]

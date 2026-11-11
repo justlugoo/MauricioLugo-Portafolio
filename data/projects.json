@@ -1,57 +1,51 @@
 [
   {
-    "id": "1",
-    "title": "Ecosistema Educativo para Instrumentación Quirúrgica",
-    "description": "Ecosistema de IA para el aprendizaje autónomo de Instrumentación Quirúrgica (CURN), con visión por computador que valida el instrumental en tiempo real.",
-    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), en conjunto con el programa de Instrumentación Quirúrgica. Su primer módulo, SIVRI, usa visión por computador (YOLO26) para validar en tiempo real la disposición del instrumental quirúrgico sobre la mesa, dando retroalimentación inmediata al estudiante.",
+    "title": "Ecosistema tecnológico educativo para Instrumentación Quirúrgica",
+    "description": "Plataforma educativa para Instrumentación Quirúrgica, compuesta por tres módulos independientes.",
+    "longDescription": "Proyecto de grado en Ingeniería de Sistemas (CURN), en conjunto con el programa de Instrumentación Quirúrgica. Plataforma educativa de tres módulos independientes con arquitectura hexagonal. Incluye APIs REST con Python y FastAPI para la gestión de usuarios, roles, técnicas quirúrgicas y catálogos de instrumental, con autenticación JWT (EdDSA), contraseñas con Argon2id y protección CSRF, y un módulo de chat con un LLM local (Qwen3-VL con Ollama), evaluado con un banco propio de 153 preguntas. Un módulo de visión artificial con YOLO26, para identificar instrumental quirúrgico y verificar su distribución en la mesa de Mayo, está en etapa de diseño.",
     "tags": [
-      "IA Aplicada",
-      "Visión por Computador",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Arquitectura hexagonal",
+      "LLM local",
       "YOLO26",
-      "Proyecto de Grado"
+      "Claude Code"
     ],
-    "category": "ai",
     "featured": true,
     "inDevelopment": true,
     "isGroupProject": true,
-    "year": "2026",
+    "year": "2026 – 2027",
     "links": {
       "github": "https://github.com/curn-iq/iq-platform"
     }
   },
   {
-    "id": "2",
     "title": "FinCapX",
-    "description": "App de escritorio para gestión financiera personal: ingresos, gastos, tanqueos y metas de ahorro.",
-    "longDescription": "Aplicación de escritorio para Linux construida con Tauri (Rust) y Svelte. Registra ingresos, gastos y tanqueos, controla presupuestos por categoría, unifica objetivos de ahorro, deudas y préstamos en un módulo de Metas, y estima la autonomía de combustible por vehículo. Base de datos SQLite local, sin dependencias cloud. En uso personal desde junio de 2026.",
+    "description": "Gestor de finanzas personales de escritorio, con contabilidad por partida doble y soporte multimoneda.",
     "tags": [
       "Rust",
       "Tauri",
-      "Svelte",
       "SQLite",
-      "Linux"
+      "Claude Code"
     ],
-    "category": "desktop",
     "featured": false,
-    "inDevelopment": false,
+    "inDevelopment": true,
     "isGroupProject": false,
     "year": "2026",
     "links": {
-      "github": "https://github.com/justlugoo/finanzas"
+      "github": "https://github.com/fincapx/app"
     }
   },
   {
-    "id": "3",
     "title": "LeadsManager",
     "description": "Sistema de gestión de clientes con FastAPI y React, containerizado con Docker.",
-    "longDescription": "Sistema completo de gestión de clientes (CRM) desarrollado con arquitectura moderna. Backend construido con FastAPI y PostgreSQL, frontend con React, todo containerizado con Docker para facilitar el despliegue y escalabilidad.",
     "tags": [
       "FastAPI",
       "React",
       "Docker",
       "PostgreSQL"
     ],
-    "category": "fullstack",
     "featured": false,
     "inDevelopment": false,
     "isGroupProject": false,
@@ -61,36 +55,31 @@
     }
   },
   {
-    "id": "4",
     "title": "Plataforma RNI",
     "description": "Frontend de plataforma para gestión de relaciones nacionales e internacionales",
-    "longDescription": "Interfaz frontend moderna para una plataforma de gestión de relaciones nacionales e internacionales. Desarrollada con Next.js 14, TypeScript y Tailwind CSS, utilizando componentes de Shadcn UI. Proyecto desarrollado bajo metodología SCRUM.",
     "tags": [
       "TypeScript",
       "Next.js",
       "Tailwind CSS",
       "Shadcn UI",
-      "SCRUM"
+      "SCRUM",
+      "Claude Code"
     ],
-    "category": "frontend",
     "featured": false,
     "inDevelopment": false,
     "isGroupProject": true,
-    "year": "2024",
     "private": true,
+    "year": "2025",
     "links": {}
   },
   {
-    "id": "5",
     "title": "Apero E-commerce",
     "description": "E-commerce de bebidas personalizables con Django y MySQL.",
-    "longDescription": "Plataforma de e-commerce especializada en bebidas alcohólicas personalizables. Desarrollada con Django para un backend robusto y MySQL como base de datos. Incluye carrito de compras, gestión de inventario y procesamiento de pedidos. Uno de mis primeros proyectos.",
     "tags": [
       "Django",
       "Python",
       "MySQL"
     ],
-    "category": "fullstack",
     "featured": false,
     "inDevelopment": false,
     "isGroupProject": false,

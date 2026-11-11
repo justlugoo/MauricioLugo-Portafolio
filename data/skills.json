@@ -1,60 +1,55 @@
 {
   "categories": [
     {
-      "id": "cloud-devops",
       "name": "Cloud & DevOps",
-      "icon": "cloud",
       "order": 1,
-      "featured": true,
       "skills": [
         "Google Cloud Platform (GCP)",
         "Terraform",
         "Docker",
-        "Linux/Bash"
+        "Linux/Bash",
+        "GitHub Actions"
       ]
     },
     {
-      "id": "backend",
       "name": "Desarrollo Backend",
-      "icon": "server",
       "order": 2,
-      "featured": true,
       "skills": [
         "Python",
+        "Java",
         "Rust",
         "FastAPI",
-        "Django",
+        "Spring Boot",
+        "SQLAlchemy",
         "PostgreSQL",
         "SQLite",
         "RESTful APIs"
       ]
     },
     {
-      "id": "frontend",
-      "name": "Frontend y Otros",
-      "icon": "monitor",
+      "name": "Seguridad e IA",
       "order": 3,
-      "featured": false,
       "skills": [
-        "Next.js",
-        "React",
-        "Svelte",
-        "TypeScript",
-        "Tailwind CSS",
-        "Shadcn UI"
+        "JWT",
+        "Argon2id",
+        "OWASP ASVS",
+        "Ollama (LLM local)",
+        "Tool calling",
+        "YOLO26"
       ]
     },
     {
-      "id": "tools",
-      "name": "Herramientas y Plataformas",
-      "icon": "wrench",
+      "name": "Frontend y Herramientas",
       "order": 4,
-      "featured": false,
       "skills": [
-        "Git & GitHub",
+        "Next.js",
+        "Svelte",
+        "TypeScript",
         "Tauri",
+        "Git & GitHub",
         "Postman",
         "Swagger/OpenAPI",
+        "pytest",
         "VS Code",
         "Claude Code"
       ]

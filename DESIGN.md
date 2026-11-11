@@ -148,7 +148,7 @@ Paleta acromática de pizarra sobre blanco, con un único acento violeta oscurec
 ### Named Rules
 **The Thread-Only Rule.** El color de matiz (menta, rosa, violeta) solo existe como trazo de 1px; nunca como relleno de superficie, fondo de chip ni color de texto.
 
-**The Weight-Not-Hue Rule.** El énfasis en texto se hace con peso (por ejemplo `strong` a 600 en la misión del hero), no con color.
+**The Weight-Not-Hue Rule.** El énfasis en texto se hace con peso, no con color.
 
 **The Quiet Accent Rule.** El violeta oscurecido aparece solo en estados interactivos y de foco; en reposo la página es acromática.
 
@@ -164,7 +164,7 @@ Paleta acromática de pizarra sobre blanco, con un único acento violeta oscurec
 - **Display** (300, clamp(3rem, 1.5rem + 6.4vw, 6rem), 1, -0.03em): solo el nombre en el hero, máx. 11ch.
 - **Headline** (300, clamp(1.875rem, 1.45rem + 1.9vw, 2.75rem), 1.1, -0.02em): título de cada sección.
 - **Title** (500, `--fs-h3` clamp(1.375rem, 1.25rem + 0.55vw, 1.75rem), 1.2, -0.01em): títulos de ítems; el proyecto principal sube a 400 y a `--fs-feature` clamp(1.625rem, 1.3rem + 1.3vw, 2.375rem). En Certificaciones baja a clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem).
-- **Lead** (400, `--fs-lead` clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem), 1.4 a 1.5): rol y misión del hero, disponibilidad en Contacto.
+- **Lead** (400, `--fs-lead` clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem), 1.4 a 1.5): rol del hero y disponibilidad en Contacto.
 - **Body** (400, `--fs-base` clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem), 1.65): texto general; subtítulo de sección en 44ch máx.
 - **Body-sm** (400, `--fs-sm` 0.9375rem, 1.5 a 1.6): logros, descripciones, listas, enlaces con flecha (a 500).
 - **Label** (600, `--fs-xs` 0.8125rem, 0.12em, mayúsculas, ink-3): fechas y metadatos (`.meta`, también en las marcas de proyecto).

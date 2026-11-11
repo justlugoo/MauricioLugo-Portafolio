@@ -3,50 +3,40 @@
 export interface Personal {
   name: string
   title: string
-  tagline: string
-  /** Frase del Hero; `**así**` marca el texto con más peso. */
-  mission: string
+  /** Descripción del Hero, bajo el título. */
+  summary: string
   /** Valor de «enfoque» en el Hero. */
   focus: string
-  bio: string
   location: string
   locationDetail: string
   availability: string
   avatar: string
   email: string
-  phone: string
   social: { github: string; linkedin: string; website: string }
   cv: { url: string; title: string; description: string }
-  highlights: string[]
 }
 
 export interface Project {
-  id: string
   title: string
   description: string
-  longDescription: string
+  /** Texto largo; solo lo muestra el proyecto principal. */
+  longDescription?: string
   tags: string[]
-  category: string
   featured: boolean
   inDevelopment: boolean
   isGroupProject: boolean
   private?: boolean
-  links: { github?: string; demo?: string }
   year: string
+  links: { github?: string; demo?: string }
 }
 
 export interface ExperienceEntry {
-  id: string
   company: string
   position: string
   duration: string
   durationShort: string
-  description: string
   achievements: string[]
   technologies: string[]
-  type: string
-  current: boolean
-  featured: boolean
 }
 
 export interface Certification {
@@ -65,11 +55,8 @@ export interface CertificationInProgress {
 }
 
 export interface SkillCategory {
-  id: string
   name: string
-  icon: string
   order: number
-  featured: boolean
   skills: string[]
 }
 

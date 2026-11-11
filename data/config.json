@@ -1,22 +1,11 @@
 {
   "site": {
     "name": "Mauricio Lugo Portfolio",
-    "title": "Mauricio Lugo - Ingeniería de Sistemas | Backend & Cloud",
-    "description": "Portfolio de Mauricio Lugo, estudiante de Ingeniería de Sistemas con experiencia en desarrollo backend (Python, Rust) y soporte de infraestructura en Google Cloud Platform",
+    "title": "Mauricio Lugo - Tecnólogo en Sistemas | Backend",
+    "description": "Portafolio de Mauricio Lugo, tecnólogo en sistemas y estudiante de Ingeniería de Sistemas, enfocado en desarrollo backend.",
     "url": "https://mauricio-portfolio.vercel.app",
     "locale": "es-CO",
     "author": "Mauricio Lugo"
-  },
-  "theme": {
-    "defaultMode": "dark",
-    "primaryColor": "#1a73e8",
-    "accentColor": "#ea4335"
-  },
-  "features": {
-    "darkMode": true,
-    "animations": true,
-    "emailContact": true,
-    "analytics": false
   },
   "navigation": [
     {
@@ -40,7 +29,7 @@
       "order": 4
     },
     {
-      "name": "Habilidades",
+      "name": "Tecnologías",
       "href": "#skills",
       "order": 5
     },
@@ -52,18 +41,12 @@
   ],
   "seo": {
     "keywords": [
+      "tecnólogo en sistemas",
       "ingeniería de sistemas",
-      "backend developer",
-      "google cloud platform",
-      "gcp",
-      "python",
-      "rust",
-      "fastapi",
-      "docker",
-      "terraform",
-      "portfolio"
+      "desarrollo backend",
+      "portafolio",
+      "Colombia"
     ],
-    "ogImage": "/og-image.png",
-    "twitterHandle": "@mauriciolugo"
+    "ogImage": "/og-image.png"
   }
 }

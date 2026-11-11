@@ -3,13 +3,7 @@ import Icon from "@/components/Icon.astro"
 import personal from "@data/personal.json"
 import type { Personal } from "@/types"
 
-const { name, title, mission, focus, location, availability, cv } = personal as Personal
-
-// «**así**» marca texto con más peso; el color del texto no cambia
-const missionParts = mission.split(/\*\*(.+?)\*\*/g)
-
-// El título une varias partes con « · »: cada parte se mantiene entera al partir la línea
-const roleParts = title.split(" · ")
+const { name, title, summary, focus, location, availability, cv } = personal as Personal
 ---
 
 <section id="hero" class="hero section" data-section aria-labelledby="hero-title">
@@ -32,13 +26,9 @@ const roleParts = title.split(" · ")
 
   <div class="container content">
     <h1 id="hero-title">{name}</h1>
-    <p class="role">
-      {roleParts.map((part) => <span class="part">{part}</span>)}
-    </p>
+    <p class="role">{title}</p>
 
-    <p class="mission">
-      {missionParts.map((part, i) => (i % 2 === 1 ? <strong>{part}</strong> : part))}
-    </p>
+    <p class="summary">{summary}</p>
 
     <dl class="facts">
       <div>
@@ -105,65 +95,37 @@ const roleParts = title.split(" · ")
   }
 
   .role {
-    max-inline-size: 40ch;
+    max-inline-size: 30ch;
     font-size: var(--fs-lead);
     line-height: 1.4;
     color: var(--ink-2);
   }
 
-  .part {
-    display: block;
-  }
-
-  /* En pantallas anchas las partes van en una línea, separadas por un punto */
-  @media (min-width: 40rem) {
-    .role {
-      max-inline-size: none;
-    }
-
-    .part {
-      display: inline;
-    }
-
-    .part:not(:last-child)::after {
-      content: " ·";
-      margin-inline-end: 0.3em;
-    }
-  }
-
-  .mission {
-    max-inline-size: 36ch;
-    margin-block-start: 1rem;
-    font-size: var(--fs-lead);
-    line-height: 1.5;
+  .summary {
+    max-inline-size: 48ch;
+    margin-block-start: 0.75rem;
     color: var(--ink);
   }
 
-  .mission strong {
-    font-weight: 600;
+  /* Datos en filas, como una ficha: etiqueta a la izquierda y valor a la derecha */
+  .facts {
+    inline-size: min(100%, 34rem);
+    margin-block-start: 1rem;
+    border-block-start: 1px solid var(--rule-strong);
   }
 
-  .facts {
+  .facts > div {
     display: grid;
-    gap: 1.25rem 2.5rem;
-    inline-size: min(100%, 38rem);
-    margin-block-start: 1.5rem;
-    padding-block-start: 1.5rem;
-    border-block-start: 1px solid var(--rule);
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 0.7rem;
+    border-block-end: 1px solid var(--rule);
   }
 
   .facts dd {
-    margin-block-start: 0.25rem;
     font-size: var(--fs-sm);
     line-height: 1.5;
     color: var(--ink);
-  }
-
-  @media (min-width: 40rem) {
-    .facts {
-      grid-template-columns: repeat(3, auto);
-      justify-content: start;
-    }
   }
 
   .actions {

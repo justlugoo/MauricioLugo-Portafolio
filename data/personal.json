@@ -1,16 +1,13 @@
 {
   "name": "Mauricio Lugo",
-  "title": "Estudiante de Ingeniería de Sistemas · Backend & Cloud",
-  "tagline": "Desarrollo backend en Python y Rust, con experiencia dando soporte a arquitecturas cloud en GCP",
-  "mission": "Diseño y construyo **sistemas completos**: backend sólido y **arquitectura cloud propia**.",
-  "focus": "Backend & Cloud",
-  "bio": "Estudiante de Ingeniería de Sistemas con experiencia práctica en desarrollo backend y soporte de infraestructura cloud. Certificado como Google Cloud Associate Cloud Engineer, he colaborado en diseño de arquitecturas GCP, documentación técnica y evaluaciones de migración para distintos proyectos.",
-  "location": "Colombia",
+  "title": "Tecnólogo en Sistemas y estudiante de Ingeniería de Sistemas",
+  "summary": "Experiencia práctica en diseño de arquitecturas cloud, desarrollo de APIs REST, integración de bases de datos relacionales y automatización de pruebas y despliegues.",
+  "focus": "Backend",
+  "location": "Cartagena, Colombia",
   "locationDetail": "Cartagena de Indias, Bolívar, Colombia",
-  "availability": "Disponible para trabajo",
+  "availability": "Estudiante con disponibilidad de trabajo",
   "avatar": "/images/mauricio-profile.png",
   "email": "maurogranados31@gmail.com",
-  "phone": "+57 320 770 4340",
   "social": {
     "github": "https://github.com/justlugoo",
     "linkedin": "https://www.linkedin.com/in/justlugoo/",
@@ -20,11 +17,5 @@
     "url": "https://drive.google.com/file/d/1pdq_fx1COvPL_VOFEtjm0K1v0Bk8ZUYx/view?usp=sharing",
     "title": "Curriculum Vitae",
     "description": "CV de Mauricio Lugo - Ingeniería de Sistemas"
-  },
-  "highlights": [
-    "Google Cloud Certified – Associate Cloud Engineer",
-    "Practicante Backend & Cloud en 38 Grados Lab",
-    "Frontend Developer en CURN (Relaciones Nacionales e Internacionales)",
-    "Cursando Ingeniería de Sistemas — grado esperado 2027"
-  ]
+  }
 }
