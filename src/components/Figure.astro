@@ -129,6 +129,14 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
     transition: opacity 1s var(--ease-out);
   }
 
+  /* La escalera es pequeña y queda sobre el título, sin cruzar el subtítulo */
+  .decor--steps {
+    inline-size: 30vw;
+    block-size: 4.5rem;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
+    mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
+  }
+
   /* Las ondas de la esquina inferior izquierda no caben en pantallas chicas */
   .decor--bottom-left {
     display: none;
@@ -193,8 +201,6 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
       inset-block: auto 0;
       inline-size: min(46vw, 32rem);
       block-size: 14rem;
-      -webkit-mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
-      mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
     }
 
     .decor--waves {

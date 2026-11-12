@@ -26,10 +26,9 @@ const copy = sections.education
         degrees.map((item) => (
           <li class="item">
             <h3 class="item-title">{item.degree}</h3>
-            <p class="institution">
-              {item.institution} <span class="where">· {item.location}</span>
-            </p>
+            <p class="institution">{item.institution}</p>
             <ul class="details">
+              <li>{item.location}</li>
               {item.details.map((detail) => (
                 <li>{detail}</li>
               ))}
@@ -60,27 +59,44 @@ const copy = sections.education
     line-height: 1.25;
   }
 
+  /* Misma jerarquía que Certificaciones: título, entidad y datos en letra pequeña */
   .institution {
-    margin-block-start: 0.4rem;
+    margin-block-start: 0.35rem;
+    font-size: var(--fs-sm);
     color: var(--ink-2);
-  }
-
-  .where,
-  .level {
-    color: var(--ink-3);
   }
 
   .details {
     display: grid;
-    gap: 0.15rem;
-    margin-block-start: 0.35rem;
+    gap: 0.1rem;
+    margin-block-start: 0.15rem;
     font-size: var(--fs-sm);
     color: var(--ink-3);
   }
 
+  /* Los idiomas se leen como las tecnologías: lista corta en letra pequeña */
   .languages {
     display: grid;
-    gap: 0.35rem;
-    margin-block-start: 0.5rem;
+    gap: 0.45rem;
+    margin-block-start: 0.9rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+  }
+
+  .level {
+    color: var(--ink-3);
+  }
+
+  /* En tableta hay dos columnas: Idiomas ocupa toda la fila, en vez de quedar sola en un lado */
+  @media (min-width: 44rem) and (max-width: 63.99rem) {
+    .item:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 2.5rem;
+    }
   }
 </style>
