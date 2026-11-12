@@ -14,7 +14,7 @@ const copy = sections.certifications
 
 <section
   id="certifications"
-  class="section section--tint"
+  class="section"
   data-section
   aria-labelledby="certifications-title"
 >
@@ -34,7 +34,7 @@ const copy = sections.certifications
         earned.map((cert) => (
           <li class="item">
             <h3 class="item-title" lang="en">{cert.name}</h3>
-            <p class="issuer">{cert.issuer}</p>
+            <p class="issuer">{cert.issuer}{cert.date && ` · ${cert.date}`}</p>
             <p class="credential">
               <a class="link-arrow" href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
                 Ver credencial

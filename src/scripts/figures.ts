@@ -1,4 +1,4 @@
-import { DROPLETS, GEARS, RIPPLE_COUNT, droplet, gearAngles, rippleRing, smooth } from "./figure-math"
+import { DROPLETS, GEARS, RIPPLE_COUNT, STEPS, droplet, gearAngles, rippleRing, smooth, stepsShift } from "./figure-math"
 
 type Draw = (decor: HTMLElement, scroll: number) => void
 
@@ -23,6 +23,15 @@ const draw: Record<string, Draw> = {
       el.setAttribute("cx", x.toFixed(1))
       el.setAttribute("cy", y.toFixed(1))
       el.setAttribute("stroke-opacity", opacity.toFixed(3))
+    })
+  },
+
+  /** Educación: las escaleras ascienden al bajar y descienden al subir. */
+  steps(decor, scroll) {
+    const { x, y } = stepsShift(scroll)
+    shapes(decor).forEach((stair, i) => {
+      if (i >= STEPS.lines) return
+      stair.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)})`)
     })
   },
 

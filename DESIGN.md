@@ -135,7 +135,7 @@ Paleta acromática de pizarra sobre blanco, con un único acento violeta oscurec
 
 ### Neutral
 - **Papel** (`paper`, #ffffff): fondo base, campos, menú y botón de menú.
-- **Bruma** (`mist`, #f4f6f8): fondo de las secciones `--tint` (Experiencia, Certificaciones, Contacto) y hover de la barra media.
+- **Bruma** (`mist`, #f4f6f8): fondo de las secciones `--tint` (Experiencia, Educación, Tecnologías) y hover de la barra media.
 - **Tinta pizarra** (`ink`, #2a3541): texto principal, botón primario, títulos.
 - **Tinta 2** (`ink-2`, #4c5865): subtítulos, descripciones, enlaces de navegación en reposo.
 - **Tinta 3** (`ink-3`, #5f6c79): metadatos, etiquetas, pie, listas en línea, marcador de posición.
@@ -176,7 +176,7 @@ Paleta acromática de pizarra sobre blanco, con un único acento violeta oscurec
 
 ## Layout
 
-Una sola página de seis secciones (Hero, Experiencia, Proyectos, Certificaciones, Tecnologías, Contacto) dentro de `.container`: ancho `min(100% - 2 * gutter, 72rem)` con gutter fluido (1.25rem a 3.5rem). Cada sección tiene padding vertical fluido de 3rem a 5.5rem y abre con una regla de 1px del ancho del contenedor (el hero no la lleva). Las secciones alternan fondo: Hero blanco, Experiencia bruma, Proyectos blanco, Certificaciones bruma, Tecnologías blanco, Contacto bruma.
+Una sola página de siete secciones (Hero, Experiencia, Proyectos, Educación, Certificaciones, Tecnologías, Contacto) dentro de `.container`: ancho `min(100% - 2 * gutter, 72rem)` con gutter fluido (1.25rem a 3.5rem). Cada sección tiene padding vertical fluido de 3rem a 5.5rem y abre con una regla de 1px del ancho del contenedor (el hero no la lleva). Las secciones alternan fondo: Hero blanco, Experiencia bruma, Proyectos blanco, Certificaciones bruma, Tecnologías blanco, Contacto bruma.
 
 Las rejillas de contenido (`.cols--2`, `--3`, `--4`) usan gap de 2.25rem por 3rem; pasan a 2 columnas desde 44rem y a 3 o 4 desde 64rem. Proyectos pone el principal a ancho completo (1.5fr / 1fr desde 56rem) y Contacto divide info y formulario (1fr / 1.25fr desde 56rem). El hero coloca el nombre a la izquierda con tres datos en fila (desde 40rem) y dos acciones; a la derecha, desde 56rem, tres hilos diagonales ocupan desde el 46% del ancho.
 
@@ -229,7 +229,8 @@ Reglas de sección (`.section::after`) e ítem (`.item::after`) de 1px con el de
 Contornos de 1px (`non-scaling-stroke`) en menta, rosa y violeta, `aria-hidden`, sin información. Una por sección, cada una en un rincón distinto y animada por el scroll (avanzan al bajar, retroceden al subir, se detienen al parar):
 - **Ondas** (Experiencia, arriba a la derecha; Contacto, abajo a la izquierda): 7 anillos que nacen en la esquina, se expanden y se desvanecen.
 - **Gotas** (Proyectos): círculos que ascienden como condensación; los grandes, más rápido.
-- **Engranajes** (Certificaciones): tres engranajes encajados que giran juntos, en el margen izquierdo desde 64rem con máscara que los desvanece al llegar al texto.
+- **Escalera** (Educación, abajo a la derecha): tres escaleras paralelas que ascienden con el scroll; se repiten cada escalón, así que el movimiento no tiene costuras.
+- **Engranajes** (Certificaciones): tres engranajes encajados que giran juntos, en el margen izquierdo desde 87rem con máscara que los desvanece antes de llegar al texto.
 - **Franja de ondas** (Tecnologías): tres ondas a todo el ancho pegadas al borde inferior, cuyo recorrido crece al acercarse.
 - **Borde de nube** (Hero): tres curvas diagonales que se dibujan con una animación de entrada de 1.8s.
 

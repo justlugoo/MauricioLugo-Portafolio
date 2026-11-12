@@ -24,19 +24,24 @@
       "order": 3
     },
     {
+      "name": "Educación",
+      "href": "#education",
+      "order": 4
+    },
+    {
       "name": "Certificaciones",
       "href": "#certifications",
-      "order": 4
+      "order": 5
     },
     {
       "name": "Tecnologías",
       "href": "#skills",
-      "order": 5
+      "order": 6
     },
     {
       "name": "Contacto",
       "href": "#contact",
-      "order": 6
+      "order": 7
     }
   ],
   "seo": {

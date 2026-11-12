@@ -1,0 +1,86 @@
+---
+import Figure from "@/components/Figure.astro"
+import SectionHead from "@/components/SectionHead.astro"
+import education from "@data/education.json"
+import sections from "@data/sections.json"
+import type { Degree, Language } from "@/types"
+
+const degrees = education.degrees as Degree[]
+const languages = education.languages as Language[]
+const copy = sections.education
+---
+
+<section
+  id="education"
+  class="section section--tint"
+  data-section
+  aria-labelledby="education-title"
+>
+  <Figure variant="steps" />
+
+  <div class="container">
+    <SectionHead id="education" title={copy.title} subtitle={copy.subtitle} />
+
+    <ul class="cols cols--3">
+      {
+        degrees.map((item) => (
+          <li class="item">
+            <h3 class="item-title">{item.degree}</h3>
+            <p class="institution">
+              {item.institution} <span class="where">· {item.location}</span>
+            </p>
+            <ul class="details">
+              {item.details.map((detail) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+
+      <li class="item">
+        <h3 class="item-title">Idiomas</h3>
+        <ul class="languages">
+          {
+            languages.map((language) => (
+              <li>
+                {language.name} <span class="level">· {language.level}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .item-title {
+    font-size: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  .institution {
+    margin-block-start: 0.4rem;
+    color: var(--ink-2);
+  }
+
+  .where,
+  .level {
+    color: var(--ink-3);
+  }
+
+  .details {
+    display: grid;
+    gap: 0.15rem;
+    margin-block-start: 0.35rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-3);
+  }
+
+  .languages {
+    display: grid;
+    gap: 0.35rem;
+    margin-block-start: 0.5rem;
+  }
+</style>

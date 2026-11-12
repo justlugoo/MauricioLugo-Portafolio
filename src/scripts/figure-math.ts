@@ -140,3 +140,28 @@ export function gearPath(teeth: number) {
   }
   return parts.join(" ") + " Z"
 }
+
+/* Escalera (Educación): tres escaleras paralelas que ascienden con el scroll.
+   Una escalera se repite igual cada escalón, así que deslizarla un escalón la deja
+   sobre sí misma: el movimiento no tiene costuras. */
+export const STEPS = {
+  dx: 40,
+  dy: -20,
+  count: 14,
+  startX: -80,
+  startY: 300,
+  gap: 14,
+  lines: 3,
+} as const
+
+/** Contorno de la escalera número `line`, de abajo a la izquierda hacia arriba a la derecha. */
+export function stairPath(line: number) {
+  const { dx, dy, count, startX, startY, gap } = STEPS
+  return `M ${startX} ${startY + line * gap} ${Array.from({ length: count }, () => `h ${dx} v ${dy}`).join(" ")}`
+}
+
+/** Desplazamiento de las escaleras: sube y avanza un escalón cada vez que se acumula el scroll. */
+export function stepsShift(scroll: number) {
+  const t = wrap(scroll * 0.08, 0, STEPS.dx) / STEPS.dx
+  return { x: STEPS.dx * t, y: STEPS.dy * t }
+}

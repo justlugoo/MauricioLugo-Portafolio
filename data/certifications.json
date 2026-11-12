@@ -6,14 +6,16 @@
       "name": "Associate Cloud Engineer",
       "issuer": "Google Cloud",
       "credentialUrl": "https://drive.google.com/file/d/1XUA8pYnv3nZYi6R0CVs0CUsOs_Kn_yWu/view?usp=sharing",
-      "icon": "shield"
+      "icon": "shield",
+      "date": "Septiembre 2026"
     },
     {
       "id": "2",
       "name": "UiPath RPA Automation",
       "issuer": "UiPath & Dream to Succeed Foundation",
       "credentialUrl": "https://drive.google.com/file/d/1N2YgioLDQxMJREZwnhofyJerYPmyNGGR/view?usp=sharing",
-      "icon": "zap"
+      "icon": "zap",
+      "date": "2025"
     }
   ],
   "inProgress": [

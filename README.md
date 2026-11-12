@@ -4,11 +4,12 @@ Mi portafolio personal: un sitio de una sola página donde presento mi perfil, m
 
 ## Contenido del sitio
 
-La página se organiza en seis secciones:
+La página se organiza en siete secciones:
 
 - Inicio
 - Experiencia
 - Proyectos
+- Educación
 - Certificaciones
 - Tecnologías
 - Contacto
@@ -96,6 +97,7 @@ Todo el texto del sitio está en la carpeta `data/`, separado del código:
 | `personal.json` | Nombre, presentación, ubicación y enlaces personales |
 | `experience.json` | Experiencia profesional |
 | `projects.json` | Proyectos |
+| `education.json` | Estudios e idiomas |
 | `certifications.json` | Certificaciones y cursos |
 | `skills.json` | Tecnologías por categoría |
 | `sections.json` | Títulos y subtítulos de cada sección |

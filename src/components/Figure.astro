@@ -9,14 +9,16 @@ import {
   DROPLETS,
   GEARS,
   RIPPLE_COUNT,
+  STEPS,
   droplet,
   gearAngles,
   gearPath,
   rippleRing,
+  stairPath,
 } from "@/scripts/figure-math"
 
 interface Props {
-  variant: "ripples" | "droplets" | "gears" | "waves"
+  variant: "ripples" | "droplets" | "gears" | "waves" | "steps"
   /** Esquina de la que nacen las ondas (solo `ripples`). */
   corner?: "top-right" | "bottom-left"
 }
@@ -40,6 +42,9 @@ const gears = GEARS.map((g, i) => ({
   hub: g.r * 0.22,
 }))
 
+// Tres escaleras paralelas, una por color
+const stairs = Array.from({ length: STEPS.lines }, (_, i) => ({ d: stairPath(i), color: pick(i) }))
+
 // Tres ondas con distinta fase, para una franja horizontal
 const waves = [96, 124, 152].map((y, i) => ({
   d: `M -10 ${y} C 60 ${y - 52}, 120 ${y - 52}, 190 ${y} S 320 ${y + 52}, 410 ${y}`,
@@ -52,7 +57,7 @@ const fit =
     ? corner === "top-right"
       ? "xMaxYMin slice"
       : "xMinYMax slice"
-    : { droplets: "xMidYMid slice", gears: "xMidYMid meet", waves: "none" }[variant]
+    : { droplets: "xMidYMid slice", gears: "xMidYMid meet", waves: "none", steps: "xMaxYMax slice" }[variant]
 
 // Los engranajes caben en un cuadrado y se dibujan completos
 const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
@@ -98,6 +103,10 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
             <circle r={g.hub} stroke={g.color} stroke-opacity="0.7" vector-effect="non-scaling-stroke" />
           </g>
         ))
+    }
+    {
+      variant === "steps" &&
+        stairs.map((s) => <path d={s.d} stroke={s.color} vector-effect="non-scaling-stroke" />)
     }
     {
       variant === "waves" &&
@@ -179,6 +188,15 @@ const viewBox = variant === "gears" ? "0 0 240 240" : "0 0 400 240"
     }
 
     /* Franja a todo lo ancho, pegada al borde inferior */
+    /* Esquina inferior derecha; la escalera se desvanece hacia la izquierda */
+    .decor--steps {
+      inset-block: auto 0;
+      inline-size: min(46vw, 32rem);
+      block-size: 14rem;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
+      mask-image: linear-gradient(to right, transparent 0, var(--paper) 45%);
+    }
+
     .decor--waves {
       inset-block: auto 0;
       inset-inline: 0;

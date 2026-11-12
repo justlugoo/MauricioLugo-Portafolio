@@ -41,7 +41,20 @@ export interface ExperienceEntry {
   technologies: string[]
 }
 
+export interface Degree {
+  degree: string
+  institution: string
+  location: string
+  details: string[]
+}
+
+export interface Language {
+  name: string
+  level: string
+}
+
 export interface Certification {
+  date?: string
   id: string
   name: string
   issuer: string

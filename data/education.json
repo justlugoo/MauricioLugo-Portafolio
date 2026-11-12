@@ -1,0 +1,31 @@
+{
+  "degrees": [
+    {
+      "degree": "Tecnólogo en Desarrollo de Sistemas de Información y Software",
+      "institution": "Corporación Universitaria Rafael Núñez",
+      "location": "Cartagena, Colombia",
+      "details": [
+        "Grado: Noviembre 2025"
+      ]
+    },
+    {
+      "degree": "Ingeniería de Sistemas",
+      "institution": "Corporación Universitaria Rafael Núñez",
+      "location": "Cartagena, Colombia",
+      "details": [
+        "8.º de 9.º semestre",
+        "Grado esperado: Mayo 2027"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Español",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglés",
+      "level": "B1"
+    }
+  ]
+}
