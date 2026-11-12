@@ -2,6 +2,8 @@
 
 export interface Personal {
   name: string
+  /** Nombre completo, para buscadores y datos estructurados. */
+  fullName: string
   title: string
   /** Descripción del Hero, bajo el título. */
   summary: string

@@ -1,11 +1,11 @@
 {
   "site": {
-    "name": "Mauricio Lugo Portfolio",
-    "title": "Mauricio Lugo - Tecnólogo en Sistemas | Backend",
-    "description": "Portafolio de Mauricio Lugo, tecnólogo en sistemas y estudiante de Ingeniería de Sistemas, enfocado en desarrollo backend.",
+    "name": "Mauricio Lugo Portafolio",
+    "title": "Mauricio José Lugo Granados | Portafolio - Tecnólogo en Sistemas",
+    "description": "Portafolio de Mauricio José Lugo Granados, tecnólogo en sistemas y estudiante de Ingeniería de Sistemas, enfocado en desarrollo backend.",
     "url": "https://mauricio-lugo-portafolio.vercel.app",
     "locale": "es-CO",
-    "author": "Mauricio Lugo"
+    "author": "Mauricio José Lugo Granados"
   },
   "navigation": [
     {
@@ -41,10 +41,13 @@
   ],
   "seo": {
     "keywords": [
+      "Mauricio José Lugo Granados",
+      "Mauricio Lugo Granados",
+      "Mauricio Lugo portafolio",
       "tecnólogo en sistemas",
       "ingeniería de sistemas",
       "desarrollo backend",
-      "portafolio",
+      "Cartagena",
       "Colombia"
     ],
     "ogImage": "/og-image.png",

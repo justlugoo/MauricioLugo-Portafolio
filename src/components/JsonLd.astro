@@ -12,11 +12,19 @@ import certifications from "@data/certifications.json"
 const base = config.site.url
 const url = `${base}/`
 
+// Variantes con las que alguien puede buscar la misma persona
+const parts = personal.fullName.split(" ")
+const withoutMiddleName = `${parts[0]} ${parts.slice(-2).join(" ")}`
+const withoutAccents = personal.fullName.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+const alternateNames = [...new Set([personal.name, withoutMiddleName, withoutAccents])]
+
 const person = {
   "@type": "Person",
   "@id": `${base}/#persona`,
-  name: personal.name,
-  alternateName: "Mauricio Jose Lugo Granados",
+  name: personal.fullName,
+  givenName: parts[0],
+  familyName: parts.slice(-2).join(" "),
+  alternateName: alternateNames,
   url,
   jobTitle: personal.title,
   description: config.site.description,
